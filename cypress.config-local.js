@@ -3,7 +3,7 @@ const fs = require("fs");
 const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
-  projectId: "ix7quu",
+  projectId: "x4knte",
   _README: "Intellisense can be set up https://docs.cypress.io/guides/tooling/intelligent-code-completion.html#Set-up-in-your-Dev-Environment-1",
   env: {
     USERNAME: "testUser",

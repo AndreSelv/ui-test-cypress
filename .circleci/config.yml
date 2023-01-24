@@ -98,7 +98,6 @@ workflows:
           parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
-
           post-install:
             - run: npx cypress info
           store_artifacts: true
@@ -122,7 +121,6 @@ workflows:
           parallelism: 2
           group: Firefox group
           debug: 'cypress:cli'
-
           post-install:
             - run: npx cypress info
           store_artifacts: true
