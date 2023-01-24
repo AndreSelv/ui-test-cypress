@@ -94,8 +94,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
@@ -115,8 +113,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/e2e-testing/*
@@ -136,8 +132,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/home/*
@@ -157,8 +151,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/notifications/*
@@ -174,12 +166,10 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
-          name: orgs
+          name: Orgs
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/orgs/*
@@ -199,8 +189,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/risk screen/*
@@ -220,8 +208,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/smoke/*
@@ -241,8 +227,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          parallel: true
-          parallelism: 2
           group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/utils/*
