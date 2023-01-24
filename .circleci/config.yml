@@ -113,7 +113,7 @@ workflows:
           browser: chrome
           record: true
           debug: 'cypress:cli'
-          spec: cypress/e2e/e2e-testing/*
+          spec: cypress/e2e/e2e-testing
           post-install:
             - run: npx cypress info
           store_artifacts: true
