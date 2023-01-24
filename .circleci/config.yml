@@ -94,7 +94,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
           post-install:
@@ -113,7 +112,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/e2e-testing/*
           post-install:
@@ -132,7 +130,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/home/*
           post-install:
@@ -151,7 +148,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/notifications/*
           post-install:
@@ -170,7 +166,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/orgs/*
           post-install:
@@ -189,7 +184,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/risk screen/*
           post-install:
@@ -208,7 +202,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/smoke/*
           post-install:
@@ -227,7 +220,6 @@ workflows:
           executor: browsers-chrome100-ff99-edge
           browser: chrome
           record: true
-          group: Chrome group
           debug: 'cypress:cli'
           spec: cypress/e2e/utils/*
           post-install:
