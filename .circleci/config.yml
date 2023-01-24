@@ -1,0 +1,273 @@
+#version: 2.1
+#orbs:
+#  cypress: cypress-io/cypress@2
+#workflows:
+#  build:
+#    jobs:
+#      - cypress/run:
+#          yarn: true
+#
+
+
+
+
+
+
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+#version: 2.1
+#
+#orbs:
+#  # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
+#  # Orbs reduce the amount of configuration required for common tasks.
+#  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
+#  node: circleci/node@4.7
+#
+#jobs:
+#  # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
+#  build-and-test:
+#    # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
+#    # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+#    # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
+#    docker:
+#      - image: cimg/node:16.10
+#    # Then run your tests!
+#    # CircleCI will report the results back to your VCS provider.
+#    steps:
+#      # Checkout the code as the first step.
+#      - checkout
+#      # Next, the node orb's install-packages step will install the dependencies from a package.json.
+#      # The orb install-packages step will also automatically cache them for faster future runs.
+#      - node/install-packages:
+#          # If you are using yarn, change the line below from "npm" to "yarn"
+#          pkg-manager: npm
+#      - run:
+#          name: Run tests
+#          command: npm run cypress:run
+#
+#workflows:
+#  # Below is the definition of your workflow.
+#  # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
+#  # CircleCI will run this workflow on every commit.
+#  # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
+#  sample:
+#    jobs:
+#      - build-and-test
+#      # For running simple node tests, you could optionally use the node/test job from the orb to replicate and replace the job above in fewer lines.
+#      # - node/test
+
+
+#version: 2.1
+#orbs:
+#  cypress: cypress-io/cypress@1
+#workflows:
+#  build:
+#    jobs:
+#      - cypress/install
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          record: true
+#          parallel: true
+#          parallelism: 7
+#          group: 2 machines
+#
+
+
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@2.2.0
+executors:
+  browsers-chrome100-ff99-edge:
+    description: Docker container with Node 16.14.2, Cypress dependencies, Chrome 100, Firefox 99, and the latest Edge
+    docker:
+      - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+workflows:
+  build:
+    jobs:
+      # first get the source code and install npm dependencies
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Chrome
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          parallel: true
+          parallelism: 2
+          group: Chrome group
+          spec: cypress/e2e/api-testing/browser
+          debug: 'cypress:cli'
+
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+
+
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Firefox
+          executor: browsers-chrome100-ff99-edge
+          browser: firefox
+          record: true
+          parallel: true
+          parallelism: 2
+          group: Firefox group
+          spec: cypress/e2e/api-testing/browser
+          debug: 'cypress:cli'
+
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+
+
+
+
+
+
+
+
+#defaults: &defaults
+#  working_directory: ~/app
+#  docker:
+#    - image: cypress/browsers:chrome67
+#
+#version: 2
+#jobs:
+#  build:
+#    <<: *defaults
+#    steps:
+#      - checkout
+#      # find compatible cache from previous build,
+#      # it should have same dependencies installed from package.json checksum
+#      - restore_cache:
+#          keys:
+#            - cache-{{ .Branch }}-{{ checksum "package.json" }}
+#      - run:
+#          name: Install Dependencies
+#          command: npm ci
+#      # run verify and then save cache.
+#      # this ensures that the Cypress verified status is cached too
+##      - run: npm run cy:verify
+#      # save new cache folder if needed
+#      - save_cache:
+#          key: cache-{{ .Branch }}-{{ checksum "package.json" }}
+#          paths:
+#            - ~/.npm
+#            - ~/.cache
+##      - run: npm run types
+##      - run: npm run stop-only
+#      # all other test jobs will run AFTER this build job finishes
+#      # to avoid reinstalling dependencies, we persist the source folder "app"
+#      # and the Cypress binary to workspace, which is the fastest way
+#      # for Circle jobs to pass files
+#      - persist_to_workspace:
+#          root: ~/
+#          paths:
+#            - app
+#            - .cache/Cypress
+#
+#  1x-electron:
+#    <<: *defaults
+#    steps:
+#      # restore application and Cypress binary before running the test command
+#      - attach_workspace:
+#          at: ~/
+##      - run:
+###          command: npm start
+#          background: true
+#      # run all tests and pass group name (should be "1x-electron" in this case)
+##      - run: npm run e2e:record --group $CIRCLE_JOB
+#      - run: $(npm bin)/cypress run --record
+#
+#  2x-electron:
+#    <<: *defaults
+#    # tell CircleCI to execute this job on 2 machines simultaneously
+#    parallelism: 2
+#    steps:
+#      - attach_workspace:
+#          at: ~/
+##      - run:
+###          command: npm start
+#          background: true
+#      # runs Cypress test in load balancing (parallel) mode
+#      # and groups them in Cypress Dashboard under name "4x-electron"
+##      - run: npm run e2e:record --parallel --group $CIRCLE_JOB
+#      - run: $(npm bin)/cypress run --record
+#
+#  4x-electron:
+#    <<: *defaults
+#    # tell CircleCI to execute this job on 4 machines simultaneously
+#    parallelism: 4
+#    steps:
+#      - attach_workspace:
+#          at: ~/
+##      - run:
+###          command: npm start
+#          background: true
+#      # runs Cypress test in load balancing (parallel) mode
+#      # and groups them in Cypress Dashboard under name "4x-electron"
+##      - run: npm run e2e:record --parallel --group $CIRCLE_JOB
+#      - run: $(npm bin)/cypress run --record
+#
+#  # name this job differently to have it AFTER all electron jobs on dashboard
+#  chrome-2x:
+#    <<: *defaults
+#    # execute this job on 2 CI machines
+#    parallelism: 2
+#    steps:
+#      - attach_workspace:
+#          at: ~/
+##      - run:
+##          command: npm start
+#          background: true
+##      - run: npm run e2e:record --parallel --group $CIRCLE_JOB --browser chrome
+#      - run: $(npm bin)/cypress run --record
+#
+#
+#workflows:
+#  version: 2
+#  # this workflow has 4 jobs to show case Cypress --parallel and --group flags
+#  # "build" installs NPM dependencies so other jobs don't have to
+#  #   └ "1x-electron" runs all specs just like Cypress pre-3.1.0 runs them
+#  #   └ "4x-electron" job load balances all specs across 4 CI machines
+#  #   └ "2x-chrome" load balances all specs across 2 CI machines and uses Chrome browser
+#  build_and_test:
+#    jobs:
+#      - build
+#      # after installing dependencies in the "build" job
+#      # run all tests in several groups
+#      #     group "1x-electron"
+#      - 1x-electron:
+#          requires:
+#            - build
+#      # this group "2x-electron" will load balance all specs
+#      # and use the built-in Electron browser run them
+#      - 2x-electron:
+#          requires:
+#            - build
+#      # this group "4x-electron" will load balance all specs
+#      # across 4 CI machines
+#      - 4x-electron:
+#          requires:
+#            - build
+#      # and this group will load balance all specs
+#      # and use Chrome browser to run them
+#      - chrome-2x:
+#          requires:
+#            - build
