@@ -1,0 +1,9 @@
+node_modules
+test-coverage
+videos/
+screenshots/
+1-getting-started/
+2-advanced-examples/
+.idea/
+/cypress/reports
+event.json

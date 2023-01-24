@@ -1,0 +1,19 @@
+{
+  "userNode": "root",
+
+  "orgs": [
+    "b6b76723-1524-44f5-b1c1-fa235af31ea1",
+    "4c194ef5-49a7-4fde-8fc2-af2aeb634a5a",
+    "864a949f-758b-41b3-8977-b3d6fba5628e",
+    "orgId1",
+    "org1"
+  ],
+  "lastName": "Doe (External User)",
+  "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+
+  "termsAccepted": "2020-04-17T20:00:28.520Z",
+  "email": "findlayclarke@aaisdirect.com",
+  "createdBy": "fa80cbb2-4442-48ab-80c1-0c2124348ccb",
+  "transactionId": "f26ab8b8-8475-43e9-8a4e-84a71b360519",
+  "firstName": "John"
+}

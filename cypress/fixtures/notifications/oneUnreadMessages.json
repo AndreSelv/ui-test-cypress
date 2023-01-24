@@ -1,0 +1,26 @@
+[
+  {
+    "notificationId": "4d61afcf-5132-4c96-bdd3-c118b373b588",
+    "unreadSince": "2020-03-05T15:12:01.262Z",
+    "userId": "dd32f8d3-5c80-4169-accb-394ca7c514c5",
+    "s3Key_s": "ABP1199-1.0.docx",
+    "created": "2020-03-05T15:12:01.262Z",
+    "rendition_locations_ss": "ABP1199-1.0.pdf",
+    "productLines": ["BT", "ABP"],
+    "documentType_s": "Form",
+    "type": "BULLETIN",
+    "title": "Michelle is Awesome"
+  },
+  {
+    "notificationId": "4d61afcf-5132-4c96-bdd3-c118b373b588",
+    "unreadSince": "2020-03-05T15:12:01.262Z",
+    "userId": "dd32f8d3-5c80-4169-accb-394ca7c514c5",
+    "s3Key_s": "ABP1199-1.0.docx",
+    "created": "2020-03-05T15:12:01.262Z",
+    "rendition_locations_ss": "ABP1199-1.0.pdf",
+    "productLines": ["BT", "ABP"],
+    "documentType_s": "Form",
+    "type": "BULLETIN",
+    "title": "Michelle is Awesome"
+  }
+]

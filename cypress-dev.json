@@ -1,0 +1,19 @@
+{
+  "_README": "Intellisense can be set up https://docs.cypress.io/guides/tooling/intelligent-code-completion.html#Set-up-in-your-Dev-Environment-1",
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "TEST_USERNAME": "findlayclarke@aaisdirect.com",
+    "TEST_PASSWORD": "Admin1234!",
+    "REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID": "us-east-1:0dec214c-29df-4901-8aca-cc8bc189544a",
+    "REACT_APP_AMPLIFY_AUTH_REGION": "us-east-1",
+    "REACT_APP_AMPLIFY_AUTH_USER_POOL_ID": "us-east-1_IUsafiKqB",
+    "REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID": "46cid0ik42sdbb94s45sbk27mh",
+    "SIZES": ["iphone-6+", "ipad-2", "macbook-13", "macbook-16"],
+    "ORIENTATION": ["portrait", "landscape"]
+  },
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "cypress-reporter.json"
+  },
+  "defaultCommandTimeout": 30000
+}

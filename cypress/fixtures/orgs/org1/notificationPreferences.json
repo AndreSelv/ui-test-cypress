@@ -1,0 +1,22 @@
+[
+  {
+    "created": "2020-07-17T13:03:03.458Z",
+    "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+    "node": "BULLETINS-CR-*"
+  },
+  {
+    "created": "2020-07-17T12:37:12.245Z",
+    "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+    "node": "BULLETINS-FIM-AK"
+  },
+  {
+    "created": "2020-07-14T14:35:36.735Z",
+    "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+    "node": "BULLETINS-AGXL-AK"
+  },
+  {
+    "created": "2020-07-14T14:44:08.361Z",
+    "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+    "node": "BULLETINS-AGXL-IA"
+  }
+]

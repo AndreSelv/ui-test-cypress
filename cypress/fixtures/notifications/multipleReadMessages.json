@@ -1,0 +1,35 @@
+[
+  {
+    "notificationId": "noificationId1",
+    "userId": "dd32f8d3-5c80-4169-accb-394ca7c514c5",
+    "s3Key_s": "ABP1199-1.0.docx",
+    "created": "2020-03-05T15:12:01.262Z",
+    "rendition_locations_ss": "ABP1199-1.0.pdf",
+    "productLines": ["BT", "ABP"],
+    "documentType_s": "Form",
+    "type": "BULLETIN",
+    "title": "Michelle is Awesome"
+  },
+  {
+    "notificationId": "notificationId2",
+    "userId": "dd32f8d3-5c80-4169-accb-394ca7c514c5",
+    "s3Key_s": "ABP1199-1.0.docx",
+    "created": "2020-03-05T15:12:01.262Z",
+    "rendition_locations_ss": "ABP1199-1.0.pdf",
+    "productLines": ["BT", "ABP"],
+    "documentType_s": "Form",
+    "type": "BULLETIN",
+    "title": "Michelle is Awesome 2"
+  },
+  {
+    "notificationId": "notificationId3",
+    "userId": "dd32f8d3-5c80-4169-accb-394ca7c514c5",
+    "s3Key_s": "ABP1199-1.0.docx",
+    "created": "2020-03-05T15:12:01.262Z",
+    "rendition_locations_ss": "ABP1199-1.0.pdf",
+    "productLines": ["BT", "ABP"],
+    "documentType_s": "Form",
+    "type": "BULLETIN",
+    "title": "Michelle is Awesome 3"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "userId": "06e9ac1b-fd4c-41b9-9b2c-779aa720fd0b",
+  "userNode": "root",
+  "apps": [
+    {
+      "appName": "mss",
+      "roleKey": "admin",
+      "updated": "2022-09-30T15:31:30.666Z",
+      "updatedBy": "5879c8d8-faf6-4fb8-a590-130db24ebd8e"
+    }
+  ],
+  "created": "2022-08-24T15:26:31.147Z",
+  "createdBy": "88cd86bd-f8d3-4f97-abca-0264d8ea2df2",
+  "email": "vasilich85@aaisdirect.com",
+  "firstName": "Test",
+  "lastName": "User",
+  "termsAccepted": "2022-08-24T15:26:47.056Z",
+  "updated": "2022-09-30T15:31:30.667Z",
+  "updatedBy": "5879c8d8-faf6-4fb8-a590-130db24ebd8e"
+}

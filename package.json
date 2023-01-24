@@ -1,0 +1,87 @@
+{
+  "name": "ui-test-cypress",
+  "version": "0.0.1",
+  "private": true,
+  "description": "AAIS Member Self Service Web App",
+  "main": "index.html",
+  "bugs": {
+    "email": "softwaredevelopment@aaisonline.com"
+  },
+  "scripts": {
+    "test": "npm run e2e-test && npm run e2e-test-report",
+    "cy:open": "npx cypress open",
+    "cy:run-electron": "npx cypress run --headed",
+    "cy:run-chrome": "npx cypress run --browser chrome",
+    "cy:run-chrome:canary": "npx cypress run --browser chrome:canary",
+    "cy:run-edge": "npx cypress run --browser edge",
+    "cy:run-edge:canary": "npx cypress run --browser edge:canary",
+    "cy:run-firefox": "npx cypress run --browser firefox",
+    "cy:run-firefox:developer": "npx cypress run --browser firefox:dev",
+    "cy:test-prof": "npm run e2e-test || npm run e2e-test-report",
+    "cy:test-dev": " CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report",
+    "cy:test-local": "CI=1 npx cypress run --config-file cypress.config-local.js || npm run e2e-test-report",
+    "cy:run-firefox:nightly": "npx cypress run --browser firefox:nightly",
+    "login": "cypress run -b chrome --headless --spec 'cypress/e2e/e2e-testing/login/login.feature'",
+    "home": "cypress run -b chrome --headless --spec 'cypress/e2e/home'",
+    "e2e-test": "CI=1 npx cypress run",
+    "delete:reports": "rimraf cypress/reports/* || true",
+    "pree2e-test": "npm run delete:reports",
+    "pree2e-test-report": "npx mochawesome-merge ./cypress/reports/mochawesome/mochawesome*.json -o cypress/reports/mochawesome/merged-mochawesome.json",
+    "e2e-test-report": "npm run pree2e-test-report && npx mochawesome-report-generator --cdn false --reportDir cypress/reports --reportPageTitle Project_Jamaica --inline true --reportFilename CypressTestResults.html --reportTitle PJ_version_$npm_package_version --charts true cypress/reports/mochawesome/merged-mochawesome.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.aaisdirect.com/AAISdirect/ui-test-cypress.git"
+  },
+  "keywords": [
+    "Web App",
+    "UI",
+    "Testing",
+    "Member Self Service",
+    "AAIS"
+  ],
+  "author": {
+    "name": "Andrei Selvanovich",
+    "email": "andreis@aaisonline.com",
+    "url": "https://aaisonline.atlassian.net/wiki/spaces/DEV/overview"
+  },
+  "contributers": [
+    {
+      "name": "Andrei Selvanovich",
+      "email": "andreis@aaisonline.com",
+      "url": "https://aaisonline.atlassian.net/wiki/spaces/~439835659/overview"
+    }
+  ],
+  "dependencies": {
+    "aws-amplify": "^3.4.3",
+    "cypress": "^10.4.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-multi-reporters": "^1.6.1",
+    "cypress-promise": "^1.1.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "uuid": "^9.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "IE 11",
+    "not op_mini all"
+  ],
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "license": "Copyright AAIS. All rights reserved",
+  "prettier": {
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm version --force --no-git-tag-version patch && git add package.json package-lock.json"
+    }
+  }
+}

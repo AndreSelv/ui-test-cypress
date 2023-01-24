@@ -1,0 +1,14 @@
+{
+  "response": {
+    "status": 500,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "data": {
+      "errorId": "error-id-f6956eb4-8436-44e5-bf5d-25bf0ecafadd",
+      "friendlyErrorMessage": "Internal Server Error",
+      "statusCode": 500,
+      "technicalErrorMessage": "Internal Server Error"
+    }
+  }
+}

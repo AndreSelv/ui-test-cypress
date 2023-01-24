@@ -1,0 +1,135 @@
+[
+  {
+    "updated": "2020-05-28T22:25:15.610Z",
+    "contacts": {
+      "aaisDirectCompanyAdmin": [
+        {
+          "userId": "user1",
+          "created": "2019-02-28T14:04:26.172Z"
+        },
+        {
+          "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+          "created": "2020-04-17T19:58:46.884Z"
+        }
+      ],
+      "statisticalReporting": [
+        {
+          "userId": "659a5e72-01c2-41dc-b962-e797b25d1636",
+          "created": "2020-04-17T19:58:46.884Z"
+        },
+        {
+          "userId": "user1",
+          "created": "2019-02-28T14:04:26.172Z"
+        },
+        {
+          "userId": "user2",
+          "created": "2019-05-28T12:43:12.989Z"
+        },
+        {
+          "userId": "user3",
+          "created": "2019-06-15T14:19:20.207Z"
+        },
+        {
+          "userId": "user6",
+          "created": "2020-06-20T16:14:24.207Z"
+        },
+        {
+          "userId": "user7",
+          "created": "2020-05-27T11:08:48.841Z"
+        }
+      ],
+      "assessmentDataReport": [
+        {
+          "userId": "user4",
+          "created": "2020-06-20T16:14:20.207"
+        }
+      ],
+      "assessmentInvoice": [
+        {
+          "userId": "user5",
+          "created": "2020-06-20T16:14:21.207"
+        }
+      ],
+      "meetingNoticeAndProxy": [
+        {
+          "userId": "user2",
+          "created": "2019-05-28T12:43:12.989Z"
+        }
+      ],
+      "affilation": [
+        {
+          "userId": "user1",
+          "created": "2019-02-28T14:04:26.172Z"
+        },
+        {
+          "userId": "user8",
+          "created": "2020-05-27T11:08:49.841Z"
+        }
+      ],
+      "up": [
+        {
+          "userId": "user6",
+          "created": "2020-06-20T16:14:24.207Z"
+        }
+      ]
+    },
+    "addresses": {
+      "mailing": [
+        {
+          "formattedAddress": "701 Warrenville Rd, Lisle, IL 60532, USA",
+          "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+          "created": "2020-05-11T20:52:12.343Z",
+          "placeId": "ChIJjcO_8mtRDogRGbjEYjMWLts",
+          "addressComponents": "[{\"long_name\":\"701\",\"short_name\":\"701\",\"types\":[\"street_number\"]},{\"long_name\":\"Warrenville Road\",\"short_name\":\"Warrenville Rd\",\"types\":[\"route\"]},{\"long_name\":\"Lisle\",\"short_name\":\"Lisle\",\"types\":[\"locality\",\"political\"]},{\"long_name\":\"Lisle Township\",\"short_name\":\"Lisle Township\",\"types\":[\"administrative_area_level_3\",\"political\"]},{\"long_name\":\"DuPage County\",\"short_name\":\"Dupage County\",\"types\":[\"administrative_area_level_2\",\"political\"]},{\"long_name\":\"Illinois\",\"short_name\":\"IL\",\"types\":[\"administrative_area_level_1\",\"political\"]},{\"long_name\":\"United States\",\"short_name\":\"US\",\"types\":[\"country\",\"political\"]},{\"long_name\":\"60532\",\"short_name\":\"60532\",\"types\":[\"postal_code\"]}]",
+          "addressLine2": null,
+          "addressId": "3480d02f-7450-40fa-976f-eaf0d12f73e8"
+        }
+      ]
+    },
+    "created": "2018-12-07T16:52:42.193Z",
+    "orgId": "org1",
+    "orgNode": "root",
+    "updatedBy": "user1",
+    "users": [
+      {
+        "roleKey": "admin",
+        "userId": "659a5e72-01c2-41dc-b962-e797b25d1636"
+      },
+      {
+        "roleKey": "admin",
+        "userId": "user1"
+      },
+      {
+        "roleKey": "read-write",
+        "userId": "user2"
+      },
+      {
+        "roleKey": "read-only",
+        "userId": "user3"
+      },
+      {
+        "roleKey": "read-only",
+        "userId": "user4"
+      },
+      {
+        "roleKey": "read-only",
+        "userId": "user5"
+      },
+      {
+        "roleKey": "read-only",
+        "userId": "user6"
+      },
+      {
+        "roleKey": "read-write",
+        "userId": "user7"
+      },
+      {
+        "roleKey": "read-only",
+        "userId": "user8"
+      }
+    ],
+    "createdBy": "user1",
+    "name": "Test Org 1",
+    "transactionId": "transaction1"
+  }
+]

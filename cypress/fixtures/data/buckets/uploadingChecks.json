@@ -1,0 +1,113 @@
+{
+  "totalNumberOfItems": 10,
+  "offset": 0,
+  "requestTime": "2021-02-10T20:48:24.815Z",
+  "items": [
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 1,
+      "filename": "Just Uploaded.txt",
+      "progress": 0
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 1,
+      "filename": "Upload 50% complete.txt",
+      "progress": 50
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 1,
+      "filename": "Upload 100% comlete.txt",
+      "progress": 100
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 1,
+      "filename": "UploadFailed.txt",
+      "progress": -1
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 2,
+      "filename": "FileReceived.txt",
+      "progress": -1
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 22,
+      "filename": "File Processing File with lots o data.txt",
+      "recordCount": 123456789
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 22,
+      "filename": "processing file lines unknowns.txt"
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 23,
+      "filename": "ProcessCompleted.txt",
+      "recordCount": 9999
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "fileStatus": 23,
+      "filename": "processingCompleted lines unknown.txt"
+    },
+    {
+      "bucketFileId": "a0a22152-2036-4b3c-8ad4-4e2403e2bf2e",
+      "bucketId": "48d6f1b1-3556-4649-9b62-3bf841024cba",
+      "createdBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "createdDate": "2021-02-10T19:21:30.000Z",
+      "updatedBy": "659a5e72-01c2-41dc-b962-e797b25d1636",
+      "updatedDate": "2021-02-10T19:21:30.000Z",
+      "filename": "StatusUnknown.txt"
+    }
+  ]
+}

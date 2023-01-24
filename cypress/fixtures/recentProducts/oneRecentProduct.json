@@ -1,0 +1,20 @@
+[
+  {
+    "manifestId": "9ba407d3-faa5-4e36-9fa2-9361f2d48d8c",
+    "version": "1.0.0",
+    "location": "manifests/2b76963c-00b8-4c0d-af21-cddf22b16671/2020/04/9ba407d3-faa5-4e36-9fa2-9361f2d48d8c.json",
+    "updated": "2020-04-21T19:50:15.608Z",
+    "manifestNode": "root",
+    "files": 444,
+    "userId": "2b76963c-00b8-4c0d-af21-cddf22b16671",
+    "created": "2020-04-21T19:50:14.910Z",
+    "updatedBy": "2b76963c-00b8-4c0d-af21-cddf22b16671",
+    "createdBy": "2b76963c-00b8-4c0d-af21-cddf22b16671",
+    "transactionId": "8aeb56fb-7252-4c2a-add8-0d5c02972ef6",
+    "request": {
+      "packageTypes": ["FORMS", "LOSS_COST", "RULES", "RATING_INFO"],
+      "product": "BOP",
+      "states": ["FL"]
+    }
+  }
+]

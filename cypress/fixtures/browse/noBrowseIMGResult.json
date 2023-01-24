@@ -1,0 +1,11 @@
+{
+  "_scroll_id": "DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAJw8FktOalZpZnFYUWF1aEpadDRSdjhvaUEAAAAAAACcPRZLTmpWaWZxWFFhdWhKWnQ0UnY4b2lBAAAAAAAAnD4WS05qVmlmcVhRYXVoSlp0NFJ2OG9pQQAAAAAAAJw_FktOalZpZnFYUWF1aEpadDRSdjhvaUEAAAAAAACcQBZLTmpWaWZxWFFhdWhKWnQ0UnY4b2lB",
+  "took": 86,
+  "timed_out": false,
+  "_shards": { "total": 5, "successful": 5, "skipped": 0, "failed": 0 },
+  "hits": {
+    "total": { "value": 0, "relation": "eq" },
+    "max_score": null,
+    "hits": []
+  }
+}
