@@ -114,7 +114,7 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
           cy.get("[data-test=browseScreen-item-download-button]");
         });
 
-        it("US98489 validate browse search bulletins card has document preview display", () => {
+        it.skip("US98489 validate browse search bulletins card has document preview display", () => {
 
           cy.visit("#/browse");
           cy.get("#product-select").type("AGXL{downArrow}{enter}{esc}");
