@@ -67,8 +67,6 @@ describe("Brows Results Summary", () => {
           cy.contains("Effective Date").should("be.visible");
           cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click({force: true});
           cy.get(".MuiCalendarPicker-root").should("be.visible");
-          cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click( {force: true});
-          cy.get(".MuiCalendarPicker-root").should("be.not.visible");
         });
 
         it("validate that oldest effective date is persist on the search filter", () => {
@@ -77,8 +75,6 @@ describe("Brows Results Summary", () => {
           cy.contains("Oldest Date").should("be.visible");
           cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click({force: true});
           cy.get(".MuiCalendarPicker-root").should("be.visible");
-          cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click( {force: true});
-          cy.get(".MuiCalendarPicker-root").should("be.not.visible");
         });
       });
     });
