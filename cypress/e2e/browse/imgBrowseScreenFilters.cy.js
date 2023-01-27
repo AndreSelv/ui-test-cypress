@@ -10,11 +10,9 @@ describe("IMG Browse Screen: Filters", () => {
   });
   it("US74307 add IMG Product select one of the classes, select supporting documents (IMG) from the package types and select each document type", () => {
     cy.visit("#/browse");
-
     cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");
     cy.get("#packageType-select").type("Supporting Documents (IMG){downArrow}{enter}{esc}");
-
     cy.get("#supporting-docs-type-autocomplete").type("CIN{downArrow}{enter}{esc}");
     cy.contains('CIN')
     cy.get("#supporting-docs-type-autocomplete").type("CSE{downArrow}{enter}{esc}");
@@ -29,7 +27,6 @@ describe("IMG Browse Screen: Filters", () => {
     cy.contains('RTW')
     cy.get("#supporting-docs-type-autocomplete").type("UND{downArrow}{enter}{esc}");
     cy.contains('UND')
-
   });
 
   it("US74307 using browse add IMG, add a class, state, package type, status and enter something in search box", () => {
@@ -40,20 +37,16 @@ describe("IMG Browse Screen: Filters", () => {
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
     cy.get("#packageType-select").type("Supporting Documents (IMG){downArrow}{enter}{esc}");
-
     cy.get("[data-test=browseScreenSearch]").type("fire{enter}");
   });
 
   it("US4790 validate that user be able to submit request with all field populated", () => {
     cy.visit("#/browse");
-
     cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
     cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
-
-
     cy.get("[data-test=\"browseScreen-item-product-request-button\"] > .MuiButton-label").click();
     cy.get('[data-test="request-modal-searched-terms"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
     cy.get('[data-test="request-modal-additional-info"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
@@ -80,12 +73,9 @@ describe("IMG Browse Screen: Filters", () => {
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
     cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
-
     cy.get("[data-test=\"browseScreen-item-product-request-button\"] > .MuiButton-label").click();
     cy.get('[data-test="request-modal-searched-terms"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
     cy.get("[data-test=\"submit-modal-request\"]").should("be.disabled");
   });
 });
-//     });
-//   });
-// });
+

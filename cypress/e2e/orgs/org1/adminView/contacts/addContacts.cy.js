@@ -12,15 +12,12 @@ describe("Add User Contacts for Positions", () => {
 
         it("Add User5 for Meeting Notice and Proxy Contact", () => {
           cy.visit("#/orgs/org1");
-
-          // TODO: Superset Json and Dynamically Add/ Remove As Needed
-          cy.fixture("orgs/org1/org1").then((org1) => {
+          cy.fixture("/orgs/org1/org1.json").then((org1) => {
             org1.contacts.meetingNoticeAndProxy.push({
-              userId: "user5",
-              created: "2020-06-20T16:14:21.207",
-            });
-
-            cy.route("GET", "/orgs/org1", org1);
+               userId: "user5",
+               created: "2020-06-20T16:14:21.207",
+             });
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
 
           cy.get('[data-test="Add-Meeting Notice and Proxy Contact"]')
@@ -30,7 +27,7 @@ describe("Add User Contacts for Positions", () => {
             .click()
             .type("user5@aaisdirect.com{downarrow}{enter}");
 
-          cy.contains("SELECT USER").click();
+          cy.get('.MuiDialogActions-root > .MuiButton-contained').click();
 
           cy.get('[data-test="Meeting Notice and Proxy Contact"]').should(
             "contain",
@@ -40,16 +37,13 @@ describe("Add User Contacts for Positions", () => {
 
         it("Add User3 for Invoice Contact", () => {
           cy.visit("#/orgs/org1");
-
-          cy.fixture("orgs/org1/org1").then((org1) => {
-            org1.contacts.assessmentInvoice.push({
-              userId: "user3",
-              created: "2019-06-15T14:19:20.207Z",
-            });
-
-            cy.route("GET", "/orgs/org1", org1);
+          cy.fixture("/orgs/org1/org1.json").then((org1) => {
+           org1.contacts.assessmentInvoice.push({
+               userId: "user3",
+               created: "2019-06-15T14:19:20.207Z",
+              });
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
-
           cy.get('[data-test="Add-Invoice Contact"]')
             .find("[data-test=Add]")
             .click();
@@ -57,7 +51,7 @@ describe("Add User Contacts for Positions", () => {
             .click()
             .type("user3@aaisdirect.com{downarrow}{enter}");
 
-          cy.contains("SELECT USER").click();
+          cy.get('.MuiDialogActions-root > .MuiButton-contained').click();
 
           cy.get('[data-test="Invoice Contact"]').should("contain", "User3");
         });
@@ -65,13 +59,12 @@ describe("Add User Contacts for Positions", () => {
         it("Add User3 and User5 for Meeting Notice and Proxy Contact", () => {
           cy.visit("#/orgs/org1");
 
-          cy.fixture("orgs/org1/org1").then((org1) => {
-            org1.contacts.meetingNoticeAndProxy.push({
+        cy.fixture("/orgs/org1/org1.json").then((org1) => {
+           org1.contacts.meetingNoticeAndProxy.push({
               userId: "user5",
               created: "2020-06-20T16:14:21.207",
             });
-
-            cy.route("GET", "/orgs/org1", org1);
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
 
           cy.get('[data-test="Add-Meeting Notice and Proxy Contact"]')
@@ -81,15 +74,15 @@ describe("Add User Contacts for Positions", () => {
             .click()
             .type("user5@aaisdirect.com{downarrow}{enter}");
 
-          cy.contains("SELECT USER").click();
+          cy.get('.MuiDialogActions-root > .MuiButton-contained').click();
 
           cy.get('[data-test="Meeting Notice and Proxy Contact"]').should(
             "contain",
             "User5 Lastname5"
           );
 
-          cy.fixture("orgs/org1/org1").then((org1) => {
-            org1.contacts.meetingNoticeAndProxy.push(
+           cy.fixture("/orgs/org1/org1.json").then((org1) => {
+          org1.contacts.meetingNoticeAndProxy.push(
               {
                 userId: "user5",
                 created: "2020-06-20T16:14:21.207",
@@ -99,8 +92,7 @@ describe("Add User Contacts for Positions", () => {
                 created: "2019-06-15T14:19:20.207Z",
               }
             );
-
-            cy.route("GET", "/orgs/org1", org1);
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
 
           cy.get('[data-test="Add-Meeting Notice and Proxy Contact"]')
@@ -110,7 +102,7 @@ describe("Add User Contacts for Positions", () => {
             .click()
             .type("user3@aaisdirect.com{downarrow}{enter}");
 
-          cy.contains("SELECT USER").click();
+          cy.get('.MuiDialogActions-root > .MuiButton-contained').click();
 
           cy.get('[data-test="Meeting Notice and Proxy Contact"]')
             .should("contain", "User5 Lastname5")

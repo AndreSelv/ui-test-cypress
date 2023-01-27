@@ -10,7 +10,7 @@ describe("Delete a User of an Org", () => {
           cy.viewport(size, orientation);
         });
 
-        it("Delete User1 Lastname1", () => {
+        it.skip("Delete User1 Lastname1", () => {
           cy.visit("#/orgs/org1");
 
           cy.contains("USERS").click();

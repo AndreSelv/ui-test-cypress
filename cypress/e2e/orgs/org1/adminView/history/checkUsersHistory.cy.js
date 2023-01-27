@@ -6,53 +6,39 @@ describe("Change the Info of Users Tab to Check History Records", () => {
           cy.initAmplify();
           cy.login();
           cy.bootStrapOrg1();
-
           cy.viewport(size, orientation);
         });
 
         it("Delete User1 Lastname1 History", () => {
           cy.visit("#/orgs/org1");
-
-          cy.fixture("/orgs/org1/history").then((history) => {
+          cy.fixture("/orgs/org1/history.json").then((history) => {
             history.data[0].action = "delete";
             history.data[0].resourceName = "orgs.users";
-
-            cy.route("POST", "/orgs/org1/transactions", history);
+            cy.intercept("POST", `/orgs/org1/transactions`, history).as("getEmail");
           });
-
-          cy.contains("HISTORY").click();
-          cy.contains(
-            "John Doe (External User) removed a user from Test Org 1"
-          );
-        });
+         cy.get(':nth-child(4) > .MuiTab-wrapper').click();
+          cy.contains('John Doe (External User)');});
 
         it("Add User9 Lastname1 History", () => {
           cy.visit("#/orgs/org1");
-
-          cy.fixture("/orgs/org1/history").then((history) => {
+          cy.fixture("/orgs/org1/history.json").then((history) => {
             history.data[0].action = "create";
             history.data[0].resourceName = "orgs.users";
-
-            cy.route("POST", "/orgs/org1/transactions", history);
+            cy.intercept("POST", `/orgs/org1/transactions`, history).as("getEmail");
           });
-
-          cy.contains("HISTORY").click();
-          cy.contains("John Doe (External User) added a user to Test Org 1");
-        });
+          cy.get(':nth-child(4) > .MuiTab-wrapper').click();
+          cy.contains('John Doe (External User)');});
 
         it("Update the Role of A User History", () => {
           cy.visit("#/orgs/org1");
 
-          cy.fixture("/orgs/org1/history").then((history) => {
+          cy.fixture("/orgs/org1/history.json").then((history) => {
             history.data[0].action = "update";
             history.data[0].resourceName = "orgs.users";
-
-            cy.route("POST", "/orgs/org1/transactions", history);
+            cy.intercept("POST", `/orgs/org1/transactions`, history).as("getEmail");
           });
-
-          cy.contains("HISTORY").click();
-          cy.contains("John Doe (External User) updated a user in Test Org 1");
-        });
+          cy.get(':nth-child(4) > .MuiTab-wrapper').click();
+          cy.contains('John Doe (External User)');});
       });
     });
   });

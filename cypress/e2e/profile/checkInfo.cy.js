@@ -7,7 +7,7 @@ describe("Access My Profile - Update Info", () => {
           cy.login();
           cy.visit("#/");
           cy.contains("TU").click();
-          cy.contains("my Profile").click();
+          cy.contains("My Profile").click();
           cy.viewport(size, orientation);
         });
 
@@ -18,13 +18,13 @@ describe("Access My Profile - Update Info", () => {
 
           cy.get("[data-test=firstName]").clear().type("Teey");
 
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get("[data-test=titlebar]").should("contain", "Teey");
 
           cy.get("[data-test=firstName]").clear().type("Test");
 
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get("[data-test=titlebar]").should("contain", "Test");
 
@@ -37,10 +37,10 @@ describe("Access My Profile - Update Info", () => {
             "{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}Selvan"
           );
 
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
           cy.get("[data-test=titlebar]").should("contain", "Selvan");
           cy.get("[data-test=lastName]").clear().type('User')
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
           cy.get("[data-test=titlebar]").should("contain", "User");
 
         });
@@ -65,10 +65,10 @@ describe("Access My Profile - Update Info", () => {
           // });
 
           cy.get("[data-test=Phone]").clear().type("2171234567");
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
           cy.get("[data-test=Phone]").should("have.value", "2171234567");
           cy.get("[data-test=Phone]").clear().type("123456789");
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
           cy.get("[data-test=Phone]").should("have.value", "123456789");
 
         });
@@ -78,13 +78,13 @@ describe("Access My Profile - Update Info", () => {
           cy.get("[data-test=Phone]").clear().type("2171234567");
           cy.get("[data-test=Extension]").clear().type("1234");
 
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get('[data-test=Phone]')
             .should("have.value", "2171234567");
           cy.get("[data-test=Phone]").clear().type("123456789");
 
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get('[data-test=Phone]')
             .should("have.value", "123456789");
@@ -94,7 +94,7 @@ describe("Access My Profile - Update Info", () => {
           cy.get("[data-test=snackbar]").should("not.exist");
 
           cy.get("[data-test=firstName]").type("{selectall}{backspace}");
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get("[data-test=snackbar]")
             .should("be.visible")
@@ -105,7 +105,7 @@ describe("Access My Profile - Update Info", () => {
           cy.get("[data-test=snackbar]").should("not.exist");
 
           cy.get("[data-test=lastName]").type("{selectall}{backspace}");
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get("[data-test=snackbar]")
             .should("be.visible")
@@ -117,7 +117,7 @@ describe("Access My Profile - Update Info", () => {
 
           cy.get("[data-test=Phone]").type("{selectall}{backspace}");
           cy.get("[data-test=Extension]").type("1234");
-          cy.contains("UPDATE").click();
+          cy.get('.MuiGrid-justify-content-xs-flex-end > :nth-child(2) > .MuiButtonBase-root').click();
 
           cy.get("[data-test=snackbar]")
             .should("be.visible")

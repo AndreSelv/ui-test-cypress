@@ -6,21 +6,12 @@ describe("Check Avatar Menus for Non Employee", () => {
       describe(`Device: ${size}, Orientation: ${orientation}`, () => {
         beforeEach(() => {
           cy.initAmplify();
-          cy.login(Cypress.env("USERNAME"),Cypress.env("PASSWORD"));
-
-          cy.server();
-
+          cy.login(Cypress.env("USERNAME"), Cypress.env("PASSWORD"));
           cy.fixture("orgs/org1/myUser.json").then((user) => {
-            cy.route(
-              "GET",
-              `/users/${Cypress.env("USER")}`,
-              user
-            );
+            cy.intercept("GET", `/users/${Cypress.env("USER")}`, user).as("getEmail");
           });
-
           cy.visit("/#");
           cy.get("[data-test=navBarAvatar]").click();
-
           cy.viewport(size, orientation);
         });
 
@@ -30,12 +21,12 @@ describe("Check Avatar Menus for Non Employee", () => {
         });
 
         it("Check My Profile Link", () => {
-          cy.get("[data-test=navBarMenu]")
+          cy.get("[data-test=navBarMenu]");
           cy.contains("My Profile")
             .should(
               "have.attr",
               "href",
-              `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0b`
+              `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0b`,
             );
         });
 

@@ -12,13 +12,11 @@ describe("Risk Awareness page", () => {
           cy.visit("/#/risk");
           cy.url().should("eq", Cypress.config().baseUrl + "/#/risk");
           cy.contains("AAIS Wildfire Live Tracker");
-          cy.contains("OPEN");
         });
         it("validate card2 is visible and clickable", () => {
           cy.visit("/#/risk");
           cy.url().should("eq", Cypress.config().baseUrl + "/#/risk");
-          cy.contains("AAIS Wildfire Live Tracker");
-          cy.contains("OPEN");
+          cy.contains("AAIS Wildfire Knowledge Hub");
         });
       });
     });

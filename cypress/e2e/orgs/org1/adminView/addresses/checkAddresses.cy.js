@@ -13,19 +13,24 @@ describe("Check the Address Information of An Org", () => {
         it.skip("Remove 701 Warrenville Rd Address", () => {
           cy.visit("#/orgs/org1");
 
-          cy.route({
-            method: "DELETE",
-            url: "/orgs/org1/addresses/mailing/ids/address1",
-            response: {},
+        cy.fixture("orgs/org1/org1").then((org1) => {
+              org1.addresses.billing = [
+              {
+                formattedAddress: "701 Warrenville Rd, Lisle, IL 60532, USA",
+                createdBy: "659a5e72-01c2-41dc-b962-e797b25d1636",
+                created: "2020-05-11T20:52:12.343Z",
+                placeId: "ChIJjcO_8mtRDogRGbjEYjMWLts",
+                addressComponents:
+                  '[{"long_name":"701","short_name":"701","types":["street_number"]},{"long_name":"Warrenville Road","short_name":"Warrenville Rd","types":["route"]},{"long_name":"Lisle","short_name":"Lisle","types":["locality","political"]},{"long_name":"Lisle Township","short_name":"Lisle Township","types":["administrative_area_level_3","political"]},{"long_name":"DuPage County","short_name":"Dupage County","types":["administrative_area_level_2","political"]},{"long_name":"Illinois","short_name":"IL","types":["administrative_area_level_1","political"]},{"long_name":"United States","short_name":"US","types":["country","political"]},{"long_name":"60532","short_name":"60532","types":["postal_code"]}]',
+                addressLine2: null,
+                addressId: "address1",
+              },
+            ];
+
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
 
-          cy.fixture("orgs/org1/org1").then((org1) => {
-            org1.addresses.mailing.splice(0, 1);
-            cy.route("GET", "/orgs/org1", org1);
-          });
-
-          cy.contains("ADDRESSES").click();
-
+          cy.get(':nth-child(3) > .MuiTab-wrapper').click();
           cy.get(
             '[data-test="Action-701 Warrenville Rd, Lisle, IL 60532, USA"]'
           )
@@ -36,7 +41,6 @@ describe("Check the Address Information of An Org", () => {
 
         it.skip("Add Another Mailing Address", () => {
           cy.visit("#/orgs/org1");
-
           cy.fixture("orgs/org1/org1").then((org1) => {
             org1.addresses.mailing.push({
               formattedAddress: "1239 Avignon Dr, Conyers, GA 30094, USA",
@@ -50,9 +54,7 @@ describe("Check the Address Information of An Org", () => {
             });
             cy.route("GET", "/orgs/org1", org1);
           });
-
           cy.contains("ADDRESSES").click();
-
           cy.get('[data-test="Add-Mailing Address"]')
             .find("[data-test=Add]")
             .click();
@@ -61,9 +63,7 @@ describe("Check the Address Information of An Org", () => {
           cy.get(".geosuggest__input")
             .click()
             .type("1239 Avignon Dr, Conyers, GA 30094, USA{downarrow}{enter}");
-
           cy.contains("OK").click();
-
           cy.get('[data-test="Mailing Address"]').should(
             "contain",
             "1239 Avignon Dr"
@@ -72,9 +72,9 @@ describe("Check the Address Information of An Org", () => {
 
         it("Add A Billing Address", () => {
           cy.visit("#/orgs/org1");
-
-          cy.fixture("orgs/org1/org1").then((org1) => {
-            org1.addresses.billing = [
+            cy.fixture("orgs/org1/org1").then((org1) => {
+            
+              org1.addresses.billing = [
               {
                 formattedAddress: "701 Warrenville Rd, Lisle, IL 60532, USA",
                 createdBy: "659a5e72-01c2-41dc-b962-e797b25d1636",
@@ -86,19 +86,17 @@ describe("Check the Address Information of An Org", () => {
                 addressId: "address1",
               },
             ];
-            cy.route("GET", "/orgs/org1", org1);
+
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
 
-          cy.contains("ADDRESSES").click();
+          cy.get(':nth-child(3) > .MuiTab-wrapper').click();
 
           cy.get('[data-test="Add-Billing Address"]')
             .find("[data-test=Add]")
             .click({ force: true }); // FIXME
-
           cy.get(".geosuggest__input").click().type("701 Warrenville Rd");
-
           cy.contains("OK").click();
-
           cy.get('[data-test="Billing Address"]').should(
             "contain",
             "701 Warrenville Rd"
