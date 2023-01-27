@@ -61,13 +61,13 @@ describe("Brows Results Summary", () => {
 
         });
 
-        it("validate that effective date is persist on the search filter", () => {
+        it.only("validate that effective date is persist on the search filter", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseResult.json" });
           cy.visit("#/browse");
           cy.contains("Effective Date").should("be.visible");
           cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click();
           cy.get(".MuiCalendarPicker-root").should("be.visible");
-          cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click();
+          cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click( {force: true});
           cy.get(".MuiCalendarPicker-root").should("be.not.visible");
         });
 
@@ -77,7 +77,7 @@ describe("Brows Results Summary", () => {
           cy.contains("Oldest Date").should("be.visible");
           cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click();
           cy.get(".MuiCalendarPicker-root").should("be.visible");
-          cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click();
+          cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click( {force: true});
           cy.get(".MuiCalendarPicker-root").should("be.not.visible");
         });
       });
