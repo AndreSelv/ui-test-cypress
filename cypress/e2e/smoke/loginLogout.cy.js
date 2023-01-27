@@ -14,8 +14,8 @@ describe("Login and Logout", () => {
           cy.get("#amplify-id-\\:r4\\:").type(
             Cypress.env("PASSWORD")
           );
-          cy.get("button").contains("SIGN IN").click();
-          cy.contains("businessowners");
+          cy.get("button").contains("Sign in").click();
+          cy.get('[data-test="AAISlogo"]').should("be.visible");
         });
         it("successful logout", () => {
           cy.visit("#/lines/BOP");
@@ -26,7 +26,7 @@ describe("Login and Logout", () => {
             Cypress.env("PASSWORD")
           );
 
-          cy.get("button").contains("SIGN IN").click();
+          cy.get("button").contains("Sign in").click();
           // cy.contains("Log Out").click();
           // cy.contains("SIGN IN");
         });

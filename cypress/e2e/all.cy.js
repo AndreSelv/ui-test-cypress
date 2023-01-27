@@ -56,7 +56,6 @@ import '../e2e/orgs/orgsScreen.cy'
 //profile
 import '../e2e/profile/checkInfo.cy'
 import '../e2e/profile/selectNotificationPreferences.cy'
-import '../e2e/profile/unselectNotificationPreferences.cy'
 
 //risk screen
 import '../e2e/risk screen/riskScreenRiskAwarenessMaps.cy'

@@ -5,7 +5,6 @@ describe("Validate Product Line", () => {
         beforeEach(() => {
           cy.initAmplify();
           cy.login();
-
           cy.viewport(size, orientation);
         });
 

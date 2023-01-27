@@ -10,21 +10,13 @@ describe("Browse Results for Various Cards", () => {
         });
 
         it("US74540 Browse Results for Various Cards", () => {
-          cy.server();
-
-          cy.route({
-            method: "POST",
-            url: "/assets/v1/search",
-            response: "fixture:browse/browseResultsVariousCards.json",
-          });
-
+          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("AGOP{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectCO]").click().type("{esc}");
-          cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}", );
+          cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
           cy.get("[data-test=browseScreenSearch]").type("water{enter}");
-
 
 
           testMaterialType(0, "form", "Form");
@@ -50,62 +42,63 @@ describe("Browse Results for Various Cards", () => {
     });
   });
 });
+
 function testMaterialType(cardNumber, materialType, toolTip) {
   cy.get(
-    `[data-test=browseResults-item-${cardNumber}-${materialType}-icon]`
+    `[data-test=browseResults-item-${cardNumber}-${materialType}-icon]`,
   ).trigger("mouseover");
   cy.get(
-    `[data-test=browseResults-item-${cardNumber}-${materialType}-tooltip]`
+    `[data-test=browseResults-item-${cardNumber}-${materialType}-tooltip]`,
   ).should("contain", toolTip);
   cy.get(
-    `[data-test=browseResults-item-${cardNumber}-${materialType}-icon]`
+    `[data-test=browseResults-item-${cardNumber}-${materialType}-icon]`,
   ).trigger("mouseout");
 }
 
 function testProductLine(cardNumber, count) {
   cy.get(`[data-test=browseResults-item-${cardNumber}-line-icon]`).trigger(
-    "mouseover"
+    "mouseover",
   );
   cy.get(`[data-test=browseResults-item-${cardNumber}-line-badge]`).should(
     "contain",
-    `${count}`
+    `${count}`,
   );
   cy.get(`[data-test=browseResults-item-${cardNumber}-line-tooltip]`).should(
     "contain",
-    "Product Lines"
+    "Product Lines",
   );
 
   cy.get(`[data-test=browseResults-item-${cardNumber}-line-icon]`).trigger(
-    "mouseout"
+    "mouseout",
   );
 }
 
 function testState(cardNumber, count, toolTip) {
   cy.get(`[data-test=browseResults-item-${cardNumber}-state-icon]`).trigger(
-    "mouseover"
+    "mouseover",
   );
   cy.get(`[data-test=browseResults-item-${cardNumber}-state-badge]`).should(
     "contain",
-    `${count}`
+    `${count}`,
   );
   cy.get(`[data-test=browseResults-item-${cardNumber}-state-tooltip]`).should(
     "contain",
-    toolTip
+    toolTip,
   );
 
   cy.get(`[data-test=browseResults-item-${cardNumber}-state-icon]`).trigger(
-    "mouseout"
+    "mouseout",
   );
 }
 
 function testStatus(cardNumber, status, toolTip) {
   cy.get(`[data-test=browseResults-item-${cardNumber}-${status}-icon]`).trigger(
-    "mouseover"
+    "mouseover",
   );
   cy.get(
-    `[data-test=browseResults-item-${cardNumber}-${status}-tooltip]`
+    `[data-test=browseResults-item-${cardNumber}-${status}-tooltip]`,
   ).should("contain", toolTip);
   cy.get(`[data-test=browseResults-item-${cardNumber}-${status}-icon]`).trigger(
-    "mouseout"
+    "mouseout",
   );
 }

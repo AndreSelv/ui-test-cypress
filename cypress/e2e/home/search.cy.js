@@ -9,14 +9,7 @@ describe("Search Functionality", () => {
           cy.viewport(size, orientation);
         });
         it("enter a product in the search box and vailidate information returns", () => {
-          cy.server();
-
-          cy.route({
-            method: "POST",
-            url: "/assets/v1/search",
-            response: "fixture:browse/browseResultsVariousCards.json",
-          });
-
+          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
           cy.visit("#");
           cy.get("[data-test=navBarSearch]").type("Terrorism{enter}");
           cy.get("#product-select").type("AGXL{downArrow}{enter}{esc}");

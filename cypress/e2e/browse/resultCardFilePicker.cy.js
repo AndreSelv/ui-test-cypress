@@ -9,8 +9,7 @@ describe.only("Browse Result Card File Piker", () => {
           cy.viewport(size, orientation);
         });
 
-        it.only("validate that user can select various doc types of if  search card contains it", () => {
-
+        it("validate that user can select various doc types of if  search card contains it", () => {
           cy.visit("#/browse");
           cy.get("#product-select").type("HO {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();

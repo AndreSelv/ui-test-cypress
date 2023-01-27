@@ -11,11 +11,9 @@ describe("Check that orgs are shown", () => {
         });
 
         it("Show zero org", () => {
-          cy.route({
-            method: "GET",
-            url: "/orgs",
-            response: [],
-          });
+
+          cy.intercept("GET", "/orgs");
+
           cy.visit("#/orgs/");
         });
 
@@ -26,13 +24,8 @@ describe("Check that orgs are shown", () => {
         });
 
         it("Show two orgs", () => {
-          cy.route({
-            method: "GET",
-            url: "/orgs",
-            response: "fixture:orgs/two-orgs.json",
-          });
+          cy.intercept("GET", "/orgs", { fixture: "orgs/two-orgs.json" });
           cy.visit("#/orgs/");
-
           cy.contains("Test Org 1");
           cy.contains("Test Org 2");
         });

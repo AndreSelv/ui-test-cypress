@@ -7,11 +7,10 @@ describe("Check individual Organization", () => {
           cy.login();
           cy.bootStrapOrg1();
 
-          cy.fixture("orgs/org1/org1").then((org1) => {
-            org1.users[0].roleKey = "read-only";
+          cy.fixture("/orgs/org1/org1.json").then((org1) => {
+           org1.users[0].roleKey = "read-only";
             org1.contacts.aaisDirectCompanyAdmin.pop();
-
-            cy.route("GET", "/orgs/org1", org1);
+            cy.intercept("GET", `/orgs/org1`, org1).as("getEmail");
           });
 
           cy.viewport(size, orientation);
@@ -66,7 +65,9 @@ describe("Check individual Organization", () => {
         it("Check Users Tab", () => {
           cy.visit("#/orgs/org1");
 
-          cy.contains("USERS").click();
+          cy.get(':nth-child(1) > .MuiTab-wrapper').click();
+          cy.get(':nth-child(2) > .MuiTab-wrapper').click();
+
 
           cy.contains("Users (9)");
 

@@ -11,7 +11,7 @@ describe("Home screen: Browse All Products card", () => {
         it("US73951 validate browse all products card on the main screen", () => {
           cy.visit("#");
           cy.contains("Browse All AAIS Products").click();
-          cy.contains("filter");
+          cy.get('.MuiGrid-grid-md-3').should("be.visible");
         });
       });
     });
