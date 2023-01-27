@@ -49,7 +49,7 @@ describe("Brows Results Summary", () => {
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectMU]").click().type("{esc}");
           cy.contains("1 results");
-          cy.task("deleteFolder", Cypress.config("downloadsFolder"));
+          // cy.task("deleteFolder", Cypress.config("downloadsFolder"));
           cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
           cy.get('.MuiDialogActions-root > .MuiButton-textPrimary').click();
           cy.contains("Downloading Content").should("be.visible");
