@@ -95,7 +95,7 @@ workflows:
           browser: chrome
           record: true
           parallel: true
-          parallelism: 7
+          parallelism: 6
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
           post-install:
