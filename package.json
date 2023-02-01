@@ -8,9 +8,9 @@
     "email": "softwaredevelopment@aaisonline.com"
   },
   "scripts": {
+    "cy:test:aws": "CI=1 cypress run || npm run e2e-test-report",
     "cy:verify": "npx cypress verify",
     "cy:info": "npx cypress info",
-    "cy:test:aws": "CI=1 cypress run || npm run e2e-test-report",
     "test": "npm run e2e-test && npm run e2e-test-report",
     "cy:open": "npx cypress open",
     "cy:run-electron": "npx cypress run --headed",
