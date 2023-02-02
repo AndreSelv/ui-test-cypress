@@ -107,8 +107,6 @@ workflows:
             - store_test_results:
                 path: cypress/results
 
-            # first get the source code and install npm dependencies
-      - cypress/install
       - cypress/run:
           requires:
             - cypress/install
