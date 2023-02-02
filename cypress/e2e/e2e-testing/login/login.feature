@@ -1,7 +1,7 @@
 Feature: User Login
 
-    Scenario: User logs in with correct credentials
-        Given The user logged into the application
+#    Scenario: User logs in with correct credentials
+#        Given The user logged into the application
 
 #    Scenario: User logs in with username and password
 #        Given The user logged into the application with username

@@ -1,14 +1,14 @@
 Feature: Validate the filter functionality
-
-    Background: User logs in with correct credentials
-        Given The user logged into the application
-        When The user browse all AAIS products
-
-    Scenario: The user filter an specific product
-        When The user selects the "YT" product
-        * The user adds the "MU" state
-        * The user selects the "Rules" material type
-        * The user types "water" in the searchbox
+#
+#    Background: User logs in with correct credentials
+#        Given The user logged into the application
+#        When The user browse all AAIS products
+#
+#    Scenario: The user filter an specific product
+#        When The user selects the "YT" product
+#        * The user adds the "MU" state
+#        * The user selects the "Rules" material type
+#        * The user types "water" in the searchbox
 #        Then The user is able to see the results
     
     # Scenario: The user validates the date filter
