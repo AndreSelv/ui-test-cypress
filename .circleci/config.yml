@@ -82,7 +82,7 @@ workflows:
 #                path: mochawesome-report
 #            - store_test_results:
 #                path: cypress/results
-
+      - cypress/install
       - cypress/run:
           requires:
             - cypress/install
