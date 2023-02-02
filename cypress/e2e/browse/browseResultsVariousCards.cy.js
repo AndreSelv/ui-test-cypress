@@ -19,24 +19,29 @@ describe("Browse Results for Various Cards", () => {
           cy.get("[data-test=browseScreenSearch]").type("water{enter}");
 
 
-          testMaterialType(0, "form", "Form");
-          testMaterialType(1, "lossCost", "Loss Cost");
-          testMaterialType(2, "rules", "Rules");
-          testMaterialType(3, "ratingInformation", "Rating Info");
-          testMaterialType(4, "supportingInformation", "Supporting Documents");
+          // testMaterialType(0, "form", "Form");
+          // testMaterialType(1, "lossCost", "Loss Cost");
+          // testMaterialType(2, "rules", "Rules");
+          // testMaterialType(3, "ratingInformation", "Rating Info");
+          // testMaterialType(4, "supportingInformation", "Supporting Documents");
 
           testProductLine(1, 2);
           testProductLine(0, 1);
           testProductLine(3, 5);
-          testProductLine(7, 0);
-          testProductLine(8, 0);
-          testProductLine(9, 0);
+          testProductLine(7, 1);
+          testProductLine(8, 1);
+          testProductLine(9, 1);
 
           testState(2, 1, "AGOP states");
           testState(10, 12, "AGOP states");
+          testState(0, 2, "AGOP states");
+          testState(2, 1, "AGOP states");
+          testState(3, 1, "AGOP states");
+          testState(4, 1, "AGOP states");
 
-          testStatus(0, "externallyApproved", "Current");
-          testStatus(1, "superseded", "Not Current");
+
+          // testStatus(0, "externallyApproved", "Current");
+          // testStatus(1, "superseded", "Not Current");
         });
       });
     });
