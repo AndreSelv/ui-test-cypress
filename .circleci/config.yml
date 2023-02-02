@@ -64,6 +64,25 @@ executors:
 workflows:
   build:
     jobs:
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Browse
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          spec: cypress/e2e/browse/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
 #      - cypress/install
 #      - cypress/run:
 #          requires:
@@ -82,7 +101,7 @@ workflows:
 #                path: mochawesome-report
 #            - store_test_results:
 #                path: cypress/results
-      - cypress/install
+
       - cypress/run:
           requires:
             - cypress/install
