@@ -97,7 +97,7 @@ workflows:
           parallel: true
           parallelism: 6
           debug: 'cypress:cli'
-          spec: cypress/e2e/browse/*
+#          spec: cypress/e2e/browse/*
           post-install:
             - run: npx cypress info
           store_artifacts: true
