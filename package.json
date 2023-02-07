@@ -8,6 +8,8 @@
     "email": "softwaredevelopment@aaisonline.com"
   },
   "scripts": {
+    "cy:run": "cypress run",
+    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -m false",
     "cy:test:aws": "CI=1 cypress run || npm run e2e-test-report",
     "cy:verify": "npx cypress verify",
     "cy:info": "npx cypress info",
@@ -86,5 +88,8 @@
     "hooks": {
       "pre-commit": "npm version --force --no-git-tag-version patch && git add package.json package-lock.json"
     }
+  },
+  "devDependencies": {
+    "cypress-parallel": "^0.12.0"
   }
 }
