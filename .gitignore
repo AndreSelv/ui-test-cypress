@@ -7,3 +7,5 @@ screenshots/
 .idea/
 /cypress/reports
 event.json
+multi-reporter-config.json
+runner-results/
