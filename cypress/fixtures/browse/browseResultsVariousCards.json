@@ -83,8 +83,8 @@
         "_id": "12343",
         "_score": 2.4527721,
         "_source": {
-          "packageType_s": "Form",
-          "materialTypeCategory": "Forms",
+          "packageType_s": "PLC",
+          "materialTypeCategory": "Loss Cost",
           "lobs": [
             {
               "abbreviation": "HO",
@@ -113,11 +113,11 @@
           ],
           "rendition_mimetypes_ss": ".pdf",
           "name_of_form": "Limited Water Back Up And Sump Discharge Or Overflow Coverage",
-          "materialType": "Form",
+          "materialType": "Loss Cost",
           "rendition_locations_ss": "199850_HO17960616s.pdf",
           "edition": "06 16",
           "version": "06 16",
-          "packageCategory_s": "Forms",
+          "packageCategory_s": "Loss Cost",
           "states": [
             {
               "abbreviation": "VA",
@@ -152,7 +152,7 @@
         "_id": "11593",
         "_score": 2.1390512,
         "_source": {
-          "packageType_s": "Form",
+          "packageType_s": "PRL",
           "materialTypeCategory": "Forms",
           "lobs": [
             {
@@ -209,7 +209,7 @@
         "_id": "12136",
         "_score": 2.0346437,
         "_source": {
-          "packageType_s": "Form",
+          "packageType_s": "PRI",
           "materialTypeCategory": "Forms",
           "lobs": [
             {
@@ -314,7 +314,7 @@
         "_id": "11747",
         "_score": 2.0054994,
         "_source": {
-          "packageType_s": "Form",
+          "packageType_s": "SUP",
           "materialTypeCategory": "Forms",
           "lobs": [
             {

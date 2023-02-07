@@ -19,11 +19,11 @@ describe("Browse Results for Various Cards", () => {
           cy.get("[data-test=browseScreenSearch]").type("water{enter}");
 
 
-          // testMaterialType(0, "form", "Form");
-          // testMaterialType(1, "lossCost", "Loss Cost");
-          // testMaterialType(2, "rules", "Rules");
-          // testMaterialType(3, "ratingInformation", "Rating Info");
-          // testMaterialType(4, "supportingInformation", "Supporting Documents");
+          testMaterialType(0, "form", "Form");
+          testMaterialType(1, "lossCost", "Loss Cost");
+          testMaterialType(2, "rules", "Rules");
+          testMaterialType(3, "ratingInformation", "Rating Info");
+          testMaterialType(4, "supportingInformation", "Supporting Documents");
 
           testProductLine(1, 2);
           testProductLine(0, 1);
