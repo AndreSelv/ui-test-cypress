@@ -9,7 +9,7 @@
   },
   "scripts": {
     "cy:run": "CI=1 cypress run",
-    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -m false",
+    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -m false",
     "cy:test:aws": "CE=1 npm run cy:run || npm run e2e-test-report",
     "cy:verify": "npx cypress verify",
     "cy:info": "npx cypress info",
@@ -58,7 +58,9 @@
     }
   ],
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
     "aws-amplify": "^3.4.3",
+    "base.json": "^2.0.0",
     "cypress": "^12.4.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.1",
