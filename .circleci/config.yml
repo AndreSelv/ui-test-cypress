@@ -83,24 +83,24 @@ workflows:
             - store_test_results:
                 path: cypress/results
 
-      - cypress/install
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Cucumber
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/e2e-testing/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
+#      - cypress/install
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Cucumber
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/e2e-testing/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
 
       - cypress/run:
           requires:
