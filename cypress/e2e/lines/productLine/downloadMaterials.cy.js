@@ -8,7 +8,7 @@ describe("Downloading Product Materials", () => {
 
           cy.viewport(size, orientation);
         });
-        it("Product Materials are succesfully downlaoded", () => {
+        it("Product Materials are successfully downloaded", () => {
           cy.visit("#/lines/BOP");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectCO").click();

@@ -43,29 +43,34 @@ describe("Brows Results Summary", () => {
         });
 
         it("validate download button functionality", () => {
-          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseResult.json" });
+          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/downloadBrowseResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("AGXL{downArrow}{enter}{esc}", { delay: 50 });
+          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}", { delay: 50 });
           cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectMU]").click().type("{esc}");
-          cy.contains("1 results");
-          // cy.task("deleteFolder", Cypress.config("downloadsFolder"));
+          cy.get("[data-test=selectTX]").click().type("{esc}");
+          cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
+
+          cy.contains(`238 results`);
+          cy.task("deleteFolder", Cypress.config("downloadsFolder"));
           cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
-          cy.get('.MuiDialogActions-root > .MuiButton-textPrimary').click();
+          cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
           cy.contains("Downloading Content").should("be.visible");
 
-          // cy.contains('Downloading Content').should("not.be.visible");
+          //cy.contains("Downloading Content").should("not.be.visible").end();
+          //cy.readFile("cypress\\downloads\\AAIS.zip").should("exist");
+
           // cy.task('countFiles', 'cypress/downloads').then((count) => {
           //   expect(count).eqls(1);
           // })
 
         });
 
+
         it("validate that effective date is persist on the search filter", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseResult.json" });
           cy.visit("#/browse");
           cy.contains("Effective Date").should("be.visible");
-          cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click({force: true});
+          cy.get(":nth-child(1) > .MuiInputBase-root > .MuiButtonBase-root").click({ force: true });
           cy.get(".MuiCalendarPicker-root").should("be.visible");
         });
 
@@ -73,7 +78,7 @@ describe("Brows Results Summary", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseResult.json" });
           cy.visit("#/browse");
           cy.contains("Oldest Date").should("be.visible");
-          cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click({force: true});
+          cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click({ force: true });
           cy.get(".MuiCalendarPicker-root").should("be.visible");
         });
       });
