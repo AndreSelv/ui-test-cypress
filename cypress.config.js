@@ -70,7 +70,7 @@ module.exports = defineConfig({
     },
     specPattern: "cypress/e2e/**/*.*",
     baseUrl: "https://app-dev.aaiscognito.com",
-    excludeSpecPattern: process.env.CI ? "cypress/e2e/all.cy.js" : [],
+    excludeSpecPattern: process.env.CE ? "cypress/e2e/e2e-testing" : process.env.CI ? "cypress/e2e/all.cy.js" : []
   },
 
   component: {
