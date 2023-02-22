@@ -51,11 +51,11 @@ describe("Brows Results Summary", () => {
           cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
 
           cy.contains(`238 results`);
-          cy.task("deleteFolder", Cypress.config("downloadsFolder"));
           cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
           cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
           cy.contains("Downloading Content").should("be.visible");
 
+          //cy.task("deleteFolder", Cypress.config("downloadsFolder"));
           //cy.contains("Downloading Content").should("not.be.visible").end();
           //cy.readFile("cypress\\downloads\\AAIS.zip").should("exist");
 
