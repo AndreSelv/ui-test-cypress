@@ -1,7 +1,5 @@
 const { defineConfig } = require("cypress");
 const fs = require("fs");
-const baseConfig = require('base.json')
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor")
 const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
@@ -38,10 +36,6 @@ module.exports = defineConfig({
     async setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
 
-      await preprocessor.addCucumberPreprocessorPlugin(on, config, {
-        omitBeforeRunHandler: true
-      })
-
       on('task', {
         countFiles(folderName) {
           return new Promise((resolve, reject) => {
@@ -74,7 +68,7 @@ module.exports = defineConfig({
 
     },
     specPattern: "cypress/e2e/**/*.*",
-    baseUrl: baseConfig.baseUrl || "https://app-dev.aaiscognito.com",
+    baseUrl: "https://app-dev.aaiscognito.com",
     excludeSpecPattern: process.env.CE ? "cypress/e2e/e2e-testing" : process.env.CI ? "cypress/e2e/e2e-testing/all.cy.js" : []
   },
 

@@ -58,9 +58,7 @@
     }
   ],
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
     "aws-amplify": "^3.4.3",
-    "base.json": "^2.0.0",
     "cypress": "^12.4.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.1",
