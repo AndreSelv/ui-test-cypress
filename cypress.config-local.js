@@ -70,7 +70,7 @@ module.exports = defineConfig({
 
     }, specPattern: "cypress/e2e/**/*.*",
     baseUrl: "http://localhost:3000",
-    excludeSpecPattern: process.env.CE ? "cypress/e2e/e2e-testing" : process.env.CI ? "cypress/e2e/all.cy.js" : []
+    excludeSpecPattern: process.env.CE ? "cypress/e2e/e2e-testing" : process.env.CI ? "cypress/e2e/e2e-testing/all.cy.js" : []
   },
 
   component: {
