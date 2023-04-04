@@ -81,6 +81,22 @@ describe("Brows Results Summary", () => {
           cy.get(":nth-child(2) > .MuiInputBase-root > .MuiButtonBase-root").click({ force: true });
           cy.get(".MuiCalendarPicker-root").should("be.visible");
         });
+
+        it("validate that browser result page contains all results depends on screen resolutions", () => {
+          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseResults.json" });
+          cy.viewport(3000, 2500)
+          cy.visit("#/browse");
+          cy.get("#product-select").type("HO {downArrow}{enter}{esc}");
+          cy.get("[data-test=addState]").click();
+          cy.get("[data-test=selectIA]").click().type("{esc}");
+          cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
+          cy.contains("489 results");
+          cy.xpath(`//div[@class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"]`, { timeout: 5000 })
+            .find(`circle[class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"]`)
+            .should("be.visible");
+          cy.get(`span:contains("more")`).its("length").should("be.gte", 20);
+
+        });
       });
     });
   });

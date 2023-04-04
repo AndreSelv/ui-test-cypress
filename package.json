@@ -68,7 +68,9 @@
     "mochawesome-report-generator": "^6.2.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "cypress-parallel": "^0.12.0",
+    "cypress-xpath": "^2.0.1"
   },
   "browserslist": [
     ">0.2%",
@@ -88,8 +90,5 @@
     "hooks": {
       "pre-commit": "npm version --force --no-git-tag-version patch && git add package.json package-lock.json"
     }
-  },
-  "devDependencies": {
-    "cypress-parallel": "^0.12.0"
   }
 }

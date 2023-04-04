@@ -9,3 +9,4 @@ screenshots/
 event.json
 multi-reporter-config.json
 runner-results/
+package-lock.json
