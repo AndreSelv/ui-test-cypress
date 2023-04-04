@@ -39,7 +39,7 @@ describe("Brows Results Summary", () => {
           cy.get("[data-test=selectCO]").click().type("{esc}");
           cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
           cy.get("[data-test=browseScreenSearch]").type("IMG{enter}");
-          cy.contains("33 results");
+          cy.contains("489 results");
         });
 
         it("validate download button functionality", () => {
