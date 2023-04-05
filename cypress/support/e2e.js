@@ -17,6 +17,7 @@
 import "./commands";
 import "cypress-promise/register";
 import Amplify from "aws-amplify";
+require('cypress-xpath')
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   // returning false here prevents Cypress from failing the test

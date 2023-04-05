@@ -18,7 +18,7 @@
 #          browser: chrome
 #          record: true
 #          parallel: true
-#          parallelism: 6
+#          parallelism: 8
 #          debug: 'cypress:cli'
 #          post-install:
 #            - run: npx cypress info
