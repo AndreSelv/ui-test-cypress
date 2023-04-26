@@ -64,6 +64,17 @@ describe("Brows Results Summary", () => {
           // })
 
         });
+        it("TC4941 Validate that download modal contains download link", () => {
+          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
+          cy.visit("#/browse");
+          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}", { delay: 50 });
+          cy.get("[data-test=addState]").click();
+          cy.get("[data-test=selectIA]").click().type("{esc}");
+          cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
+          cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
+          cy.contains("Downloading Content", { timeout: 20000 }).should("be.visible");
+          cy.contains("Go To Download Page", { timeout: 40000 }).should("be.visible");
+        });
 
 
         it("validate that effective date is persist on the search filter", () => {
@@ -83,6 +94,7 @@ describe("Brows Results Summary", () => {
         });
 
         it("validate that browser result page contains all results depends on screen resolutions", () => {
+          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.viewport(3000, 2500)
           cy.visit("#/browse");
           cy.get("#product-select").type("HO {downArrow}{enter}{esc}");

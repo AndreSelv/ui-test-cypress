@@ -12,9 +12,9 @@ describe("Browse Results for Various Cards", () => {
         it("US74540 Browse Results for Various Cards", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("AGOP{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectCO]").click().type("{esc}");
+          cy.get("[data-test=selectIA]").click().type("{esc}");
           cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
           cy.get("[data-test=browseScreenSearch]").type("water{enter}");
 
@@ -25,19 +25,19 @@ describe("Browse Results for Various Cards", () => {
           testMaterialType(3, "ratingInformation", "Rating Info");
           testMaterialType(4, "supportingInformation", "Supporting Documents");
 
-          testProductLine(1, 2);
-          testProductLine(0, 1);
-          testProductLine(3, 5);
+          testProductLine(1, 3);
+          testProductLine(0, 2);
+          testProductLine(3, 1);
           testProductLine(7, 1);
           testProductLine(8, 1);
           testProductLine(9, 1);
 
-          testState(2, 1, "AGOP states");
-          testState(10, 12, "AGOP states");
-          testState(0, 2, "AGOP states");
-          testState(2, 1, "AGOP states");
-          testState(3, 1, "AGOP states");
-          testState(4, 1, "AGOP states");
+          testState(2, 43, "HO states");
+          testState(10, 48, "HO states");
+          testState(0, 48, "HO states");
+          testState(1, 49, "HO states");
+          testState(3, 41, "HO states");
+          testState(4, 51, "HO states");
 
 
           // testStatus(0, "externallyApproved", "Current");

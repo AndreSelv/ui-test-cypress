@@ -10,7 +10,7 @@
   },
   "hits": {
     "total": {
-      "value": 1,
+      "value": 3,
       "relation": "eq"
     },
     "max_score": 4.1186366,
@@ -128,6 +128,1105 @@
           "fileNames": "187933_HO99250814s.pdf, 187934_HO99250814.pdf, 187935_HO99250814.docx",
           "effectiveDate": "2014-11-01",
           "expirationDate": "9999-12-31"
+        },
+        "highlight": {
+          "text": [
+            "   BUL  Losses to the residence caused by <em>water</em> or matter present in <em>water</em> from outside the residence"
+          ]
+        }
+      },
+      {
+        "_index": "index",
+        "_type": "_doc",
+        "_id": "44352",
+        "_version": 1,
+        "_seq_no": 3949,
+        "_primary_term": 1,
+        "found": true,
+        "_source": {
+          "states": [
+            {
+              "abbreviation": "AK",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "AL",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "AR",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "AZ",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "CA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "CO",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "CT",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "DC",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "DE",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "FL",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "GA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "HI",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "IA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "ID",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "IL",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "IN",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "KS",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "KY",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "LA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MD",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "ME",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MI",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MN",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MO",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MS",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "MT",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NC",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "ND",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NE",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NH",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NJ",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NM",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NV",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "NY",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "OH",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "OK",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "OR",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "PA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "PR",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "RI",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "SC",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "SD",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "TN",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "TX",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "UT",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "VA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "VT",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "WA",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "WI",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "WV",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            },
+            {
+              "abbreviation": "WY",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31"
+            }
+          ],
+          "lobs": [
+            {
+              "abbreviation": "COP",
+              "imgClass_s": "",
+              "class": "",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31",
+              "states": [
+                {
+                  "abbreviation": "AK",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AZ",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CO",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "DC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "DE",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "FL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "GA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "HI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ID",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "KS",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "KY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "LA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MD",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ME",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MO",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MS",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ND",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NE",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NH",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NJ",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NM",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NV",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OH",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OK",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "PA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "PR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "RI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "SC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "SD",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "TN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "TX",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "UT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "VA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "VT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WV",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                }
+              ]
+            },
+            {
+              "abbreviation": "HO",
+              "imgClass_s": "",
+              "class": "",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31",
+              "states": [
+                {
+                  "abbreviation": "AK",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AZ",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CO",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "DC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "DE",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "FL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "GA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "HI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ID",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "KS",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "KY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "LA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MD",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ME",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MO",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MS",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ND",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NE",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NH",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NJ",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NM",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NV",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OH",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OK",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "PA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "PR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "RI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "SC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "SD",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "TN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "TX",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "UT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "VA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "VT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WV",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                }
+              ]
+            },
+            {
+              "abbreviation": "IMG",
+              "imgClass_s": "",
+              "class": "",
+              "effectiveDate": "2002-09-06",
+              "expirationDate": "9999-12-31",
+              "states": [
+                {
+                  "abbreviation": "AK",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "AZ",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CO",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "CT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "DC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "DE",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "FL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "GA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "HI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ID",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IL",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "IN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "KS",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "KY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "LA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MD",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ME",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MO",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MS",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "MT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "ND",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NE",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NH",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NJ",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NM",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NV",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "NY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OH",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OK",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "OR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "PA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "PR",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "RI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "SC",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "SD",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "TN",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "TX",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "UT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "VA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "VT",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WA",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WI",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WV",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                },
+                {
+                  "abbreviation": "WY",
+                  "effectiveDate": "2002-09-06",
+                  "expirationDate": "9999-12-31"
+                }
+              ]
+            }
+          ],
+          "documentNumber": "02-0332",
+          "editio÷n": "",
+          "sortableEdition": "",
+          "documentName": "AAIS State Filings Guide 09/02 Updates1.0",
+          "publicationTypeCategory": "Bulletins",
+          "publicationType": "BUL",
+          "fileNames": "40492_02-0332c.pdf, 187933_HO99250814s.pdf, 187934_HO99250814.pdf, 187935_HO99250814.docx",
+          "version": "",
+          "publicationName": "AAIS State Filings Guide 09/02 Updates",
+          "edition": "",
+          "expirationDate": "9999-12-31",
+          "effectiveDate": "2002-09-06"
         },
         "highlight": {
           "text": [
