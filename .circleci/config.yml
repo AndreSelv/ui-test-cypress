@@ -66,7 +66,7 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          command: CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report
+#          command: CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report
           requires:
             - cypress/install
           name: Browse
@@ -75,6 +75,7 @@ workflows:
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
+          config: cypress.config-dev.js
           post-install:
             - run: npx cypress info
           store_artifacts: true
