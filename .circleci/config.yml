@@ -75,7 +75,7 @@ workflows:
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
-          config: cypress.config-dev.js
+          config: cypress.config.js
           post-install:
             - run: npx cypress info
           store_artifacts: true
