@@ -33,7 +33,7 @@ module.exports = defineConfig({
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
+    async setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
 
       on('task', {
@@ -43,6 +43,7 @@ module.exports = defineConfig({
               if (err) {
                 return reject(err)
               }
+
               resolve(files.length)
             })
           })
