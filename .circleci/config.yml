@@ -66,7 +66,7 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          cypress-command: CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report
+          command: CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report
           requires:
             - cypress/install
           name: Browse
