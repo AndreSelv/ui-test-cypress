@@ -55,7 +55,7 @@
 
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@3.1.1
+  cypress: cypress-io/cypress@2.2.0
 executors:
   browsers-chrome100-ff99-edge:
     description: Docker container with Node 16.14.2, Cypress dependencies, Chrome 100, Firefox 99, and the latest Edge
@@ -66,9 +66,9 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
+          cypress-command: CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report
           requires:
             - cypress/install
-          cypress-command: CI=1 npx cypress run --config-file cypress.config-dev.js || npm run e2e-test-report
           name: Browse
           executor: browsers-chrome100-ff99-edge
           browser: chrome
