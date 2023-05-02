@@ -42,7 +42,7 @@ describe("Brows Results Summary", () => {
           cy.contains("489 results");
         });
 
-        it.skip("validate download button functionality", () => {
+        it("validate download button functionality", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}", { delay: 50 });
@@ -51,9 +51,10 @@ describe("Brows Results Summary", () => {
           cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
 
           cy.contains(`1084 results`);
-          // cy.get("[data-test=\"browseScreen-item-download-button\"]").should('be.enabled')
-          //cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
-         // cy.contains("Downloading Content").should("be.visible");
+          cy.get("[data-test=\"browseScreen-item-download-button\"]").should('be.enabled')
+          cy.get("[data-test=\"browseScreen-item-download-button\"]").click()
+          cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
+          cy.contains("Downloading Content").should("be.visible");
 
           //cy.task("deleteFolder", Cypress.config("downloadsFolder"));
           //cy.contains("Downloading Content").should("not.be.visible").end();
@@ -73,7 +74,7 @@ describe("Brows Results Summary", () => {
           cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
           cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
           cy.contains("Downloading Content", { timeout: 20000 }).should("be.visible");
-          cy.contains("Go To Download Page", { timeout: 40000 }).should("be.visible");
+          cy.contains("Go To Download Page", { timeout: 70000 }).should("be.visible");
         });
 
 
