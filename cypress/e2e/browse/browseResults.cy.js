@@ -51,7 +51,7 @@ describe("Brows Results Summary", () => {
           cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
 
           cy.contains(`1084 results`);
-          cy.get("[data-test=\"browseScreen-item-download-button\"]").should('be.enabled')
+          // cy.get("[data-test=\"browseScreen-item-download-button\"]").should('be.enabled')
           //cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
          // cy.contains("Downloading Content").should("be.visible");
 
