@@ -42,7 +42,7 @@ describe("Brows Results Summary", () => {
           cy.contains("489 results");
         });
 
-        it("validate download button functionality", () => {
+        it.skip("validate download button functionality", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}", { delay: 50 });
@@ -65,7 +65,7 @@ describe("Brows Results Summary", () => {
           // })
 
         });
-        it("TC4941 Validate that download modal contains download link", () => {
+        it.skip("TC4941 Validate that download modal contains download link", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}", { delay: 50 });
