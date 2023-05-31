@@ -1,4 +1,4 @@
-describe.only("Browse Result Card File Piker", () => {
+describe("Browse Result Card File Piker", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
       describe(`Device: ${size}, Orientation: ${orientation}`, () => {
