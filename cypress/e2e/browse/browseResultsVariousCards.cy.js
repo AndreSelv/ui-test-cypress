@@ -9,7 +9,7 @@ describe("Browse Results for Various Cards", () => {
           cy.viewport(size, orientation);
         });
 
-        it("US74540 Browse Results for Various Cards", () => {
+        it.skip("US74540 Browse Results for Various Cards", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");

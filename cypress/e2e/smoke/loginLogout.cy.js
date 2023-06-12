@@ -15,8 +15,7 @@ describe("Login and Logout", () => {
             Cypress.env("PASSWORD")
           );
           cy.get("button").contains("Sign in").click();
-          cy.contains('Incorrect username or password.').should('not.be.visible')
-          // cy.get('[data-test="AAISlogo"]').should("be.visible");
+          cy.get('[data-test="AAISlogo"]').should("be.visible");
         });
         it("successful logout", () => {
           cy.visit("#/lines/BOP");
