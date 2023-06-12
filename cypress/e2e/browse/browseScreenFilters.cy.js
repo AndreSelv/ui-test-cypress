@@ -19,7 +19,7 @@ describe("Browse Screen: Filters", () => {
     cy.contains("No state added").should("be.visible");
   });
 
-  it.only("US73951 using browse add a product, a state and each of the package types", () => {
+  it("US73951 using browse add a product, a state and each of the package types", () => {
     cy.visit("#/browse");
 
     cy.get("#product-select").type("AGXL{downArrow}{enter}{esc}");
