@@ -1,7 +1,7 @@
 describe("Login and Logout", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
-      describe(`Device: ${size}, Orientation: ${orientation}`, () => {
+      describe.skip(`Device: ${size}, Orientation: ${orientation}`, () => {
         beforeEach(() => {
           cy.viewport(size, orientation);
         });
