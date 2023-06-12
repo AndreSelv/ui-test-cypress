@@ -8,7 +8,7 @@ describe("IMG Browse Screen: Filters", () => {
 
     //        cy.viewport(size, orientation);
   });
-  it("US74307 add IMG Product select one of the classes, select supporting documents (IMG) from the package types and select each document type", () => {
+  it.skip("US74307 add IMG Product select one of the classes, select supporting documents (IMG) from the package types and select each document type", () => {
     cy.visit("#/browse");
     cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");

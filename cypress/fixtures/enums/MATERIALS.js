@@ -15,7 +15,7 @@ const MATERIALS = [
     "Homeowners Advisory Information",
     "Homeowners Sample Endorsements",
     "Misc",
-    "Sample Disclosue Notice",
+    "Sample Disclosure Notice",
     "Sample Endorsements",
     "Schedule Coverage",
     "Underlying Insurance",

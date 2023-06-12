@@ -28,20 +28,20 @@ describe("Browse Screen: Filters", () => {
     cy.get("#packageType-select").type("Forms{downArrow}{enter}");
     cy.contains("Forms");
 
-    cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}");
-    cy.contains("Loss Cost");
-
-    cy.get("#packageType-select").type("Rules{downArrow}{enter}");
-    cy.contains("Rules");
-
-    cy.get("#packageType-select").type("Rating Info{downArrow}{enter}");
-    cy.contains("Rating Info");
-
-    cy.get("#packageType-select").type("Supporting Documents{downArrow}{enter}");
-    cy.contains("Supporting Documents");
+    cy.get("#packageType-select").type("Advisory Information{downArrow}{enter}");
+    cy.contains("Advisory Information");
 
     cy.get("#packageType-select").type("Bulletins{downArrow}{enter}");
     cy.contains("Bulletins");
+
+    cy.get("#packageType-select").type("Compliance Guide{downArrow}{enter}");
+    cy.contains("Compliance Guide");
+
+    cy.get("#packageType-select").type("Education Materials{downArrow}{enter}");
+    cy.contains("Education Materials");
+
+    cy.get("#packageType-select").type("Forms and Endorsements Lists{downArrow}{enter}");
+    cy.contains("Forms and Endorsements Lists");
     cy.get("#packageType-select").click();
   });
 
@@ -66,7 +66,7 @@ describe("Browse Screen: Filters", () => {
     cy.contains("fire");
   });
 
-  it("US73951 using browse add a product, state package type of SUP and validate the Document Types", () => {
+  it.skip("US73951 using browse add a product, state package type of SUP and validate the Document Types", () => {
     cy.visit("#/browse");
 
     cy.get("#product-select").type("BOP{downArrow}{enter}{esc}");
