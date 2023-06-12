@@ -26,42 +26,20 @@ describe("Browse Screen: Filters", () => {
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
 
-    cy.get("#packageType-select").type("Form{downArrow}{enter}");
-    cy.get(`input[type="checkbox"]`)
-      .as("checkboxes").check("Forms", { force: true });
-    cy.contains("Forms");
-    cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment').click()
+    for (let i = 1; i < MATERIALS.length; i++) {
+      const cat = MATERIALS[i][0]
 
-    cy.get("#packageType-select").type("Advisory Information{downArrow}{enter}");
-    cy.get(`input[type="checkbox"]`)
-      .as("checkboxes").check("Advisory Information", { force: true });
-    cy.contains("Advisory Information");
-    cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment').click()
-
-    cy.get("#packageType-select").type("Bulletins{downArrow}{enter}");
-    cy.get(`input[type="checkbox"]`)
-      .as("checkboxes").check("Bulletins", { force: true });
-    cy.contains("Bulletins");
-    cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment').click()
-
-    cy.get("#packageType-select").type("Compliance Guide{downArrow}{enter}");
-    cy.get(`input[type="checkbox"]`)
-      .as("checkboxes").check("Compliance Guide", { force: true });
-    cy.contains("Compliance Guide");
-    cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment').click()
-
-    cy.get("#packageType-select").type("Education Materials{downArrow}{enter}");
-    cy.get(`input[type="checkbox"]`)
-      .as("checkboxes").check("Education Materials", { force: true });
-    cy.contains("Education Materials");
-    cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment').click()
-
-    cy.get("#packageType-select").type("Forms and Endorsements Lists{downArrow}{enter}");
-    cy.get(`input[type="checkbox"]`)
-      .as("checkboxes").check("Forms and Endorsements Lists", { force: true });
-    cy.contains("Forms and Endorsements Lists");
-    cy.get("#packageType-select").click();
-    cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment').click()
+       cy.get("#packageType-select").click();
+      cy.get(`input[type="checkbox"]`)
+        .as("checkboxes").check(cat, { force: true });
+      cy.get("#packageType-select").click();
+      cy.contains(cat);
+      cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root').should("contain.text", cat)
+      cy.get("#packageType-select").click();
+      cy.get(`input[type="checkbox"]`)
+        .as("checkboxes").uncheck(cat, { force: true });
+      cy.get("#packageType-select").click();
+    }
   });
 
   it("US73951 using browse add a product, state, package type, both status options", () => {
