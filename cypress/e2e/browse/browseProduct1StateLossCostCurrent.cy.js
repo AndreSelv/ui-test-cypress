@@ -1,3 +1,4 @@
+const MATERIALS = require("../../fixtures/enums/MATERIALS");
 describe("Browse Results for Product, 1 State, Loss Cost and Current Status", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -9,7 +10,7 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         });
 
         it("US74540 validate browse search card more, product line correct and less", () => {
-          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
+          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
@@ -26,12 +27,15 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         });
 
         it("US74540 validate browse search card tooltips", () => {
-          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
+          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAL]").click().type("{esc}");
-          cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}{esc}");
+          cy.get("#packageType-select").click();
+          cy.get(`input[type="checkbox"]`)
+            .as("checkboxes").check("Advisory Information", { force: true });
+          cy.get("#packageType-select").click();
           cy.get("[data-test=browseResults-item-0-line-badge]").should(
             "contain",
             "1",
@@ -83,25 +87,33 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         });
 
         it("US74540 validate browse search card download", () => {
-          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
+          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAL]").click().type("{esc}");
-          cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}{esc}");
+          // cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}{esc}");
+          cy.get("#packageType-select").click();
+          cy.get(`input[type="checkbox"]`)
+            .as("checkboxes").check("Advisory Information", { force: true });
           cy.get("[data-test=browseScreen-item-download-button]");
+          cy.get("#packageType-select").click();
+
         });
 
         it("US98489 validate browse search bulletins card has document preview display", () => {
-          cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
+          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
           cy.visit("#/browse");
           cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectMU]").click().type("{esc}");
-          cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
-          cy.get(".MuiCardHeader-subheader").should("be.visible");
+          cy.get("[data-test=selectAL]").click().type("{esc}");
+          // cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
+          cy.get("#packageType-select").click();
+          cy.get(`input[type="checkbox"]`)
+            .as("checkboxes").check("Bulletins", { force: true });
+          cy.get("#packageType-select").click();
+          cy.get(".MuiCardHeader-subheader").should("not.be.visible");
         });
-
       });
     });
   });

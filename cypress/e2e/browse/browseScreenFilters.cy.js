@@ -27,14 +27,14 @@ describe("Browse Screen: Filters", () => {
     cy.get("[data-test=selectMU]").click().type("{esc}");
 
     for (let i = 1; i < MATERIALS.length; i++) {
-      const cat = MATERIALS[i][0]
+      const cat = MATERIALS[i][0];
 
-       cy.get("#packageType-select").click();
+      cy.get("#packageType-select").click();
       cy.get(`input[type="checkbox"]`)
         .as("checkboxes").check(cat, { force: true });
       cy.get("#packageType-select").click();
       cy.contains(cat);
-      cy.get('[data-test="packageType"] > .MuiFormControl-root > .MuiInputBase-root').should("contain.text", cat)
+      cy.get("[data-test=\"packageType\"] > .MuiFormControl-root > .MuiInputBase-root").should("contain.text", cat);
       cy.get("#packageType-select").click();
       cy.get(`input[type="checkbox"]`)
         .as("checkboxes").uncheck(cat, { force: true });
@@ -53,14 +53,17 @@ describe("Browse Screen: Filters", () => {
   });
 
   it("US73951 using browse add a product, state, package type, stats and then enter a product in the search box and validate information returns", () => {
-    cy.intercept("POST", "/assets/v1/search", { fixture: "search/manyResults.json" });
+    // cy.intercept("POST", "/assets/v1/search", { fixture: "search/manyResults.json" });
     cy.visit("#/browse");
     cy.get("#product-select").type("BOP{downArrow}{enter}{esc}");
     cy.get("[data-test=addState]").click();
-    cy.get("[data-test=selectMU]").click().type("{esc}");
-    cy.get("#packageType-select").type("Forms{downArrow}{enter}{esc}");
-    cy.get("[data-test=browseScreenSearch]").type("fire{enter}");
-    cy.contains("fire");
+    cy.get("[data-test=selectAL]").click().type("{esc}");
+    cy.get("#packageType-select").click();
+    cy.get(`input[type="checkbox"]`)
+      .as("checkboxes").check("Forms", { force: true });
+    cy.get("#packageType-select").click();
+    cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
+    cy.contains("Fire");
   });
 
   it.skip("US73951 using browse add a product, state package type of SUP and validate the Document Types", () => {
