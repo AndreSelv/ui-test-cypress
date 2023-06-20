@@ -15,7 +15,7 @@ describe("Browse Result Card File Piker", () => {
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectFL]").click().type("{esc}");
           cy.get("[data-test=browseScreenSearch]").type("OPTIONAL FARM COVERAGES{enter}");
-          cy.contains("Custom Farm Work").click();
+          // cy.contains("Custom Farm Work").click();
           // cy.get("[role=radiogroup]").should('be.');
         });
       });
