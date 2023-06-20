@@ -7,19 +7,24 @@ describe("User Snap persistence", () => {
           cy.login();
           cy.viewport(size, orientation);
         });
-        it("User snap is present", {},() => {
+        it("User snap is present", {}, () => {
           cy.visit("");
-          cy.get('us-button').should('not.exist');
+          cy.get("us-button").should("not.exist");
           cy.visit("/#/");
-          cy.get('us-button').should('exist');
+          cy.contains("Welcome").should("be.visible");
+          cy.get("us-button").should("exist");
           cy.visit("/#/browse");
-          cy.get('us-button').should('exist');
-          cy.visit("/#/search");
-          cy.get('us-button').should('exist');
+          cy.contains("Browse").should("be.visible");
+          cy.get("us-button").should("exist");
+          cy.visit("/#/faq");
+          cy.contains("Frequently Asked Questions").should("be.visible");
+          cy.get("us-button").should("exist");
           cy.visit("/#/orgs");
-          cy.get('us-button').should('exist');
+          cy.contains("Organizations").should("be.visible");
+          cy.get("us-button").should("exist");
           cy.visit("/#/users");
-          cy.get('us-button').should('exist');
+          cy.contains("All Users").should("be.visible");
+          cy.get("us-button").should("exist");
         });
       });
     });
