@@ -8,6 +8,7 @@ module.exports = defineConfig({
   env: {
     USERNAME: "testUser",
     PASSWORD: "123456vV_",
+    USERNAME1: "vasilich85+2",
     ORG: "43463811-54b2-4495-8735-4496ad190779",
     USER: "c512940c-6b1a-458f-88af-63b8f9627398",
     SIZES: ["macbook-16"],
@@ -15,7 +16,7 @@ module.exports = defineConfig({
     REACT_APP_AMPLIFY_AUTH_REGION: "us-east-1",
     REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID: "us-east-1:4c0822ae-3458-4113-ae59-877a80da7d48",
     REACT_APP_AMPLIFY_AUTH_USER_POOL_ID: "us-east-1_38HmfG1Q5",
-    REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID: "5hsh1ckjbg3a8600m2tpg28e6m"
+    REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID: "5hsh1ckjbg3a8600m2tpg28e6m",
   },
 
   reporter: "cypress-multi-reporters",
@@ -36,38 +37,38 @@ module.exports = defineConfig({
     async setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
 
-      on('task', {
+      on("task", {
         countFiles(folderName) {
           return new Promise((resolve, reject) => {
             fs.readdir(folderName, (err, files) => {
               if (err) {
-                return reject(err)
+                return reject(err);
               }
 
-              resolve(files.length)
-            })
-          })
+              resolve(files.length);
+            });
+          });
         },
-      })
+      });
 
-      on('task', {
+      on("task", {
         deleteFolder(folderName) {
-          console.log('deleting folder %s', folderName)
+          console.log("deleting folder %s", folderName);
 
           return new Promise((resolve, reject) => {
             fs.rmdir(folderName, { maxRetries: 10, recursive: true }, (err) => {
               if (err) {
-                console.error(err)
-                return reject(err)
+                console.error(err);
+                return reject(err);
               }
-              resolve(null)
-            })
-          })
+              resolve(null);
+            });
+          });
         },
-      })
+      });
     }, specPattern: "cypress/e2e/**/*.*",
     baseUrl: "https://app-dev.aaisdirect.com",
-    excludeSpecPattern: process.env.CE ? "cypress/e2e/e2e-testing" : process.env.CI ? "cypress/e2e/e2e-testing/all.cy.js" : []
+    excludeSpecPattern: process.env.CE ? "cypress/e2e/e2e-testing" : process.env.CI ? "cypress/e2e/e2e-testing/all.cy.js" : [],
   },
 
   component: {
