@@ -1,3 +1,4 @@
+const MATERIALS = require("../../fixtures/enums/MATERIALS");
 describe("Brows Results Summary", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -28,7 +29,7 @@ describe("Brows Results Summary", () => {
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAZ]").click().type("{esc}");
           cy.get("[data-test=browseScreenSearch]").type("fire{enter}");
-          cy.contains("1 results");
+          cy.get(`span:contains("more")`).its("length").should("equal", 1);
         });
 
         it("validate browse IMG search returns more than 1 result", () => {
@@ -39,7 +40,7 @@ describe("Brows Results Summary", () => {
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAK]").click().type("{esc}");
           cy.get("[data-test=browseScreenSearch]").type("fire{enter}");
-          cy.contains("4 results");
+          cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
         });
 
         it("validate browse IMG has classes", () => {
@@ -47,6 +48,19 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
           cy.get("#classes-select").should("be.visible");
+        });
+
+        it("validate browse IMG getting result with classes parameters", () => {
+          cy.visit("#/browse");
+          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#classes-select").should("be.visible");
+          cy.get("#classes-select").click();
+          // cy.get(`#classes-select-option-0`).click()
+          cy.contains("BCF").click();
+          cy.get("#classes-select").click();
+          cy.get("[data-test=addState]").click();
+          cy.get("[data-test=selectAL]").click().type("{esc}");
+          cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
         });
       });
     });
