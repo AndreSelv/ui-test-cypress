@@ -23,12 +23,12 @@ describe("Brows Results Summary", () => {
         it("validate browse search returns 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("AGXL{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("CA {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAK]").click().type("{esc}");
+          cy.get("[data-test=selectPA]").click().type("{esc}");
             cy.get("#packageType-select").click();
           cy.get(`input[type="checkbox"]`)
-            .as("checkboxes").check("General Bulletin", { force: true });
+            .as("checkboxes").check("Forms and Endorsements List", { force: true });
           cy.get("#packageType-select").click();
           cy.contains("1 results");
         });
