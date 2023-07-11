@@ -9,7 +9,7 @@ module.exports = defineConfig({
     USERNAME: "testUser",
     USERNAME1: "vasilich85+2",
     PASSWORD: "123456vV_",
-    ORG: "43463811-54b2-4495-8735-4496ad190779",
+    ORG: "e53773f4-bae5-44c5-9d61-c1f7a7eda412",
     USER: "06e9ac1b-fd4c-41b9-9b2c-779aa720fd0a",
     SIZES: ["macbook-16"],
     ORIENTATION: ["portrait"],
