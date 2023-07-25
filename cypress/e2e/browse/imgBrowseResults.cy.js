@@ -74,8 +74,8 @@ describe("Brows Results Summary", () => {
             cy.get(`input[type="checkbox"]`)
               .as("checkboxes").check([MATERIALS[i][0]], { force: true });
             cy.wrap(MATERIALS[i]).each((type) => {
-              cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
               cy.get(`input[value="${type}"]`).should("be.checked").and("have.value", type);
+              cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
             });
             cy.get(`input[type="checkbox"]`)
               .as("checkboxes").uncheck([MATERIALS[i][0]], { force: true });
