@@ -62,6 +62,26 @@ describe("Brows Results Summary", () => {
           cy.get("[data-test=selectAL]").click().type("{esc}");
           cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
         });
+        it("Validate browse IMG getting result with each Material types", () => {
+          cy.visit("#/browse");
+          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#classes-select").should("be.visible");
+          cy.get("[data-test=addState]").click();
+          cy.get("[data-test=selectAL]").click().type("{esc}");
+          for (let i = 0; i < MATERIALS.length; i++) {
+            if (MATERIALS[i][0] === "Manual Materials") continue;
+            cy.get("#packageType-select").click();
+            cy.get(`input[type="checkbox"]`)
+              .as("checkboxes").check([MATERIALS[i][0]], { force: true });
+            cy.wrap(MATERIALS[i]).each((type) => {
+              cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
+              cy.get(`input[value="${type}"]`).should("be.checked").and("have.value", type);
+            });
+            cy.get(`input[type="checkbox"]`)
+              .as("checkboxes").uncheck([MATERIALS[i][0]], { force: true });
+            cy.get("#packageType-select").click();
+          }
+        });
       });
     });
   });
