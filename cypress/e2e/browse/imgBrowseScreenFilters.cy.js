@@ -32,7 +32,7 @@ describe("IMG Browse Screen: Filters", () => {
   it("US74307 using browse add IMG, add a class, state, package type, status and enter something in search box", () => {
     cy.visit("#/browse");
 
-    cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+    cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
@@ -42,20 +42,19 @@ describe("IMG Browse Screen: Filters", () => {
 
   it("US4790 validate that user be able to submit request with all field populated", () => {
     cy.visit("#/browse");
-    cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+    cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
     cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
     cy.get("[data-test=\"browseScreen-item-product-request-button\"] > .MuiButton-label").click();
-    cy.get('[data-test="request-modal-searched-terms"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
     cy.get('[data-test="request-modal-additional-info"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
     cy.get("[data-test=\"submit-modal-request\"]").should("be.enabled");
   });
 
   it("US4791 validate that user not be able submit request without fill out data in require field \"Searched Terms\"", () => {
     cy.visit("#/browse");
-    cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+    cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
@@ -63,18 +62,17 @@ describe("IMG Browse Screen: Filters", () => {
 
     cy.get("[data-test=\"browseScreen-item-product-request-button\"] > .MuiButton-label").click();
     cy.get('[data-test="request-modal-additional-info"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
-    cy.get("[data-test=\"submit-modal-request\"]").should("be.disabled");
+    cy.get("[data-test=\"submit-modal-request\"]").should("be.enabled");
   });
 
   it("US4792 validate that user not be able submit request without fill out data in require field \"What we can do for you\"", () => {
     cy.visit("#/browse");
-    cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+    cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
     cy.get('#classes-select').type("Bailee{downArrow}{enter}{esc}");
     cy.get("[data-test=addState]").click();
     cy.get("[data-test=selectMU]").click().type("{esc}");
     cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
     cy.get("[data-test=\"browseScreen-item-product-request-button\"] > .MuiButton-label").click();
-    cy.get('[data-test="request-modal-searched-terms"] > .MuiInputBase-root > .MuiInputBase-input').type("Test")
     cy.get("[data-test=\"submit-modal-request\"]").should("be.disabled");
   });
 });

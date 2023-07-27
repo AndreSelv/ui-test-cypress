@@ -13,7 +13,7 @@ describe("Brows Results Summary", () => {
         it("validate no browse IMG search results", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/noBrowseIMGResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectMU]").click().type("{esc}");
           // cy.get("#packageType-select").type("IMS{downArrow}{enter}{esc}");
@@ -24,7 +24,7 @@ describe("Brows Results Summary", () => {
         it("validate browse IMG search returns 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseIMGResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
           // cy.get("#classes-select").type("Contractors' Equipment{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAZ]").click().type("{esc}");
@@ -35,7 +35,7 @@ describe("Brows Results Summary", () => {
         it("validate browse IMG search returns more than 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseIMGResults.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
           // cy.get("#classes-select").type("Contractors' Equipment{downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAK]").click().type("{esc}");
@@ -46,13 +46,13 @@ describe("Brows Results Summary", () => {
         it("validate browse IMG has classes", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseIMGResults.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
           cy.get("#classes-select").should("be.visible");
         });
 
         it("validate browse IMG getting result with classes parameters", () => {
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
           cy.get("#classes-select").should("be.visible");
           cy.get("#classes-select").click();
           // cy.get(`#classes-select-option-0`).click()
@@ -64,7 +64,7 @@ describe("Brows Results Summary", () => {
         });
         it("Validate browse IMG getting result with each Material types", () => {
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
           cy.get("#classes-select").should("be.visible");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectAL]").click().type("{esc}");

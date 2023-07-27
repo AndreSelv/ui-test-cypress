@@ -12,7 +12,7 @@ describe("Brows Results Summary", () => {
         it("validate no browse each results", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/noBrowseResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("YT{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("YT - {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectCO]").click().type("{esc}");
           // cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}{esc}");
@@ -23,7 +23,7 @@ describe("Brows Results Summary", () => {
         it("validate browse search returns 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("CA {downArrow}{enter}{esc}");
+          cy.get("#product-select").type("CA - {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectPA]").click().type("{esc}");
             cy.get("#packageType-select").click();
@@ -36,7 +36,7 @@ describe("Brows Results Summary", () => {
         it("validate browse search returns more than 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseResults.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("YT{downArrow}{enter}{esc}");
+          cy.get("#product-select").type("YT - {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectCO]").click().type("{esc}");
           cy.get("[data-test=browseScreenSearch]").type("IMG{enter}");
@@ -99,7 +99,7 @@ describe("Brows Results Summary", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.viewport(3000, 2500);
           cy.visit("#/browse");
-          cy.get("#product-select").type("HO {downArrow}{enter}{esc}");
+          cy.get("#product-select").type("HO - {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectIA]").click().type("{esc}");
           cy.get(`span:contains("more")`).its("length").should("be.gte", 60);
