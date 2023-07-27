@@ -6,7 +6,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
   it("Validate positive request to Hubspot with all required data ", () => {
     cy.visit("#/browse");
-    cy.get("#product-select").type("IMG{downArrow}{enter}{esc}");
+    cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
     cy.get("#classes-select").should("be.visible");
     cy.get("#classes-select").click();
     cy.contains("BCF").click();
@@ -17,8 +17,8 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get(`input[type="checkbox"]`)
       .as("checkboxes").check(["Forms", "IMG Publications"], { force: true });
     cy.get("#packageType-select").click();
-    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023");
-    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013");
+    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023", { force: true });
+    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013",{ force: true });
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
     cy.get("[data-test=\"browseScreen-item-product-request-button\"]").click();
     cy.get("[data-test=\"request-modal-additional-info\"]").type("Test");
@@ -54,7 +54,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.visit("#/browse");
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
-    cy.get("#product-select").type("AGGL{downArrow}{enter}{esc}");
+    cy.get("#product-select").type("AGGL - {downArrow}{enter}{esc}");
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     cy.get("#packageType-select").click();
@@ -63,9 +63,9 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get("#packageType-select").click();
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
-    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023");
+    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023",{ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013");
+    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013",{ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
