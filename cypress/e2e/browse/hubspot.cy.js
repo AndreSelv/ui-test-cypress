@@ -22,14 +22,14 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
     //Select effective date
     cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click({force:true})
-    cy.get(':nth-child(5) > :nth-child(4) > .MuiButtonBase-root').click()
+    cy.get(':nth-child(5) > :nth-child(4) > .MuiButtonBase-root').click({force:true})
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     //Select oldest date
-    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click()
-    cy.get('.css-1v994a0').click()
-    cy.get(':nth-child(114) > .PrivatePickersYear-yearButton').click()
-    cy.get(':nth-child(4) > :nth-child(6) > .MuiButtonBase-root').click()
+    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true})
+    cy.get('.css-1v994a0').click({force:true})
+    cy.get(':nth-child(114) > .PrivatePickersYear-yearButton').click({force:true})
+    cy.get(':nth-child(4) > :nth-child(6) > .MuiButtonBase-root').click({force:true})
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
     cy.get("[data-test=\"browseScreen-item-product-request-button\"]").click();
     cy.get("[data-test=\"request-modal-additional-info\"]").type("Test");
@@ -77,15 +77,15 @@ describe("Validate User Interface Hubspot functionalities", () => {
     // cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2023",{ force: true });
     //Select effective date
     cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click({force:true})
-    cy.get(':nth-child(5) > :nth-child(4) > .MuiButtonBase-root').click()
+    cy.get(':nth-child(5) > :nth-child(4) > .MuiButtonBase-root').click({force:true})
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     // cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2013",{ force: true });
     //Select oldest date
-    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click()
-    cy.get('.css-1v994a0').click()
-    cy.get(':nth-child(114) > .PrivatePickersYear-yearButton').click()
-    cy.get(':nth-child(4) > :nth-child(6) > .MuiButtonBase-root').click()
+    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true})
+    cy.get('.css-1v994a0').click({force:true})
+    cy.get(':nth-child(114) > .PrivatePickersYear-yearButton').click({force:true})
+    cy.get(':nth-child(4) > :nth-child(6) > .MuiButtonBase-root').click({force:true})
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
