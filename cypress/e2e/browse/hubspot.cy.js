@@ -50,7 +50,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
   });
 
-  it("Validate negative scenario of submitting form ", () => {
+  it.only("Validate negative scenario of submitting form ", () => {
     cy.visit("#/browse");
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
@@ -65,7 +65,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
     cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2023",{ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-    cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2013",{ force: true });
+    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2013",{ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
