@@ -17,8 +17,8 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get(`input[type="checkbox"]`)
       .as("checkboxes").check(["Forms", "IMG Publications"], { force: true });
     cy.get("#packageType-select").click();
-    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023", { force: true });
-    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013",{ force: true });
+    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023", {force: false});
+    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013", {force: false});
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
     cy.get("[data-test=\"browseScreen-item-product-request-button\"]").click();
     cy.get("[data-test=\"request-modal-additional-info\"]").type("Test");
@@ -63,9 +63,9 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get("#packageType-select").click();
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
-    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023",{ force: true });
+    cy.get(".css-j7qwjs > :nth-child(1)").click().type("07/26/2023",{ force: false });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013",{ force: true });
+    cy.get(".css-j7qwjs > :nth-child(2)").click().type("07/26/2013",{ force: false });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
