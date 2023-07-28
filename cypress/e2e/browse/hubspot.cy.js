@@ -27,7 +27,8 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
     //Select oldest date
     cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true})
-    cy.get('.css-1v994a0').click({force:true})
+    cy.wait(1000)
+    cy.get('.css-l0iinn').click({force:true})
     cy.get(':nth-child(114) > .PrivatePickersYear-yearButton').click({force:true})
     cy.get(':nth-child(4) > :nth-child(6) > .MuiButtonBase-root').click({force:true})
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
@@ -83,7 +84,8 @@ describe("Validate User Interface Hubspot functionalities", () => {
     // cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2013",{ force: true });
     //Select oldest date
     cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true})
-    cy.get('.css-1v994a0').click({force:true})
+    cy.wait(1000)
+    cy.get('.css-l0iinn').click({force:true})
     cy.get(':nth-child(114) > .PrivatePickersYear-yearButton').click({force:true})
     cy.get(':nth-child(4) > :nth-child(6) > .MuiButtonBase-root').click({force:true})
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
