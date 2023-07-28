@@ -24,7 +24,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get(".css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input").click({ force: true });
     cy.get(":nth-child(5) > :nth-child(4) > .MuiButtonBase-root").dblclick({ force: true });
 
-    cy.get("[data-test=browseScreenSearch]").click({ force: true }).type("Fire{enter}");
+    cy.get("[data-test=browseScreenSearch]").click({ force: true }).type("Fire{enter}", { force: true });
     cy.get("[data-test=\"browseScreen-item-product-request-button\"]").click({ force: true });
     cy.get("[data-test=\"request-modal-additional-info\"]").type("Test");
     cy.get("[data-test=\"submit-modal-request\"]").should("be.enabled").click({ force: true });
@@ -76,7 +76,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
     // cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2013",{ force: true });
 
-    cy.get("[data-test=browseScreenSearch]").click({ force: true }).type("Fire{enter}");
+    cy.get("[data-test=browseScreenSearch]").click({ force: true }).type("Fire{enter}", { force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
   });
 
