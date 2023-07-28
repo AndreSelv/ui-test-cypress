@@ -63,9 +63,9 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get("#packageType-select").click();
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
-    cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2023",{ force: true });
+    cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2023",{ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2013",{ force: true });
+    cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2013",{ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
 
     cy.get("[data-test=browseScreenSearch]").type("Fire{enter}");
