@@ -17,15 +17,10 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get(`input[type="checkbox"]`)
       .as("checkboxes").check(["Forms", "IMG Publications"], { force: true });
     cy.get("#packageType-select").click();
-    // cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2023",{ force: true });
-    // cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click().type("07/26/2013",{ force: true });
     cy.get("[data-test=browseScreenSearch]").click({ force: true }).type("Fire{enter}");
-
-
     //Select effective date
     cy.get(".css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input").click({ force: true });
     cy.get(":nth-child(5) > :nth-child(4) > .MuiButtonBase-root").dblclick({ force: true });
-
     cy.get("[data-test=\"browseScreen-item-product-request-button\"]").click({ force: true });
     cy.wait(1000)
     cy.get('textarea[placeholder="What can we do for you?"]').type("Some Information", {force:true});
@@ -60,25 +55,18 @@ describe("Validate User Interface Hubspot functionalities", () => {
   it("Validate negative scenario of submitting form ", () => {
     cy.visit("#/browse");
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-
     cy.get("#product-select").type("AGGL - {downArrow}{enter}{esc}");
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-
     cy.get("#packageType-select").click();
     cy.get(`input[type="checkbox"]`)
       .as("checkboxes").check(["Forms", "IMG Publications"], { force: true });
     cy.get("#packageType-select").click();
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
     cy.get("[data-test=browseScreenSearch]").click({ force: true }).type("Fire{enter}");
-
-    // cy.get('.css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2023",{ force: true });
     //Select effective date
     cy.get(".css-j7qwjs > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input").click({ force: true });
     cy.get(":nth-child(5) > :nth-child(4) > .MuiButtonBase-root").dblclick({ force: true });
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
-
-    // cy.get('.css-j7qwjs > :nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').click({force:true}).type("07/26/2013",{ force: true });
-
     cy.get(".MuiGrid-grid-md-9").should("not.contain.text", "Not what you were looking for?");
   });
 
