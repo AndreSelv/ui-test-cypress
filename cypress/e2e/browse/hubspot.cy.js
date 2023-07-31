@@ -27,7 +27,8 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get(":nth-child(5) > :nth-child(4) > .MuiButtonBase-root").dblclick({ force: true });
 
     cy.get("[data-test=\"browseScreen-item-product-request-button\"]").click({ force: true });
-    cy.get("[data-test=\"request-modal-additional-info\"]").type("Test");
+    cy.wait(1000)
+    cy.get("[data-test=\"request-modal-additional-info\"]").type("Some Information");
     cy.get("[data-test=\"submit-modal-request\"]").should("be.enabled").click({ force: true });
     cy.get("#alert-dialog-description").should("include.text", "Your request was submitted. One of our product managers will contact you soon.");
   });
