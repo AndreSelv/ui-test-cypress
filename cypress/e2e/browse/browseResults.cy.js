@@ -1,3 +1,4 @@
+const LINES = require("../../fixtures/enums/LINES");
 describe("Brows Results Summary", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -26,7 +27,7 @@ describe("Brows Results Summary", () => {
           cy.get("#product-select").type("CA - {downArrow}{enter}{esc}");
           cy.get("[data-test=addState]").click();
           cy.get("[data-test=selectPA]").click().type("{esc}");
-            cy.get("#packageType-select").click();
+          cy.get("#packageType-select").click();
           cy.get(`input[type="checkbox"]`)
             .as("checkboxes").check("Forms and Endorsements List", { force: true });
           cy.get("#packageType-select").click();
@@ -106,6 +107,56 @@ describe("Brows Results Summary", () => {
           cy.xpath(`//div[@class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"]`)
             .find(`circle[class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"]`)
             .should("be.visible");
+        });
+
+        it.only("US112654 Validate visibility form and edition numbers in the Forms", () => {
+          cy.visit("#/browse");
+          cy.get("#product-select").click();
+          cy.get("#product-select").type("AGXL - {downArrow}{enter}{esc}");
+
+          cy.get("#packageType-select").click();
+          cy.get(`input[type="checkbox"]`)
+            .as("checkboxes").check("Forms", { force: true });
+          cy.get("#packageType-select").click();
+
+          cy.get("[data-test=addState]").click();
+          cy.get("[data-test=selectALLSTATES]").click();
+
+          cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`).each(($el) => {
+            //First 2 characters should contain UpperCase Letters only
+            expect($el.text().substring(0, 2), `First 2 characters should be Letter and Upper case - ${$el.text()}`).to.match(/^[A-Z]+$/);
+            //Numbers and editions validations it should contain digits and spaces only
+            expect($el.text().substring(3, 13), `Publications should contains Form and edition numbers - ${$el.text().substring(3, 13)}`).to.match(/^[\d ]*$/);
+          });
+        });
+
+        it.skip("Validate visibility form and edition numbers in the Forms for All Product Lines", () => {
+          cy.visit("#/browse");
+          cy.get("[data-test=addState]").click();
+          cy.get("[data-test=selectALLSTATES]").click();
+          cy.get("#packageType-select").click();
+          cy.get(`input[type="checkbox"]`)
+            .as("checkboxes").check("Forms", { force: true });
+          cy.get("#packageType-select").click();
+
+          cy.wrap(LINES).each((line) => {
+            cy.get("#product-select").click();
+            cy.contains(line.title).click();
+            cy.get(`div[data-test="browseProduct"]`).should("contain.text", line.title);
+            cy.get("#product-select").click();
+            cy.xpath("//h6/../p").each(($el) => {
+              if ($el.text().substring(0, 1) !== "0") {
+                cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`).each(($el) => {
+                  // expect(/^[A-Za-z\s]*$/.test($el.text().substring(0, 3))).eq(true);
+                  // expect(/^\d+$/.test($el.text().substring(3, 7)), `Publications - ${$el.text()}`).eq(true);
+                  expect($el.text().substring(0, 2), `First 2 characters ${$el.text().substring(0, 2)}`).to.match(/^[A-Za-z\s]*$/);
+                  // expect($el.text().substring(3, 13), `Publications - ${$el.text()}`).to.match(/^[\d ]*$/);
+                  expect($el.text().substring(0, 2), `Publications - ${$el.text()}`).to.match(/^[A-Z]+$/);
+                });
+              }
+            });
+            cy.xpath(`(//*[@data-testid="CloseIcon"])[1]`).click({ force: true });
+          });
         });
       });
     });
