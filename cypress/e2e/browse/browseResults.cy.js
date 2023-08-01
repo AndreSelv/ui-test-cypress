@@ -109,7 +109,7 @@ describe("Brows Results Summary", () => {
             .should("be.visible");
         });
 
-        it.only("US112654 Validate visibility form and edition numbers in the Forms", () => {
+        it("US112654 Validate visibility form and edition numbers in the Forms", () => {
           cy.visit("#/browse");
           cy.get("#product-select").click();
           cy.get("#product-select").type("AGXL - {downArrow}{enter}{esc}");
