@@ -19,7 +19,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.get(":nth-child(5) > :nth-child(4) > .MuiButtonBase-root").dblclick({ force: true });
     browsePage.getProductRequestButton().click({ force: true });
     cy.wait(1000);
-    browsePage.getWhatWeCanDoForYouButton().type("Some Information", { force: true });
+    browsePage.getAdditionalInfoButton().type("Some Information", { force: true });
     browsePage.getSubmitModalRequestButton().click({ force: true });
     browsePage.getAlertDialogDescription().should("include.text", "Your request was submitted. One of our product managers will contact you soon.");
     browsePage.getKeepBrowsingProductButton().click();
@@ -35,7 +35,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.selectState("CA");
     browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.getProductRequestButton().should("be.visible").click();
-    browsePage.getWhatWeCanDoForYouButton().type("Test");
+    browsePage.getAdditionalInfoButton().type("Test");
     browsePage.getSubmitModalRequestButton().should("be.enabled").click();
     browsePage.getAlertDialogDescription().should("include.text", "Your request was submitted. One of our product managers will contact you soon.");
     browsePage.getKeepBrowsingProductButton().click();

@@ -60,25 +60,24 @@ class BrowsePage {
     return cy.get(`[data-test="browseScreen-item-product-request-button"]`);
   }
 
-  getWhatWeCanDoForYouButton() {
+  getAdditionalInfoButton() {
     return cy.get(`textarea[placeholder="What can we do for you?"]`);
   }
 
   getSubmitModalRequestButton() {
-    cy.get(`[data-test="submit-modal-request"]`).should("be.enabled");
     return cy.get(`[data-test="submit-modal-request"]`);
   }
 
-  getAlertDialogDescription(){
-    return cy.get("#alert-dialog-description")
+  getAlertDialogDescription() {
+    return cy.get("#alert-dialog-description");
   }
 
-  getKeepBrowsingProductButton(){
-    return cy.get('[data-test="keep-browsing-products"]')
+  getKeepBrowsingProductButton() {
+    return cy.get("[data-test=\"keep-browsing-products\"]");
   }
 
-  getBrowseSearchResultSection(){
-    return cy.get(".MuiGrid-grid-md-9")
+  getBrowseSearchResultSection() {
+    return cy.get(".MuiGrid-grid-md-9");
   }
 
   selectProduct(product) {
@@ -109,17 +108,26 @@ class BrowsePage {
     return cy.get(`[data-test=browseResults-item-${number}-state-tooltip]`);
   }
 
+  getAllCheckBox(){
+    return cy.get(`input[type="checkbox"]`)
+  }
+
+  getFilesRadioButtonSection(){
+    return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..")
+  }
+
+
 
   selectMaterialType(type) {
     this.getMaterial().click();
-    cy.get(`input[type="checkbox"]`)
+    this.getAllCheckBox()
       .as("checkboxes").check(type, { force: true });
     this.getMaterial().click();
   }
 
   unSelectMaterialType(type) {
     this.getMaterial().click();
-    cy.get(`input[type="checkbox"]`)
+    this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
     this.getMaterial().click();
   }
@@ -147,6 +155,10 @@ class BrowsePage {
 
   publicationsShouldBeGreaterThen(value = 20) {
     this.getListOfPublications().its("length").should("be.gte", value);
+  }
+
+  publicationsShouldBeEqual(value = 0) {
+    this.getListOfPublications().its("length").should("equal", value);
   }
 
   circleShouldBeVisible() {
