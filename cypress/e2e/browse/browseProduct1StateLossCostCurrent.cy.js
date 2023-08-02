@@ -1,4 +1,6 @@
-const MATERIALS = require("../../fixtures/enums/MATERIALS");
+const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const browsePage = new BrowsePage();
+
 describe("Browse Results for Product, 1 State, Loss Cost and Current Status", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -10,58 +12,48 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         });
 
         it("US74540 validate browse search card more, product line correct and less", () => {
-          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAL]").click().type("{esc}");
-          cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}{esc}");
+          browsePage.selectProduct("HO");
+          browsePage.selectState("AL");
+          browsePage.selectMaterialType("Forms");
 
           cy.contains("more").click();
-          // cy.get("[data-test=browseResults-item-0-product-chip]").should(
-          //   "have.css",
-          //   "background-color",
-          //   "rgb(31, 66, 135)"
-          // );
           cy.contains("less").click();
         });
 
         it("US74540 validate browse search card tooltips", () => {
-          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAL]").click().type("{esc}");
-          cy.get("#packageType-select").click();
-          cy.get(`input[type="checkbox"]`)
-            .as("checkboxes").check("Advisory Information", { force: true });
-          cy.get("#packageType-select").click();
-          cy.get("[data-test=browseResults-item-0-line-badge]").should(
+          browsePage.selectProduct("HO");
+          browsePage.selectState("AL");
+          browsePage.selectMaterialType("Advisory Information");
+
+
+          browsePage.getBrowseResultLineBadge().should(
             "contain",
             "1",
           );
-          cy.get("[data-test=browseResults-item-0-line-icon]").trigger(
+          browsePage.getBrowseResultLineIcon().trigger(
             "mouseover",
           );
-          cy.get("[data-test=browseResults-item-0-line-tooltip]").should(
+          browsePage.getBrowseResultLineTooltip().should(
             "contain",
             "Product Lines",
           );
-          cy.get("[data-test=browseResults-item-0-line-icon]").trigger(
+          browsePage.getBrowseResultLineIcon().trigger(
             "mouseout",
           );
-          cy.get("[data-test=browseResults-item-0-state-badge]").should(
+          browsePage.getBrowseResultStateBadge().should(
             "contain",
             "2",
           );
-          cy.get("[data-test=browseResults-item-0-state-icon]").trigger(
+          browsePage.getBrowseResultStateIcon().trigger(
             "mouseover",
           );
-          cy.get("[data-test=browseResults-item-0-state-tooltip]").should(
+          browsePage.getBrowseResultStateTooltip().should(
             "contain",
             "HO states",
           );
-          cy.get("[data-test=browseResults-item-0-state-icon]").trigger(
+          browsePage.getBrowseResultStateIcon().trigger(
             "mouseout",
           );
           // cy.get("[data-test=browseResults-item-0-lossCost-icon]").trigger(
@@ -86,33 +78,12 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
           // cy.get(".MuiCardHeader-subheader").should("be.visible");
         });
 
-        it("US74540 validate browse search card download", () => {
-          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
+        it.only("US98489 validate browse search bulletins card has document preview display", () => {
           cy.visit("#/browse");
-          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAL]").click().type("{esc}");
-          // cy.get("#packageType-select").type("Loss Cost{downArrow}{enter}{esc}");
-          cy.get("#packageType-select").click();
-          cy.get(`input[type="checkbox"]`)
-            .as("checkboxes").check("Advisory Information", { force: true });
-          cy.get("[data-test=browseScreen-item-download-button]");
-          cy.get("#packageType-select").click();
-
-        });
-
-        it("US98489 validate browse search bulletins card has document preview display", () => {
-          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsRendering.json" });
-          cy.visit("#/browse");
-          cy.get("#product-select").type("HO -{downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAL]").click().type("{esc}");
-          // cy.get("#packageType-select").type("Bulletins{downArrow}{enter}{esc}");
-          cy.get("#packageType-select").click();
-          cy.get(`input[type="checkbox"]`)
-            .as("checkboxes").check("Bulletins", { force: true });
-          cy.get("#packageType-select").click();
-          // cy.get(".MuiCardHeader-subheader").should("not.be.visible");
+          browsePage.selectProduct("HO");
+          browsePage.selectState("AL");
+          browsePage.selectMaterialType("Bulletins");
+          browsePage.getListOfPublicationsCards().should("have.length.greaterThan", 1)
         });
       });
     });

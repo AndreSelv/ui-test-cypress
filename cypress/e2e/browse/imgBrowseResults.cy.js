@@ -1,4 +1,6 @@
 const MATERIALS = require("../../fixtures/enums/MATERIALS");
+const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const browsePage = new BrowsePage();
 describe("Brows Results Summary", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -13,73 +15,60 @@ describe("Brows Results Summary", () => {
         it("validate no browse IMG search results", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/noBrowseIMGResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectMU]").click().type("{esc}");
-          // cy.get("#packageType-select").type("IMS{downArrow}{enter}{esc}");
-          cy.get("[data-test=browseScreenSearch]").type("firee{enter}");
+          browsePage.selectProduct("IMG");
+          browsePage.selectState("MU");
+          browsePage.typeSearch("firee");
           cy.contains("0 results");
         });
 
         it("validate browse IMG search returns 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseIMGResult.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
-          // cy.get("#classes-select").type("Contractors' Equipment{downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAZ]").click().type("{esc}");
-          cy.get("[data-test=browseScreenSearch]").type("fire{enter}");
-          cy.get(`span:contains("more")`).its("length").should("equal", 1);
+          browsePage.selectProduct("IMG");
+          browsePage.selectState("AZ");
+          browsePage.typeSearch("fire");
+          browsePage.publicationsShouldBeEqual(1);
         });
 
         it("validate browse IMG search returns more than 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseIMGResults.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
-          // cy.get("#classes-select").type("Contractors' Equipment{downArrow}{enter}{esc}");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAK]").click().type("{esc}");
-          cy.get("[data-test=browseScreenSearch]").type("fire{enter}");
-          cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
+          browsePage.selectProduct("IMG");
+          browsePage.selectState("AK");
+          browsePage.typeSearch("fire");
+          browsePage.publicationsShouldBeGreaterThen(1);
         });
 
         it("validate browse IMG has classes", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseIMGResults.json" });
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
-          cy.get("#classes-select").should("be.visible");
+          browsePage.selectProduct("IMG");
+          browsePage.getClasses().should("be.visible");
         });
 
         it("validate browse IMG getting result with classes parameters", () => {
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
-          cy.get("#classes-select").should("be.visible");
-          cy.get("#classes-select").click();
-          // cy.get(`#classes-select-option-0`).click()
-          cy.contains("BCF").click();
-          cy.get("#classes-select").click();
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAL]").click().type("{esc}");
-          cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
+          browsePage.selectProduct("IMG");
+          browsePage.selectClass("BCF");
+          browsePage.selectState("AL");
+          browsePage.publicationsShouldBeGreaterThen(1);
         });
         it("Validate browse IMG getting result with each Material types", () => {
           cy.visit("#/browse");
-          cy.get("#product-select").type("IMG - {downArrow}{enter}{esc}");
-          cy.get("#classes-select").should("be.visible");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectAL]").click().type("{esc}");
+          browsePage.selectProduct("IMG");
+          browsePage.selectState("AL");
           for (let i = 0; i < MATERIALS.length; i++) {
             if (MATERIALS[i][0] === "Manual Materials") continue;
-            cy.get("#packageType-select").click();
-            cy.get(`input[type="checkbox"]`)
+            browsePage.getMaterial().click();
+            browsePage.getAllCheckBox()
               .as("checkboxes").check([MATERIALS[i][0]], { force: true });
             cy.wrap(MATERIALS[i]).each((type) => {
               cy.get(`input[value="${type}"]`).should("be.checked").and("have.value", type);
-              cy.get(`span:contains("more")`).its("length").should("be.gte", 1);
+              browsePage.publicationsShouldBeGreaterThen(1);
             });
-            cy.get(`input[type="checkbox"]`)
+            browsePage.getAllCheckBox()
               .as("checkboxes").uncheck([MATERIALS[i][0]], { force: true });
-            cy.get("#packageType-select").click();
+            browsePage.getMaterial().click();
           }
         });
       });

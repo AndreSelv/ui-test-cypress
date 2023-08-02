@@ -1,25 +1,26 @@
 const LINES = require("../../fixtures/enums/LINES");
+const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const browsePage = new BrowsePage();
 describe("Product Lines persistence", () => {
   beforeEach(() => {
     cy.initAmplify();
     cy.login();
     cy.visit("#/browse");
-    cy.get("#product-select").click();
-
+    browsePage.getProduct().click()
   });
 
   it("Validate ALL Lines check box functionality", () => {
     cy.wrap(LINES).each((line) => {
-      cy.contains(line.title).click();
-      cy.get(`div[data-test="browseProduct"]`).should("contain.text", line.title);
+      browsePage.selectProduct(line.key)
+      browsePage.getProductSection().should("contain.text", line.title)
     });
   });
 
   it("Validate EACH Lines check box functionality", () => {
     cy.wrap(LINES).each((line) => {
-      cy.contains(line.title).click();
-      cy.get(`div[data-test="browseProduct"]`).should("contain.text", line.title);
-      cy.get("[data-testid=\"CancelIcon\"]").click();
+      browsePage.selectProduct(line.key)
+      browsePage.getProductSection().should("contain.text", line.title)
+      browsePage.getCloseProductsButton().click()
     });
   });
 });
