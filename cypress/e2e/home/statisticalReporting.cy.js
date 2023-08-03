@@ -1,3 +1,5 @@
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Home screen: Browse All Products card", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -16,7 +18,7 @@ describe("Home screen: Browse All Products card", () => {
 
         it("Validate that Statistical Report link persist on the home page", () => {
           cy.visit("/#");
-          cy.contains("Statistical Reporting (BETA)").should(
+          homePage.getStatisticalReporting().should(
             "have.attr",
             "href",
             "#/data",
@@ -25,7 +27,7 @@ describe("Home screen: Browse All Products card", () => {
 
         it("Validate that Wildfire Resource Center link persist on the home page", () => {
           cy.visit("/#");
-          cy.contains("Wildfire Resource Center").should(
+          homePage.getWildLifeRecourseCenter().should(
             "have.attr",
             "href",
             "#/risk",
