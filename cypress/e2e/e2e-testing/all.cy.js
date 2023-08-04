@@ -5,6 +5,10 @@ import '../browse/browseResultsVariousCards.cy'
 import '../browse/browseScreenFilters.cy'
 import '../browse/imgBrowseResults.cy'
 import '../browse/imgBrowseScreenFilters.cy'
+import '../browse/hubspot.cy'
+import '../browse/LinesValidation.cy'
+import '../browse/materialTypeCheckBoxValidation.cy'
+import '../browse/resultCardFilePicker.cy'
 
 //data
 import '../data/buckets/bucketPage.cy'
