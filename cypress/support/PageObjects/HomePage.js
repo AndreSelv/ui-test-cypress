@@ -4,6 +4,29 @@ class HomePage {
     return cy.contains("Browse All AAIS Products");
   }
 
+  getNavBarMenu(){
+    return cy.get(`[data-test=navBarMenu]`)
+  }
+
+  getFooterContactLink(){
+    return cy.contains("Contact")
+  }
+
+  getFooterLegalLink(){
+    return cy.contains("Legal")
+  }
+  getFooterAAISOnlineLink(){
+    return cy.contains("AAISonline")
+  }
+
+  getAAISLogo(){
+    return cy.get("[data-test=AAISlogo]")
+  }
+
+  getNavBarSearch(){
+    return cy.get("[data-test=navBarSearch]")
+  }
+
   getMyRecentProductsSection() {
     return cy.contains("My Recent Products");
   }

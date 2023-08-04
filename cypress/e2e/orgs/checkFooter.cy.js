@@ -1,3 +1,5 @@
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Check Links in the Footer", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -13,7 +15,7 @@ describe("Check Links in the Footer", () => {
           cy.visit("/#");
 
           // TODO: Add data-test = footer
-          cy.contains("Contact").should(
+          homePage.getFooterContactLink().should(
             "have.attr",
             "href",
             "mailto:membership@aaisonline.com"
@@ -29,7 +31,7 @@ describe("Check Links in the Footer", () => {
         it("Check the 'Legal' Link", () => {
           cy.visit("/#");
 
-          cy.contains("Legal").should(
+          homePage.getFooterLegalLink().should(
             "have.attr",
             "href",
             "https://www.aaisonline.com/en/terms-of-use"
@@ -39,7 +41,7 @@ describe("Check Links in the Footer", () => {
         it("Check the 'AAISonline' Link", () => {
           cy.visit("/#");
 
-          cy.contains("AAISonline").should(
+          homePage.getFooterAAISOnlineLink().should(
             "have.attr",
             "href",
             "https://www.aaisonline.com"

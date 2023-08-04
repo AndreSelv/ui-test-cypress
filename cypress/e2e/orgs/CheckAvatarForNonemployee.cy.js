@@ -1,5 +1,6 @@
 // The commented code responds to story US99853
-
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Check Avatar Menus for Non Employee", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -16,12 +17,12 @@ describe("Check Avatar Menus for Non Employee", () => {
         });
 
         it("Check Notification Link doe not exist", () => {
-          cy.get("[data-test=navBarMenu]")
+          homePage.getNavBarMenu()
             .should("not.have.attr", "href", "#/notifications");
         });
 
         it("Check My Profile Link", () => {
-          cy.get("[data-test=navBarMenu]");
+          homePage.getNavBarMenu();
           cy.contains("My Profile")
             .should(
               "have.attr",
@@ -31,20 +32,23 @@ describe("Check Avatar Menus for Non Employee", () => {
         });
 
         it("Check Orgs Link", () => {
-          cy.get("[data-test=navBarMenu]")
+          homePage.getNavBarMenu()
             .contains("Orgs")
             .should("have.attr", "href", "#/orgs");
         });
 
         it("Check Sign Out Link", () => {
-          cy.get("[data-test=navBarMenu]").contains("Sign Out").click();
+          homePage.getNavBarMenu()
+            .contains("Sign Out").click();
           cy.contains("Sign in");
         });
 
         it("Check Hide Links", () => {
-          cy.get("[data-test=navBarMenu]").should("not.contain", "Employees");
+          homePage.getNavBarMenu()
+            .should("not.contain", "Employees");
 
-          cy.get("[data-test=navBarMenu]").should("not.contain", "All Users");
+          homePage.getNavBarMenu()
+            .should("not.contain", "All Users");
         });
       });
     });

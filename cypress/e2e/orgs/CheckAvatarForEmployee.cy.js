@@ -1,5 +1,6 @@
 // The commented code responds to story US99853
-
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Check Avatar Menus for Employee", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -15,47 +16,47 @@ describe("Check Avatar Menus for Employee", () => {
           cy.get("[data-test=navBarAvatar]").click();
           cy.viewport(size, orientation);
         })
-          ;
+        ;
 
-          it("Check Notification Link does not exist", () => {
-            cy.get("[data-test=navBarMenu]")
-              .should("not.have.attr", "href", "#/notifications");
-          });
+        it("Check Notification Link does not exist", () => {
+          homePage.getNavBarMenu()
+            .should("not.have.attr", "href", "#/notifications");
+        });
 
-          it("Check My Profile Link", () => {
-            cy.get("[data-test=navBarMenu]");
-            cy.contains("My Profile")
-              .should(
-                "have.attr",
-                "href",
-                `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0b`,
-              );
-          });
+        it("Check My Profile Link", () => {
+          homePage.getNavBarMenu();
+          cy.contains("My Profile")
+            .should(
+              "have.attr",
+              "href",
+              `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0b`,
+            );
+        });
 
-          it("Check Orgs Link", () => {
-            cy.get("[data-test=navBarMenu]")
-              .contains("Orgs")
-              .should("have.attr", "href", "#/orgs");
-          });
+        it("Check Orgs Link", () => {
+          homePage.getNavBarMenu()
+            .contains("Orgs")
+            .should("have.attr", "href", "#/orgs");
+        });
 
-          it("Check Sign Out Link", () => {
-            cy.get("[data-test=navBarMenu]").contains("Sign Out").click();
+        it("Check Sign Out Link", () => {
+          cy.get("[data-test=navBarMenu]").contains("Sign Out").click();
 
-            cy.contains("Sign in");
-          });
+          cy.contains("Sign in");
+        });
 
-          it("Check Employee Links", () => {
-            cy.get("[data-test=navBarMenu]")
-              .contains("Employees")
-              .should("have.attr", "href", "#/employees");
-          });
+        it("Check Employee Links", () => {
+          homePage.getNavBarMenu()
+            .contains("Employees")
+            .should("have.attr", "href", "#/employees");
+        });
 
-          it("Check All User Link", () => {
-            cy.get("[data-test=navBarMenu]")
-              .contains("All Users")
-              .should("have.attr", "href", "#/users");
-          });
+        it("Check All User Link", () => {
+          homePage.getNavBarMenu()
+            .contains("All Users")
+            .should("have.attr", "href", "#/users");
         });
       });
     });
   });
+});
