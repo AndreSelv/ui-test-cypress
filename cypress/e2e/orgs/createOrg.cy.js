@@ -25,7 +25,7 @@ describe("Check that orgs are created", () => {
 
           organizationPage.getCompanyNameField().type("Company Test Name");
           organizationPage.getCompanyNumberField().type("1111"); //already existing company number
-          orientation.getCreateButton().click();
+          organizationPage.getCreateButton().click();
           cy.contains("Org already exists.").should("be.exist");
         });
       });
