@@ -41,11 +41,11 @@ class BrowsePage {
   }
 
   getEffectiveDateField() {
-    return cy.contains("Effective Date");
+    return cy.contains("From");
   }
 
   getOldestDateField() {
-    return cy.contains("Oldest Date");
+    return cy.contains("To");
   }
 
   getListOfPublications() {

@@ -1,3 +1,5 @@
+const OrganizationPage = require("../../../../../support/PageObjects/OrganizationPage");
+const organizationPage = new OrganizationPage();
 describe("Change Roles of an Org", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -13,7 +15,7 @@ describe("Change Roles of an Org", () => {
         it("Change User3 as Manager", () => {
 
           cy.visit(`#/orgs/${Cypress.env("ORG")}`);
-          cy.get(':nth-child(2) > .MuiTab-wrapper').click();
+          organizationPage.getUsersButton().click();
           cy.get("[data-test='rowDisplay-vasilich85+1@gmail.com']")
             .find("[data-test=roleChange]")
             .click("left");

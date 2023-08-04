@@ -1,3 +1,5 @@
+const LinesPage = require("../../../support/PageObjects/LinesPage");
+const linesPage = new LinesPage();
 describe("Validate Product Certification Status", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -8,9 +10,9 @@ describe("Validate Product Certification Status", () => {
 
           cy.viewport(size, orientation);
         });
-        it("Product Line Certification is showing correctly", () => {
+        it.only("Product Line Certification is showing correctly", () => {
           cy.visit("#/lines/YT");
-          cy.get("[data-test=status]").contains(/./);
+          linesPage.getStatus().contains(/./);
         });
       });
     });

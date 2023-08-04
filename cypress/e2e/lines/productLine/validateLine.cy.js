@@ -1,3 +1,5 @@
+const LinesPage = require("../../../support/PageObjects/LinesPage");
+const linesPage = new LinesPage();
 describe("Validate Product Line", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -10,12 +12,12 @@ describe("Validate Product Line", () => {
 
         it("Product Line Description is shown correctly", () => {
           cy.visit("#/lines/BOP");
-          cy.get("[data-test=expandMore]").click();
-          cy.get("[data-test=lineDescription]").contains(/./);
+          linesPage.getExpendMoreButton().click()
+          linesPage.getLineDescription().contains(/./);
         });
         it("Product Line Title is shown correctly", () => {
           cy.visit("#/lines/BOP");
-          cy.get("[data-test=titlebar]").contains(/./);
+          linesPage.getTitleBar().contains(/./);
         });
       });
     });

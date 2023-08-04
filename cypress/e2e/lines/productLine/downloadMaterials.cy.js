@@ -1,3 +1,5 @@
+const LinesPage = require("../../../support/PageObjects/LinesPage");
+const linesPage = new LinesPage();
 describe("Downloading Product Materials", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -10,9 +12,9 @@ describe("Downloading Product Materials", () => {
         });
         it("Product Materials are successfully downloaded", () => {
           cy.visit("#/lines/BOP");
-          cy.get("[data-test=addState]").click();
-          cy.get("[data-test=selectCO").click();
-          cy.get("[data-test=downloadLatest]");
+          linesPage.selectState("CO")
+          linesPage.getDownloadButton().click()
+          linesPage.getAlertDialogDescriptionsMessage().contains(linesPage.successDownloadMessage())
         });
       });
     });

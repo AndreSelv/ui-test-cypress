@@ -1,3 +1,5 @@
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Check Links in the Header", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -12,15 +14,15 @@ describe("Check Links in the Header", () => {
         });
 
         it("Check AAIS Logo", () => {
-          cy.get("[data-test=AAISlogo]").should("have.attr", "href", "#/");
+          homePage.getAAISLogo().should("have.attr", "href", "#/");
         });
 
         it("Check Search Text Box is Visible ", () => {
-          cy.get("[data-test=navBarSearch]").should("be.visible");
+          homePage.getNavBarSearch().should("be.visible");
         });
 
         it("Check Search Screen", () => {
-          cy.get("[data-test=navBarSearch]").type("fire{enter}");
+          homePage.getNavBarSearch().type("fire{enter}");
 
           cy.url().should("include", "/#/browse?q=fire");
 
