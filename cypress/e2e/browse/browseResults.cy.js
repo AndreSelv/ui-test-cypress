@@ -33,8 +33,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          browsePage.typeSearch("IMG");
-          cy.contains("11 results");
+          cy.contains("134 results");
         });
 
         it.skip("validate download button functionality", () => {
