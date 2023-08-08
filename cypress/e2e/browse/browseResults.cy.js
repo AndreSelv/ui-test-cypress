@@ -18,6 +18,7 @@ describe("Brows Results Summary", () => {
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
           browsePage.typeSearch("water");
+          cy.wait(500)
           cy.contains("0 results");
         });
 
