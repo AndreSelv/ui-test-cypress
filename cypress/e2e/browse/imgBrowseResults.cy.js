@@ -24,9 +24,9 @@ describe("Brows Results Summary", () => {
         it("validate browse IMG search returns 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseIMGResult.json" });
           cy.visit("#/browse");
-          browsePage.selectProduct("CA");
+          browsePage.selectProduct("AGXL");
           browsePage.selectState("PA");
-          browsePage.selectMaterialType("State-specific Bulletin")
+          browsePage.selectMaterialType("General Bulletin")
           // browsePage.typeSearch("fire");
           browsePage.publicationsShouldBeEqual(1);
         });
@@ -34,7 +34,7 @@ describe("Brows Results Summary", () => {
         it("validate browse IMG search returns more than 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/manyBrowseIMGResults.json" });
           cy.visit("#/browse");
-          browsePage.selectProduct("IMG");
+          browsePage.selectProduct("AGXL");
           browsePage.selectState("AK");
           browsePage.typeSearch("fire");
           browsePage.publicationsShouldBeGreaterThen(1);

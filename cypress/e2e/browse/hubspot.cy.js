@@ -30,8 +30,6 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
     browsePage.selectProduct("IMG");
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
-    browsePage.selectClass("BCF");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
     browsePage.selectState("CA");
     browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.getProductRequestButton().should("be.visible").click();

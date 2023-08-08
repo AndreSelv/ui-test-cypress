@@ -150,7 +150,7 @@ class BrowsePage {
   }
 
   typeSearch(text) {
-    this.getSearchField().type(`${text}{enter}`);
+    this.getSearchField().type(`${text}{enter}{enter}`);
   }
 
   publicationsShouldBeGreaterThen(value = 20) {

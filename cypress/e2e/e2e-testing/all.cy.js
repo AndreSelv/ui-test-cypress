@@ -6,7 +6,7 @@ import '../browse/browseScreenFilters.cy'
 import '../browse/imgBrowseResults.cy'
 import '../browse/imgBrowseScreenFilters.cy'
 import '../browse/hubspot.cy'
-import '../browse/LinesValidation.cy'
+import '../browse/linesValidation.cy'
 import '../browse/materialTypeCheckBoxValidation.cy'
 import '../browse/resultCardFilePicker.cy'
 

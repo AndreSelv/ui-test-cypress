@@ -47,6 +47,7 @@ describe("Browse Screen: Filters", () => {
     browsePage.selectState("AL");
     browsePage.selectMaterialType("Forms");
     browsePage.typeSearch("Fire")
+    cy.wait(500)
     browsePage.getListOfPublicationsCards().each(($el)=>{
       expect($el.text()).contains("Fire")
     })
