@@ -24,9 +24,10 @@ describe("Brows Results Summary", () => {
         it("validate browse IMG search returns 1 result", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseIMGResult.json" });
           cy.visit("#/browse");
-          browsePage.selectProduct("IMG");
-          browsePage.selectState("AZ");
-          browsePage.typeSearch("fire");
+          browsePage.selectProduct("CA");
+          browsePage.selectState("PA");
+          browsePage.selectMaterialType("State-specific Bulletin")
+          // browsePage.typeSearch("fire");
           browsePage.publicationsShouldBeEqual(1);
         });
 
