@@ -29,7 +29,7 @@ class BrowsePage {
   }
 
   getStates() {
-    return cy.get("[data-test=addState]");
+    return cy.get("#state-select");
   }
 
   getSearchField() {
@@ -141,7 +141,9 @@ class BrowsePage {
 
   selectState(state) {
     this.getStates().click();
-    cy.get(`[data-test=select${state}]`).click().type("{esc}");
+    cy.get(`[data-test=select${state}]`).click()
+    cy.get(`[data-test=select${state}]`)
+      .type("{esc}");
   }
 
   selectAllStates() {
