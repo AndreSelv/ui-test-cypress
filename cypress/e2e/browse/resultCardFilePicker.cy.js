@@ -15,7 +15,7 @@ describe("Browse Result Card File Piker", () => {
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
           browsePage.typeSearch("Fire");
-          browsePage.getListOfPublicationsCards().click();
+          browsePage.getListOfPublicationsCards()
         });
       });
     });

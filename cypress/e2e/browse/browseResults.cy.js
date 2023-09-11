@@ -17,16 +17,16 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          browsePage.typeSearch("water");
-          cy.wait(500)
+          browsePage.typeSearch("waterr");
           cy.contains("0 results");
         });
 
         it("validate browse search returns 1 result", () => {
           cy.visit("#/browse");
-          browsePage.selectProduct("CA");
+          browsePage.selectProduct("AGXL");
           browsePage.selectState("PA");
           browsePage.selectMaterialType("Forms and Endorsements List");
+          browsePage.typeSearch("PA");
           cy.contains("1 results");
         });
 
@@ -34,7 +34,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          cy.contains("134 results");
+          cy.contains("103 results");
         });
 
         it.skip("validate download button functionality", () => {

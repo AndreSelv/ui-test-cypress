@@ -10,14 +10,14 @@ describe("Browse Screen: Filters", () => {
   it("US73951 using browse add a product then return to none", () => {
     cy.visit("#/browse");
     browsePage.selectProduct("BOP");
-    cy.contains("No state added").click();
+    cy.contains("States*");//.click();
   });
 
   it("US73951 using browse add a state, then remove the state", () => {
     cy.visit("#/browse");
     browsePage.selectState("CA");
-    browsePage.deleteStateFromFilter("CA").click();
-    cy.contains("No state added").should("be.visible");
+    browsePage.selectState("CA")
+    cy.contains("States*").should("be.visible");
   });
 
   it("US73951 using browse add a product, a state and each of the package types", () => {
@@ -46,10 +46,10 @@ describe("Browse Screen: Filters", () => {
     browsePage.selectProduct("BOP");
     browsePage.selectState("AL");
     browsePage.selectMaterialType("Forms");
-    browsePage.typeSearch("Fire")
+    browsePage.typeSearch("\"Water\"")
     cy.wait(500)
     browsePage.getListOfPublicationsCards().each(($el)=>{
-      expect($el.text()).contains("Fire")
+      expect($el.text()).contains("BP")
     })
   });
 

@@ -108,14 +108,13 @@ class BrowsePage {
     return cy.get(`[data-test=browseResults-item-${number}-state-tooltip]`);
   }
 
-  getAllCheckBox(){
-    return cy.get(`input[type="checkbox"]`)
+  getAllCheckBox() {
+    return cy.get(`input[type="checkbox"]`);
   }
 
-  getFilesRadioButtonSection(){
-    return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..")
+  getFilesRadioButtonSection() {
+    return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..");
   }
-
 
 
   selectMaterialType(type) {
@@ -141,9 +140,9 @@ class BrowsePage {
 
   selectState(state) {
     this.getStates().click();
-    cy.get(`[data-test=select${state}]`).click()
-    cy.get(`[data-test=select${state}]`)
-      .type("{esc}");
+    cy.get(`[data-test=select${state}]`).click();
+    cy.contains("Filter").click();
+    // .type("{esc}");
   }
 
   selectAllStates() {
@@ -152,6 +151,7 @@ class BrowsePage {
   }
 
   typeSearch(text) {
+    cy.wait(500);
     this.getSearchField().type(`${text}{enter}{enter}`);
   }
 
