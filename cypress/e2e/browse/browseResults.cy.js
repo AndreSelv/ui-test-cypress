@@ -26,7 +26,7 @@ describe("Brows Results Summary", () => {
           browsePage.selectProduct("AGXL");
           browsePage.selectState("PA");
           browsePage.selectMaterialType("Forms and Endorsements List");
-          browsePage.typeSearch("PA");
+          browsePage.typeSearch("\"09 30 11\"");
           cy.contains("1 results");
         });
 
@@ -34,7 +34,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          cy.contains("103 results");
+          cy.contains("134 results");
         });
 
         it.skip("validate download button functionality", () => {
