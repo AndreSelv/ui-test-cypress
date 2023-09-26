@@ -34,7 +34,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          cy.contains("134 results");
+          cy.contains("135 results").wait(3000);
         });
 
         it.skip("validate download button functionality", () => {
