@@ -116,6 +116,10 @@ class BrowsePage {
     return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..");
   }
 
+  getInfoIcon(number){
+    return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`)
+  }
+
 
   selectMaterialType(type) {
     this.getMaterial().click();

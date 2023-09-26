@@ -13,9 +13,9 @@ module.exports = defineConfig({
     SIZES: ["macbook-16"],
     ORIENTATION: ["portrait"],
     REACT_APP_AMPLIFY_AUTH_REGION: "us-east-1",
-    REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID: "us-east-1:4c0822ae-3458-4113-ae59-877a80da7d48",
-    REACT_APP_AMPLIFY_AUTH_USER_POOL_ID: "us-east-1_38HmfG1Q5",
-    REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID: "5hsh1ckjbg3a8600m2tpg28e6m"
+    REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID: "us-east-1:223f9f6a-cc23-4d1d-918e-2a57648920cd",
+    REACT_APP_AMPLIFY_AUTH_USER_POOL_ID: "us-east-1_KuXB2h1R0",
+    REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID: "4em6lfn3kus11nloo2v9k9asce"
   },
 
   reporter: "cypress-multi-reporters",

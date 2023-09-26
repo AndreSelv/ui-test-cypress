@@ -1,3 +1,5 @@
+const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const browsePage = new BrowsePage();
 describe("Browse Results for Various Cards", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -7,6 +9,18 @@ describe("Browse Results for Various Cards", () => {
           cy.login();
 
           cy.viewport(size, orientation);
+        });
+
+        it("US114431 Show user where docs is available", () => {
+          cy.visit("#/browse");
+          browsePage.selectProduct("BOP");
+          browsePage.selectState("AL");
+          browsePage.selectMaterialType("Forms");
+          cy.wait(500);
+          browsePage.getInfoIcon(1).should("be.visible").click();
+          cy.scrollTo("top");
+          browsePage.getInfoIcon(2).wait(1000).invoke("removeAttr", "target").click();
+          // cy.get(".MuiDialogContent-root").should("be.visible");
         });
 
         it.skip("US74540 Browse Results for Various Cards", () => {
