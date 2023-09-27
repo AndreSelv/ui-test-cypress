@@ -1,7 +1,7 @@
 const LINES = require("../../fixtures/enums/LINES");
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
-describe("Product Lines persistence", () => {
+describe("US 110502 Product Lines persistence", () => {
   beforeEach(() => {
     cy.initAmplify();
     cy.login();
