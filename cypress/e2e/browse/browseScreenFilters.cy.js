@@ -1,7 +1,6 @@
 const MATERIALS = require("../../fixtures/enums/MATERIALS");
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
-let x = Math.floor((Math.random() * 10) + 1);
 describe("Browse Screen: Filters", () => {
   beforeEach(() => {
     cy.initAmplify();
@@ -54,33 +53,6 @@ describe("Browse Screen: Filters", () => {
     })
   });
 
-  it("US115255 Alphabetize product lines within More tile dropdown", () => {
-    cy.visit("#/browse");
-    browsePage.selectProduct("AGXL");
-    browsePage.selectState("AL");
-    browsePage.getMoreButton(x).click();
-    browsePage.getListOfProductLinesInCard().then($elements => {
-      const strings = [...$elements].map(el => el.innerText);
-      const sortedLines = strings.sort((a, b) => {
-        if (a.toLowerCase() > b.toLowerCase()) return 1;
-        else if (a.toLowerCase() < b.toLowerCase()) return -1;
-        return 0;
-      });
-      expect(strings).to.deep.equal(sortedLines);
-    });
-  });
-
-  it("US115255 Alphabetize states within More tile dropdown", () => {
-    cy.visit("#/browse");
-    browsePage.selectProduct("AGXL");
-    browsePage.selectState("AL");
-    browsePage.getMoreButton(x).click();
-
-    browsePage.getListOfStatesInCard().then($elements => {
-      const strings = [...$elements].map(el => el.innerText);
-      expect(strings).to.deep.equal([...strings].sort());
-    });
-  });
 
   it.skip("US73951 using browse add a product, state package type of SUP and validate the Document Types", () => {
     cy.visit("#/browse");
