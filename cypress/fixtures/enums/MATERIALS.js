@@ -42,7 +42,7 @@ const MATERIALS = [
   [
     "Forms and Endorsements Lists",
     "Forms and Endorsements List",
-    "Multi State Forms and Endorsements List",
+    "Multistate Forms and Endorsements List",
   ],
   [
     "IMG Publications"
