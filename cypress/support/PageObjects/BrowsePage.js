@@ -120,6 +120,19 @@ class BrowsePage {
     return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`)
   }
 
+  getMoreButton(number){
+    return cy.xpath(`(//span[text()='more'])[${number}]`)
+  }
+
+  getListOfProductLinesInCard(){
+    return cy.xpath("//h6[text()= 'Product Lines']/../div[1]//span[@class='MuiChip-label MuiChip-labelSmall']")
+  }
+
+  getListOfStatesInCard(){
+    return cy.xpath("//h6[text()= 'Product Lines']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']")
+  }
+
+
 
   selectMaterialType(type) {
     this.getMaterial().click();
