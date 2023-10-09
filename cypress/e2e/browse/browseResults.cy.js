@@ -18,28 +18,28 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           // browsePage.selectState(browsePage.getRandomState(STATES));
-          browsePage.selectState("AL");
           browsePage.selectMaterialType("Forms");
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");
           browsePage.typeSearch("Losses");
+          browsePage.selectState("AL");
           browsePage.publicationsShouldBeEqual(4);
         });
 
         it("validate no browse each results", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
-          browsePage.selectState("CO");
           browsePage.typeSearch("waterr");
+          browsePage.selectState("CO");
           cy.contains("0 results");
         });
 
         it("validate browse search returns 1 result", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
-          browsePage.selectState("PA");
           browsePage.selectMaterialType("Forms and Endorsements List");
           browsePage.typeSearch("\"09 30 11\"");
+          browsePage.selectState("PA");
           cy.contains("1 results");
         });
 
@@ -54,8 +54,8 @@ describe("Brows Results Summary", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
-          browsePage.selectState("IA");
           browsePage.selectMaterialType("Forms");
+          browsePage.selectState("IA");
           cy.contains(`1084 results`);
           cy.get("[data-test=\"browseScreen-item-download-button\"]").should("be.enabled");
           cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
