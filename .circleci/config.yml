@@ -57,7 +57,7 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@2.2.0
 executors:
-  browsers-chrome100-ff99-edge:
+  browsers-chrome117-ff99-edge:
     description: Docker container with Node 16.14.2, Cypress dependencies, Chrome 117, Firefox 99, and the latest Edge
     docker:
       - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
@@ -69,7 +69,7 @@ workflows:
           requires:
             - cypress/install
           name: Browse
-          executor: browsers-chrome100-ff99-edge
+          executor: browsers-chrome117-ff99-edge
           browser: chrome
           record: true
           debug: 'cypress:cli'
