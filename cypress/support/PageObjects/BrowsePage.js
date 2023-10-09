@@ -154,9 +154,9 @@ class BrowsePage {
   }
 
   selectState(state) {
-    this.getStates().click();
-    cy.get(`[data-test=select${state}]`).click();
-    cy.contains("Filter").click();
+    this.getStates().click({force:true});
+    cy.get(`[data-test=select${state}]`).click({force:true});
+    cy.contains("Filter").click({force:true});
     // .type("{esc}");
   }
 
