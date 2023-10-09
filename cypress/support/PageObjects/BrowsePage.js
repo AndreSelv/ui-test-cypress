@@ -189,13 +189,13 @@ class BrowsePage {
   }
 
   setFromDateField(date) {
-    this.getFromDateField().click({ force: true }).type(date, { force: true })
+    this.getFromDateField().type(date, { force: true })
       .invoke("attr", "value", date)
       .should("have.attr", "value", date);
   }
 
   setToDateField(date) {
-    this.getToDateField().click({ force: true }).type(date, { force: true })
+    this.getToDateField().type(date, { force: true })
       .invoke("attr", "value", date)
       .should("have.attr", "value", date);
   }
