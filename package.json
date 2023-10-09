@@ -28,7 +28,7 @@
     "cy:test-local": "CI=1 npx cypress run --config-file cypress.config-local.js || npm run e2e-test-report",
     "cy:run-firefox:nightly": "npx cypress run --browser firefox:nightly",
     "login": "cypress run -b chrome --headless --spec 'cypress/e2e/e2e-testing/login/login.feature'",
-    "home": "cypress run -b chrome --headless --spec 'cypress/e2e/browse/browseResults.cy.js'",
+    "home": "cypress run -b chrome --headless --spec 'cypress/e2e/browse'",
     "e2e-test": "CI=1 npx cypress run",
     "delete:reports": "rimraf cypress/reports/* || true",
     "pree2e-test": "npm run delete:reports",

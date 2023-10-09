@@ -14,7 +14,7 @@ describe("Brows Results Summary", () => {
           cy.viewport(size, orientation);
         });
 
-        it("validate browser result with all if parameters", () => {
+        it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState(browsePage.getRandomState(STATES));
