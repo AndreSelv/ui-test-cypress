@@ -33,7 +33,7 @@ class BrowsePage {
   }
 
   getSearchField() {
-    return cy.get("[data-test=browseScreenSearch]");
+    return cy.xpath("//*[text()='Search']/..//input");
   }
 
   getCalendarPicker() {
@@ -167,7 +167,7 @@ class BrowsePage {
 
   typeSearch(text) {
     cy.wait(500);
-    this.getSearchField().type(`${text}{enter}{enter}`);
+    this.getSearchField().type(`${text}{enter}{enter}`, {force:true});
   }
 
   publicationsShouldBeGreaterThen(value = 20) {
