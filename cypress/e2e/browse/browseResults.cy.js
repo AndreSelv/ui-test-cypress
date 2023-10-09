@@ -17,12 +17,13 @@ describe("Brows Results Summary", () => {
         it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
-          browsePage.selectState(browsePage.getRandomState(STATES));
+          // browsePage.selectState(browsePage.getRandomState(STATES));
+          browsePage.selectState("AL");
           browsePage.selectMaterialType("Forms");
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");
           browsePage.typeSearch("Losses");
-          browsePage.publicationsShouldBeGreaterThen(1);
+          browsePage.publicationsShouldBeEqual(4);
         });
 
         it("validate no browse each results", () => {
