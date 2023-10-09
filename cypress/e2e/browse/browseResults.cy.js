@@ -11,7 +11,7 @@ describe("Brows Results Summary", () => {
         beforeEach(() => {
           cy.initAmplify();
           cy.login();
-          cy.viewport(size, orientation);
+          // cy.viewport(size, orientation);
         });
 
         it("validate browser result with all parameters", () => {
