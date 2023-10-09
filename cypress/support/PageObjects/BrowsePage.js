@@ -41,7 +41,7 @@ class BrowsePage {
   }
 
   getFromDateField() {
-    return cy.xpath("//*[text()='From']/..//input")
+    return cy.xpath("//*[text()='From']/..//input");
   }
 
   getToDateField() {
@@ -188,18 +188,20 @@ class BrowsePage {
     return cy.get(`[data-test=chip${state}] > .MuiChip-deleteIcon`);
   }
 
-  setFromDateField(date){
-    this.getFromDateField().click({force:true}).type(date,{force:true})
-      .should('have.attr', 'value', date)
+  setFromDateField(date) {
+    this.getFromDateField().click({ force: true }).type(date, { force: true })
+      .invoke("attr", "value", date)
+      .should("have.attr", "value", date);
   }
 
-   setToDateField(date){
-    this.getToDateField().click({force:true}).type(date, {force:true})
-      .should('have.attr', 'value', date)
+  setToDateField(date) {
+    this.getToDateField().click({ force: true }).type(date, { force: true })
+      .invoke("attr", "value", date)
+      .should("have.attr", "value", date);
   }
 
-  getRandomState(STATES){
-    return STATES[Object.keys(STATES)[Math.floor(Math.random()*Object.keys(STATES).length)]].key;
+  getRandomState(STATES) {
+    return STATES[Object.keys(STATES)[Math.floor(Math.random() * Object.keys(STATES).length)]].key;
   }
 
 }
