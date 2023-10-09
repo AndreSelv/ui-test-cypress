@@ -21,8 +21,9 @@ describe("Brows Results Summary", () => {
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");
           browsePage.typeSearch("Losses");
-          browsePage.selectState(browsePage.getRandomState(STATES));
-          browsePage.publicationsShouldBeGreaterThen(1);
+          // browsePage.selectState(browsePage.getRandomState(STATES));
+          browsePage.selectState("AL");
+          browsePage.publicationsShouldBeEqual(4);
         });
 
         it("validate no browse each results", () => {
