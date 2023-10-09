@@ -25,8 +25,8 @@ describe("Brows Results Summary", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseIMGResult.json" });
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
-          browsePage.selectState("PA");
           browsePage.selectMaterialType("General Bulletin")
+          browsePage.selectState("PA");
           // browsePage.typeSearch("fire");
           browsePage.publicationsShouldBeEqual(1);
         });
