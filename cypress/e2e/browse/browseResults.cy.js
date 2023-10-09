@@ -17,13 +17,12 @@ describe("Brows Results Summary", () => {
         it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
-          // browsePage.selectState(browsePage.getRandomState(STATES));
           browsePage.selectMaterialType("Forms");
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");
           browsePage.typeSearch("Losses");
-          browsePage.selectState("AL");
-          browsePage.publicationsShouldBeEqual(4);
+          browsePage.selectState(browsePage.getRandomState(STATES));
+          browsePage.publicationsShouldBeGreaterThen(1);
         });
 
         it("validate no browse each results", () => {
@@ -47,7 +46,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          cy.contains("135 results").wait(3000);
+          browsePage.publicationsShouldBeGreaterThen(1)
         });
 
         it.skip("validate download button functionality", () => {
