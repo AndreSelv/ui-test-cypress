@@ -70,7 +70,7 @@ workflows:
             - cypress/install
           name: Browse
           executor: browsers-chrome100-ff99-edge
-          browser: chrome
+          browser: edge
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
