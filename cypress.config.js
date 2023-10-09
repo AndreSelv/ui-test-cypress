@@ -25,7 +25,7 @@ module.exports = defineConfig({
     configFile: "cypress-reporter.json",
   },
 
-  defaultCommandTimeout: 30000,
+  defaultCommandTimeout: 10000,
   viewportWidth: 1536,
   viewportHeight: 960,
   chromeWebSecurity: false,
