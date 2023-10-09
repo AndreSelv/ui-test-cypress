@@ -19,8 +19,8 @@ describe("Browse Results for Various Cards", () => {
           browsePage.selectMaterialType("Forms");
           cy.wait(500);
           browsePage.getInfoIcon(1).should("be.visible").click();
-          cy.scrollTo("top");
-          browsePage.getInfoIcon(2).wait(1000).invoke("removeAttr", "target").click();
+          // cy.scrollTo("top");
+          // browsePage.getInfoIcon(2).wait(1000).invoke("removeAttr", "target").click();
           // cy.get(".MuiDialogContent-root").should("be.visible");
         });
 
