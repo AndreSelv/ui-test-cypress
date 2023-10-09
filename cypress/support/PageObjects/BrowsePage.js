@@ -189,12 +189,12 @@ class BrowsePage {
   }
 
   setFromDateField(date){
-    this.getFromDateField().click().type(date)
+    this.getFromDateField().click().click().type(date)
       .should('have.attr', 'value', date)
   }
 
    setToDateField(date){
-    this.getToDateField().click().type(date)
+    this.getToDateField().click().click().type(date)
       .should('have.attr', 'value', date)
   }
 
