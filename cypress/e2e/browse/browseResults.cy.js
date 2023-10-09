@@ -1,4 +1,5 @@
 const LINES = require("../../fixtures/enums/LINES");
+const STATES = require("../../fixtures/enums/STATES");
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 
@@ -16,7 +17,7 @@ describe("Brows Results Summary", () => {
         it("validate browser result with all if parameters", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
-          browsePage.selectState("AL");
+          browsePage.selectState(browsePage.getRandomState(STATES));
           browsePage.selectMaterialType("Forms");
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");

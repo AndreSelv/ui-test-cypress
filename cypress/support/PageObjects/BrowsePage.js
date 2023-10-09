@@ -198,6 +198,10 @@ class BrowsePage {
       .should('have.attr', 'value', date)
   }
 
+  getRandomState(STATES){
+    return STATES[Object.keys(STATES)[Math.floor(Math.random()*Object.keys(STATES).length)]].key;
+  }
+
 }
 
 export default BrowsePage;
