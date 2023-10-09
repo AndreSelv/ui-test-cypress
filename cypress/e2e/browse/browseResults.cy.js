@@ -13,6 +13,17 @@ describe("Brows Results Summary", () => {
           cy.viewport(size, orientation);
         });
 
+        it("validate browser result with all if parameters", () => {
+          cy.visit("#/browse");
+          browsePage.selectProduct("HO");
+          browsePage.selectState("AL");
+          browsePage.selectMaterialType("Forms");
+          browsePage.setFromDateField("10/02/2012");
+          browsePage.setToDateField("10/09/2023");
+          browsePage.typeSearch("Losses");
+          browsePage.publicationsShouldBeGreaterThen(1);
+        });
+
         it("validate no browse each results", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
@@ -72,13 +83,13 @@ describe("Brows Results Summary", () => {
 
         it("validate that effective date is persist on the search filter", () => {
           cy.visit("#/browse");
-          browsePage.getEffectiveDateField().click({ force: true });
+          browsePage.getFromDateField().click({ force: true });
           browsePage.getCalendarPicker().should("be.visible");
         });
 
         it("validate that oldest date is persist on the search filter", () => {
           cy.visit("#/browse");
-          browsePage.getOldestDateField().click({ force: true });
+          browsePage.getToDateField().click({ force: true });
           browsePage.getCalendarPicker().should("be.visible");
         });
 

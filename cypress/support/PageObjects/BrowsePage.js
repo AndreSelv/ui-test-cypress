@@ -40,12 +40,12 @@ class BrowsePage {
     return cy.get(".MuiCalendarPicker-root");
   }
 
-  getEffectiveDateField() {
-    return cy.contains("From");
+  getFromDateField() {
+    return cy.xpath("//*[text()='From']/..//input")
   }
 
-  getOldestDateField() {
-    return cy.contains("To");
+  getToDateField() {
+    return cy.xpath("//*[text()='To']/..//input");
   }
 
   getListOfPublications() {
@@ -116,23 +116,21 @@ class BrowsePage {
     return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..");
   }
 
-  getInfoIcon(number){
-    return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`)
+  getInfoIcon(number) {
+    return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`);
   }
 
-  getMoreButton(number){
-    return cy.xpath(`(//span[text()='more'])[${number}]`)
+  getMoreButton(number) {
+    return cy.xpath(`(//span[text()='more'])[${number}]`);
   }
 
-  getListOfProductLinesInCard(){
-    return cy.xpath("//h6[text()= 'Product Lines']/../div[1]//span[@class='MuiChip-label MuiChip-labelSmall']")
+  getListOfProductLinesInCard() {
+    return cy.xpath("//h6[text()= 'Product Lines']/../div[1]//span[@class='MuiChip-label MuiChip-labelSmall']");
   }
 
-  getListOfStatesInCard(){
-    return cy.xpath("//h6[text()= 'Product Lines']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']")
+  getListOfStatesInCard() {
+    return cy.xpath("//h6[text()= 'Product Lines']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']");
   }
-
-
 
   selectMaterialType(type) {
     this.getMaterial().click();
@@ -188,6 +186,16 @@ class BrowsePage {
 
   deleteStateFromFilter(state) {
     return cy.get(`[data-test=chip${state}] > .MuiChip-deleteIcon`);
+  }
+
+  setFromDateField(date){
+    this.getFromDateField().click().type(date)
+      .should('have.attr', 'value', date)
+  }
+
+   setToDateField(date){
+    this.getToDateField().click().type(date)
+      .should('have.attr', 'value', date)
   }
 
 }

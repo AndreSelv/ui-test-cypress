@@ -15,8 +15,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.typeSearch("Fire");
 
     //Select effective date
-    browsePage.getEffectiveDateField().click({ force: true });
-    cy.get('.css-i6bazn > :nth-child(2) > :nth-child(4) > .MuiButtonBase-root').dblclick({ force: true });
+    browsePage.setFromDateField("10/02/2012");
     browsePage.getProductRequestButton().click({ force: true });
     cy.wait(1000);
     browsePage.getAdditionalInfoButton().type("Some Information", { force: true });
@@ -47,8 +46,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.selectMaterialType(["Forms", "IMG Publications"]);
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
     browsePage.typeSearch("Fire");    //Select effective date
-    browsePage.getEffectiveDateField().click({ force: true });
-    cy.get('.css-i6bazn > :nth-child(2) > :nth-child(4) > .MuiButtonBase-root').dblclick({ force: true });
+    browsePage.setFromDateField("10/02/2012");
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
   });
 
