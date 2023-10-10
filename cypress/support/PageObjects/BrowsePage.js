@@ -112,6 +112,21 @@ class BrowsePage {
     return cy.get(`input[type="checkbox"]`);
   }
 
+  getDownloadButton(){
+    return cy.get(`[data-test=browseScreen-item-download-button]`)
+  }
+
+  getDownloadAlertMessage(){
+    return "IF YOU ARE USING AAIS ADVISORY PRODUCTS OR SERVICES AAIS IS REQUIRED TO REPORT TO STATE" +
+      " REGULATORS ANY USE OF ADVISORY CONTENT AND USE OF THESE MATERIALS MAY REQUIRE A GRANT OF FILING AUTHORIZATION. " +
+      "PRIOR TO USING THIS CONTENT, PLEASE CONTACT AN AAIS ENGAGEMENT MANAGER AT MEMBERSHIP@AAISONLINE.COM TO DISCUSS " +
+      "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES."
+  }
+
+  getAlertIAgreeButton(){
+    return cy.contains("I Agree")
+  }
+
   getFilesRadioButtonSection() {
     return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..");
   }
