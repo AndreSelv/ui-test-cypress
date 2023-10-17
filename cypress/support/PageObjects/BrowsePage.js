@@ -112,19 +112,19 @@ class BrowsePage {
     return cy.get(`input[type="checkbox"]`);
   }
 
-  getDownloadButton(){
-    return cy.get(`[data-test=browseScreen-item-download-button]`)
+  getDownloadButton() {
+    return cy.get(`[data-test=browseScreen-item-download-button]`);
   }
 
-  getDownloadAlertMessage(){
+  getDownloadAlertMessage() {
     return "IF YOU ARE USING AAIS ADVISORY PRODUCTS OR SERVICES AAIS IS REQUIRED TO REPORT TO STATE" +
       " REGULATORS ANY USE OF ADVISORY CONTENT AND USE OF THESE MATERIALS MAY REQUIRE A GRANT OF FILING AUTHORIZATION. " +
       "PRIOR TO USING THIS CONTENT, PLEASE CONTACT AN AAIS ENGAGEMENT MANAGER AT MEMBERSHIP@AAISONLINE.COM TO DISCUSS " +
-      "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES."
+      "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES.";
   }
 
-  getAlertIAgreeButton(){
-    return cy.contains("I Agree")
+  getAlertIAgreeButton() {
+    return cy.contains("I Agree");
   }
 
   getFilesRadioButtonSection() {
@@ -145,6 +145,18 @@ class BrowsePage {
 
   getListOfStatesInCard() {
     return cy.xpath("//h6[text()= 'Product Lines']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']");
+  }
+
+  getRadioGroupSection() {
+    return cy.get("[role=\"radiogroup\"]");
+  }
+
+  selectDocsByRadioButton(number) {
+    return cy.get("[type=\"radio\"]").eq(number - 1);
+  }
+
+  selectPublicationByNumber(number) {
+    this.getListOfPublicationsCards().eq(number - 1).click();
   }
 
   selectMaterialType(type) {
@@ -169,9 +181,9 @@ class BrowsePage {
   }
 
   selectState(state) {
-    this.getStates().click({force:true});
-    cy.get(`[data-test=select${state}]`).click({force:true});
-    cy.contains("Filter").click({force:true});
+    this.getStates().click({ force: true });
+    cy.get(`[data-test=select${state}]`).click({ force: true });
+    cy.contains("Filter").click({ force: true });
     // .type("{esc}");
   }
 
@@ -182,7 +194,7 @@ class BrowsePage {
 
   typeSearch(text) {
     cy.wait(500);
-    this.getSearchField().type(`${text}{enter}{enter}`, {force:true});
+    this.getSearchField().type(`${text}{enter}{enter}`, { force: true });
   }
 
   publicationsShouldBeGreaterThen(value = 20) {

@@ -1,5 +1,8 @@
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
+
 let x = Math.floor((Math.random() * 10) + 1);
 describe("Browse Results for Various Cards", () => {
   Cypress.env("SIZES").forEach((size) => {
@@ -52,6 +55,21 @@ describe("Browse Results for Various Cards", () => {
           });
         });
 
+        it.only("Validate that user can open single docs publication  ", () => {
+          cy.visit("#");
+          homePage.typeSearchBar("\"PA 4502\"");
+          browsePage.selectPublicationByNumber(5);
+          //TODO add validation
+        });
+
+        it.only("Validate that user can open multiple docs publication  ", () => {
+          cy.visit("#");
+          homePage.typeSearchBar("\"PA 4502\"");
+          browsePage.selectPublicationByNumber(1);
+          browsePage.getRadioGroupSection().should("be.visible")
+          browsePage.selectDocsByRadioButton(1).click()
+          //TODO add validation
+        });
         it.skip("US74540 Browse Results for Various Cards", () => {
           cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
           cy.visit("#/browse");
