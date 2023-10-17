@@ -151,6 +151,10 @@ class BrowsePage {
     return cy.get("[role=\"radiogroup\"]");
   }
 
+  getDialogWindows(){
+    return cy.get("[role=\"dialog\"]")
+  }
+
   selectDocsByRadioButton(number) {
     return cy.get("[type=\"radio\"]").eq(number - 1);
   }

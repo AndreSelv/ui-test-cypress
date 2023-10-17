@@ -59,6 +59,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(5);
+          browsePage.getDialogWindows().should("be.visible")
           //TODO add validation
         });
 
@@ -66,8 +67,9 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(1);
-          browsePage.getRadioGroupSection().should("be.visible")
-          browsePage.selectDocsByRadioButton(1).click()
+          browsePage.getRadioGroupSection().should("be.visible");
+          browsePage.selectDocsByRadioButton(1).click();
+          browsePage.getDialogWindows().should("be.visible")
           //TODO add validation
         });
         it.skip("US74540 Browse Results for Various Cards", () => {
