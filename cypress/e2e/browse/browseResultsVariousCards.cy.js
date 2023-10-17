@@ -55,14 +55,14 @@ describe("Browse Results for Various Cards", () => {
           });
         });
 
-        it.only("Validate that user can open single docs publication  ", () => {
+        it("Validate that user can open single docs publication  ", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(5);
           //TODO add validation
         });
 
-        it.only("Validate that user can open multiple docs publication  ", () => {
+        it("Validate that user can open multiple docs publication  ", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(1);
