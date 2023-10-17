@@ -28,6 +28,8 @@ describe("Download Browser Results", () => {
     cy.visit("#");
     homePage.typeSearchBar("\"Field CL\"");
     browsePage.publicationsShouldBeGreaterThen(1);
+    //TODO add validation after fix problem
+
     // browsePage.getDownloadButton().should("be.enabled").click();
     // cy.on("window:alert", (t) => {
     //   expect(t).to.contains(browsePage.getDownloadAlertMessage());
