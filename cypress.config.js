@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const fs = require("fs");
+const { verifyDownloadTasks } = require("cy-verify-downloads");
 const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
@@ -35,6 +36,8 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     async setupNodeEvents(on, config) {
+      on('task', verifyDownloadTasks);
+
       on("file:preprocessor", cucumber());
 
       on('task', {
