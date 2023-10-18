@@ -18,7 +18,6 @@ import "./commands";
 import "cypress-promise/register";
 import Amplify from "aws-amplify";
 require('cypress-xpath')
-require('cy-verify-downloads').addCustomCommand();
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   // returning false here prevents Cypress from failing the test
