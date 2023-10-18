@@ -1,5 +1,7 @@
+const LoginPage = require("../support/PageObjects/LoginPage");
+const loginPage = new LoginPage();
 /* eslint-disable no-param-reassign */
-import  { Auth } from "aws-amplify";
+// import  { Auth } from "aws-amplify";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -32,18 +34,22 @@ Cypress.Commands.add("initAmplify", () => {
       region: Cypress.env("REACT_APP_AMPLIFY_AUTH_REGION"),
       userPoolId: Cypress.env("REACT_APP_AMPLIFY_AUTH_USER_POOL_ID"),
       userPoolWebClientId: Cypress.env(
-        "REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID"
+        "REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID",
       ),
       mandatorySignIn: true,
     },
   };
-  Auth.configure(amplifySettings);
+  // Auth.configure(amplifySettings);
 });
 
-Cypress.Commands.add("login", async (user = Cypress.env("USERNAME"), pass = Cypress.env("PASSWORD")) => {
-  await Auth.signIn(user, pass);
-});
+Cypress.Commands.add("login",  (user = Cypress.env("USERNAME"), pass = Cypress.env("PASSWORD")) => {
+   cy.visit('#')
+   loginPage.typeIn( loginPage.getUsernameField(), user);
+   loginPage.typeIn( loginPage.getPasswordField(), pass);
+   loginPage.getSignInButton().click();
 
+  // await Auth.signIn(user, pass);
+});
 
 
 Cypress.Commands.add("bootStrapOrg1", () => {
