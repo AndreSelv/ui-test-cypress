@@ -59,7 +59,7 @@
     }
   ],
   "dependencies": {
-    "cypress": "^13.3.1",
+    "cypress": "^13.3.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.1",
     "cypress-parallel": "^0.12.0",
