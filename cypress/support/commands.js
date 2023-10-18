@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { Auth } from "aws-amplify";
+import  { Auth } from "aws-amplify";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -25,26 +25,26 @@ import { Auth } from "aws-amplify";
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.add("initAmplify", () => {});
+Cypress.Commands.add("initAmplify", () => {
+  const amplifySettings = {
+    Auth: {
+      identityPoolId: Cypress.env("REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID"),
+      region: Cypress.env("REACT_APP_AMPLIFY_AUTH_REGION"),
+      userPoolId: Cypress.env("REACT_APP_AMPLIFY_AUTH_USER_POOL_ID"),
+      userPoolWebClientId: Cypress.env(
+        "REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID"
+      ),
+      mandatorySignIn: true,
+    },
+  };
+  Auth.configure(amplifySettings);
+});
 
 Cypress.Commands.add("login", async (user = Cypress.env("USERNAME"), pass = Cypress.env("PASSWORD")) => {
   await Auth.signIn(user, pass);
 });
 
-// Cypress.Commands.overwrite('contains',
-//   (originalFn, subject, filter, text, options = {}) => {
-//     // determine if a filter argument was passed
-//     if (typeof text === "object") {
-//       options = text;
-//       text = filter;
-//       filter = undefined;
-//     }
-//
-//     options.matchCase = false;
-//
-//     return originalFn(subject, filter, text, options);
-//   }
-// );
+
 
 Cypress.Commands.add("bootStrapOrg1", () => {
   cy.intercept("GET", "/orgs", { fixture: "orgs/orgs.json" });
