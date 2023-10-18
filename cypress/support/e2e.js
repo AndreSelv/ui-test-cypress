@@ -14,30 +14,13 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import "./commands";
-import "cypress-promise/register";
-import Amplify from "aws-amplify";
+// import "./commands";
+require("./commands");
+// import "cypress-promise/register";
+require("cypress-promise/register");
 require('cypress-xpath')
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   // returning false here prevents Cypress from failing the test
   return false;
 });
-
-function initAmplify() {
-  const amplifySettings = {
-    Auth: {
-      identityPoolId: Cypress.env("REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID"),
-      region: Cypress.env("REACT_APP_AMPLIFY_AUTH_REGION"),
-      userPoolId: Cypress.env("REACT_APP_AMPLIFY_AUTH_USER_POOL_ID"),
-      userPoolWebClientId: Cypress.env(
-        "REACT_APP_AMPLIFY_AUTH_USER_POOL_WEB_CLIENT_ID"
-      ),
-      mandatorySignIn: true,
-    },
-  };
-
-  Amplify.configure(amplifySettings);
-}
-
-initAmplify();
