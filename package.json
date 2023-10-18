@@ -59,7 +59,6 @@
     }
   ],
   "dependencies": {
-    "aws-amplify": "^5.3.11",
     "cypress": "^13.3.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.1",
