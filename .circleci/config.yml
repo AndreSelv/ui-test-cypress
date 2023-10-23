@@ -83,7 +83,6 @@ workflows:
             - store_test_results:
                 path: cypress/results
 
-
       - cypress/run:
           requires:
             - cypress/install
