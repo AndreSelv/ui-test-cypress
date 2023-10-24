@@ -49,27 +49,6 @@ describe("Brows Results Summary", () => {
           browsePage.publicationsShouldBeGreaterThen(1)
         });
 
-        it.skip("validate download button functionality", () => {
-          // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
-          cy.visit("#/browse");
-          browsePage.selectProduct("HO");
-          browsePage.selectMaterialType("Forms");
-          browsePage.selectState("IA");
-          cy.contains(`1084 results`);
-          cy.get("[data-test=\"browseScreen-item-download-button\"]").should("be.enabled");
-          cy.get("[data-test=\"browseScreen-item-download-button\"]").click();
-          cy.get(".MuiDialogActions-root > .MuiButton-textPrimary").click();
-          cy.contains("Downloading Content").should("be.visible");
-
-          //cy.task("deleteFolder", Cypress.config("downloadsFolder"));
-          //cy.contains("Downloading Content").should("not.be.visible").end();
-          //cy.readFile("cypress\\downloads\\AAIS.zip").should("exist");
-
-          // cy.task('countFiles', 'cypress/downloads').then((count) => {
-          //   expect(count).eqls(1);
-          // })
-
-        });
         it.skip("TC4941 Validate that download modal contains download link", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/largeAmountData.json" });
           cy.visit("#/browse");

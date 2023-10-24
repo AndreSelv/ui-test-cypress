@@ -9,7 +9,7 @@
   },
   "scripts": {
     "cy:run": "CI=1 cypress run",
-    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -m false",
+    "cy:parallel": "cypress-parallel --browser firefox -s cy:run -t 2 -d 'cypress/e2e' -m false",
     "cy:test:aws": "CE=1 npm run cy:test-prof",
     "cy:verify": "npx cypress verify",
     "cy:info": "npx cypress info",
