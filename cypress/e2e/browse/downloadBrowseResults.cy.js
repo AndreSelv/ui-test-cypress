@@ -22,6 +22,10 @@ describe("Download Browser Results", () => {
       expect(t).to.contains(browsePage.getDownloadAlertMessage());
     });
     browsePage.getAlertIAgreeButton().should("be.enabled");
+    //TODO
+    // cy.task("countFiles", "cypress/downloads").then((count) => {
+    //   expect(count).eqls(1);
+    // });
   });
 
   it("Validate download functionality from Home page (Quick search)", () => {
