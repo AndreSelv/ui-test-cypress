@@ -22,7 +22,7 @@ describe("Brows Results Summary", () => {
           browsePage.setToDateField("10/09/2023");
           browsePage.typeSearch("Losses");
           browsePage.selectState(browsePage.getRandomState(STATES));
-          browsePage.publicationsShouldBeGreaterThen(1)
+          browsePage.publicationsShouldBeGreaterThen(1);
         });
 
         it("validate no browse each results", () => {
@@ -46,7 +46,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("YT");
           browsePage.selectState("CO");
-          browsePage.publicationsShouldBeGreaterThen(1)
+          browsePage.publicationsShouldBeGreaterThen(1);
         });
 
         it.skip("TC4941 Validate that download modal contains download link", () => {
@@ -96,6 +96,17 @@ describe("Brows Results Summary", () => {
             //Numbers and editions validations it should contain digits and spaces only
             expect($el.text().substring(3, 13), `Publications should contains Form and edition numbers - ${$el.text().substring(3, 13)}`).to.match(/^[\d ]*$/);
           });
+        });
+
+
+        it("validate that user can get result with multiple plans selection", () => {
+          cy.visit("#/browse");
+          browsePage.selectProduct("HO");
+          browsePage.selectMaterialType("State Pages");
+          browsePage.selectState("AL");
+          // browsePage.publicationsShouldBeEqual(10);
+          browsePage.selectPlans("By Peril", "Com");
+          browsePage.publicationsShouldBeEqual(10);
         });
 
         it.skip("Validate visibility form and edition numbers in the Forms for All Product Lines", () => {

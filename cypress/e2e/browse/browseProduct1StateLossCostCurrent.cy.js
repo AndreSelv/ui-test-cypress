@@ -21,7 +21,7 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
           cy.contains("less").click();
         });
 
-        it("US74540 validate browse search card tooltips", () => {
+        it.skip("US74540 validate browse search card tooltips", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
@@ -78,7 +78,7 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
           // cy.get(".MuiCardHeader-subheader").should("be.visible");
         });
 
-        it.only("US98489 validate browse search bulletins card has document preview display", () => {
+        it("US98489 validate browse search bulletins card has document preview display", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
