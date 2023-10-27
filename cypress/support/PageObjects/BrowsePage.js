@@ -12,6 +12,10 @@ class BrowsePage {
     return cy.get(`div[data-test="browseProduct"]`);
   }
 
+  getPlans() {
+    return cy.get("#plans-select");
+  }
+
   getMaterialTypeSection() {
     return cy.get("[data-test=\"packageType\"]");
   }
@@ -78,10 +82,6 @@ class BrowsePage {
 
   getBrowseSearchResultSection() {
     return cy.get(".MuiGrid-grid-md-9");
-  }
-
-  selectProduct(product) {
-    return this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
   }
 
   getBrowseResultLineBadge(number = 0) {
@@ -151,23 +151,30 @@ class BrowsePage {
     return cy.get("[role=\"radiogroup\"]");
   }
 
-  getDialogWindows(){
-    return cy.get("[role=\"dialog\"]")
+  getDialogWindows() {
+    return cy.get("[role=\"dialog\"]");
   }
 
   selectDocsByRadioButton(number) {
     return cy.get("[type=\"radio\"]").eq(number - 1);
   }
 
+  selectProduct(...products) {
+    for (const product of products) {
+      this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
+      // cy.wait(500)
+    }
+  }
+
   selectPublicationByNumber(number) {
     this.getListOfPublicationsCards().eq(number - 1).click();
   }
 
-  selectMaterialType(type) {
-    this.getMaterial().click();
-    this.getAllCheckBox()
-      .as("checkboxes").check(type, { force: true });
-    this.getMaterial().click();
+  selectMaterialType(...types) {
+      this.getMaterial().click();
+      this.getAllCheckBox()
+        .as("checkboxes").check([...types], { force: true });
+      this.getMaterial().click();
   }
 
   unSelectMaterialType(type) {
@@ -184,11 +191,22 @@ class BrowsePage {
     this.getClasses().click();
   }
 
-  selectState(state) {
-    this.getStates().click({ force: true });
-    cy.get(`[data-test=select${state}]`).click({ force: true });
-    cy.contains("Filter").click({ force: true });
-    // .type("{esc}");
+  selectState(...states) {
+    for (const state of states) {
+      this.getStates().click({ force: true });
+      cy.get(`[data-test=select${state}]`).click({ force: true });
+      cy.contains("Filter").click({ force: true });
+      // .type("{esc}");
+      cy.wait(300);
+    }
+
+  }
+
+  selectPlans(...plans) {
+    for (const plan of plans) {
+      this.getPlans().type(`${plan}{downArrow}{enter}{esc}`);
+      cy.wait(300);
+    }
   }
 
   selectAllStates() {

@@ -11,7 +11,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.selectProduct("IMG");
     browsePage.selectClass("BCF");
     browsePage.selectState("CA");
-    browsePage.selectMaterialType(["Forms", "IMG Publications"]);
+    browsePage.selectMaterialType("Forms", "IMG Publications");
     browsePage.typeSearch("Fire");
 
     //Select effective date
@@ -43,7 +43,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
     browsePage.selectProduct("AGGL");
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
-    browsePage.selectMaterialType(["Forms", "IMG Publications"]);
+    browsePage.selectMaterialType("Forms", "IMG Publications");
     browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
     browsePage.typeSearch("Fire");    //Select effective date
     browsePage.setFromDateField("10/02/2012");
