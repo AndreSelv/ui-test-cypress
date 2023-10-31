@@ -59,7 +59,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(5);
-          browsePage.getDialogWindows().should("be.visible")
+          browsePage.getDialogWindows().should("be.visible");
         });
 
         it("Validate that user can open multiple docs publication  ", () => {
@@ -68,7 +68,19 @@ describe("Browse Results for Various Cards", () => {
           browsePage.selectPublicationByNumber(1);
           browsePage.getRadioGroupSection().should("be.visible");
           browsePage.selectDocsByRadioButton(1).click();
-          browsePage.getDialogWindows().should("be.visible")
+          browsePage.getDialogWindows().should("be.visible");
+        });
+
+        it("Validate error message if publication does not have any PDF docs ", () => {
+          cy.visit("#/browse");
+          browsePage.selectProduct("HO");
+          browsePage.selectState("AZ");
+          browsePage.selectPlans("By Peril");
+          browsePage.selectPublicationByNumber(1);
+          cy.contains(browsePage.getNoAvailablePreviewFiles())
+          cy.on("window:alert", (t) => {
+            expect(t).to.contains(browsePage.getNoAvailablePreviewFiles());
+          });
         });
       });
     });

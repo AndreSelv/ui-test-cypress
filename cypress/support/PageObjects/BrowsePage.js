@@ -122,6 +122,9 @@ class BrowsePage {
       "PRIOR TO USING THIS CONTENT, PLEASE CONTACT AN AAIS ENGAGEMENT MANAGER AT MEMBERSHIP@AAISONLINE.COM TO DISCUSS " +
       "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES.";
   }
+  getNoAvailablePreviewFiles(){
+    return "No file is available for preview. Please download the publication to view other available file types, such as a Word document."
+  }
 
   getAlertIAgreeButton() {
     return cy.contains("I Agree");
