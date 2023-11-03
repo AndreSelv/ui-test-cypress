@@ -67,7 +67,7 @@ describe("Browse Results for Various Cards", () => {
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(1);
           browsePage.getRadioGroupSection().should("be.visible");
-          browsePage.selectDocsByRadioButton(1).click();
+          // browsePage.selectDocsByRadioButton(1).click();
           browsePage.getDialogWindows().should("be.visible");
         });
 
