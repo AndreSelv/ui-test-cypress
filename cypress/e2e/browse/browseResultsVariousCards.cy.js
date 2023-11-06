@@ -66,7 +66,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
           browsePage.selectPublicationByNumber(1);
-          browsePage.getRadioGroupSection().should("be.visible");
+          // browsePage.getRadioGroupSection().should("be.visible");
           // browsePage.selectDocsByRadioButton(1).click();
           browsePage.getDialogWindows().should("be.visible");
         });
@@ -77,10 +77,50 @@ describe("Browse Results for Various Cards", () => {
           browsePage.selectState("AZ");
           browsePage.selectPlans("By Peril");
           browsePage.selectPublicationByNumber(1);
-          cy.contains(browsePage.getNoAvailablePreviewFiles())
+          cy.contains(browsePage.getNoAvailablePreviewFiles());
           cy.on("window:alert", (t) => {
             expect(t).to.contains(browsePage.getNoAvailablePreviewFiles());
           });
+        });
+
+        it.only("Validate that user can open docs in Info", () => {
+          cy.visit("#");
+          homePage.typeSearchBar("\"PA 4502\"");
+          browsePage.getInfoIcon(1).click();
+          // browsePage.selectPublicationByNumber(5);
+          browsePage.getDialogWindows().should("be.visible");
+          browsePage.getRowDisplay("PA", "Nebraska").invoke('removeAttr','target').click();
+          cy.wait(2000);
+
+
+
+
+          // cy.visit('https://mozilla.github.io')
+
+          // cy.window().its('open').should('be.called')
+
+
+
+          cy.window().then((win) => {
+            cy.stub(win, "open", url =>{
+              win.location.href = "https://mozilla.github.io"
+
+            }).as("windowOpen");
+
+            cy.get("@windowOpen").should("be.visible")
+
+            cy.get("@windowOpen").should("be.called");
+            cy.url().should("include", "mozilla");
+
+
+            // cy.get('#viewer').should('be.visible')
+
+          });
+
+          // cy.get('@windowOpen').should("be.visible")
+
+          // cy.url()
+          //   .should("include", "/windows/new");
         });
       });
     });

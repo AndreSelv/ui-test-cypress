@@ -162,6 +162,11 @@ class BrowsePage {
     return cy.get("[type=\"radio\"]").eq(number - 1);
   }
 
+  getRowDisplay(line, state){
+    return cy.get(`[data-test="rowDisplay-${line}${state}"]`)
+  }
+
+
   selectProduct(...products) {
     for (const product of products) {
       this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
