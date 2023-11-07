@@ -1,6 +1,8 @@
 const MATERIALS = require("../../fixtures/enums/MATERIALS");
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Browse Screen: Filters", () => {
   beforeEach(() => {
     cy.initAmplify();
@@ -43,14 +45,32 @@ describe("Browse Screen: Filters", () => {
 
   it("US73951 using browse add a product, state, package type, stats and then enter a product in the search box and validate information returns", () => {
     cy.visit("#/browse");
-    browsePage.selectProduct("BOP");
-    browsePage.selectState("AL");
     browsePage.selectMaterialType("Forms");
+    browsePage.selectProduct("BOP");
     browsePage.typeSearch("\"Water\"")
+    browsePage.selectState("AL");
     cy.wait(500)
     browsePage.getListOfPublicationsCards().each(($el)=>{
       expect($el.text()).contains("BP")
     })
+  });
+
+  it("US116672 Validate search by title only functionality", () => {
+    cy.visit("#/browse");
+    browsePage.selectProduct("AGGL");
+    browsePage.typeSearch(`"NV Supplement"`);
+    browsePage.selectAllStates();
+    cy.contains(`4 results`);
+    browsePage.getExcludeFileContentCheckBox().click();
+    cy.contains(`1 results`);
+  });
+
+  it("US116672 Validate search by title only functionality from Quick search", () => {
+    cy.visit("#/");
+    homePage.typeSearchBar(`"NV Supplement"`);
+    cy.contains(`7 results`);
+    browsePage.getExcludeFileContentCheckBox().click();
+    cy.contains(`4 results`);
   });
 
 

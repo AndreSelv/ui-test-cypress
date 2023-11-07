@@ -122,8 +122,9 @@ class BrowsePage {
       "PRIOR TO USING THIS CONTENT, PLEASE CONTACT AN AAIS ENGAGEMENT MANAGER AT MEMBERSHIP@AAISONLINE.COM TO DISCUSS " +
       "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES.";
   }
-  getNoAvailablePreviewFiles(){
-    return "No file is available for preview. Please download the publication to view other available file types, such as a Word document."
+
+  getNoAvailablePreviewFiles() {
+    return "No file is available for preview. Please download the publication to view other available file types, such as a Word document.";
   }
 
   getAlertIAgreeButton() {
@@ -162,8 +163,12 @@ class BrowsePage {
     return cy.get("[type=\"radio\"]").eq(number - 1);
   }
 
-  getRowDisplay(line, state){
-    return cy.get(`[data-test="rowDisplay-${line}${state}"]`)
+  getRowDisplay(line, state) {
+    return cy.get(`[data-test="rowDisplay-${line}${state}"]`);
+  }
+
+  getExcludeFileContentCheckBox() {
+    return cy.get("input[type=\"checkbox\"]");
   }
 
 
@@ -179,14 +184,16 @@ class BrowsePage {
   }
 
   selectMaterialType(...types) {
-      this.getMaterial().click();
-      this.getAllCheckBox()
-        .as("checkboxes").check([...types], { force: true });
-      this.getMaterial().click();
+    this.getMaterial().click();
+    cy.get('#packageType-select-listbox').scrollTo("top");
+    this.getAllCheckBox()
+      .as("checkboxes").check([...types], { force: true });
+    this.getMaterial().click();
   }
 
   unSelectMaterialType(type) {
     this.getMaterial().click();
+    cy.get('#packageType-select-listbox').scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
     this.getMaterial().click();
@@ -220,6 +227,7 @@ class BrowsePage {
   selectAllStates() {
     this.getStates().click();
     cy.get("[data-test=selectALLSTATES]").click();
+    this.getStates().click();
   }
 
   typeSearch(text) {
