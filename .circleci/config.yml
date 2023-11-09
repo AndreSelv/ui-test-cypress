@@ -50,9 +50,7 @@
 
 
 #======================================================================================
-browser_info:
-  browserChrome: chrome
-  browserFirefox: firefox
+
 
 
 version: 2.1
@@ -72,7 +70,7 @@ workflows:
             - cypress/install
           name: Browse
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/browse/*
@@ -90,7 +88,7 @@ workflows:
             - cypress/install
           name: Home
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/home/*
@@ -108,7 +106,7 @@ workflows:
             - cypress/install
           name: Notifications
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/notifications/*
@@ -126,7 +124,7 @@ workflows:
             - cypress/install
           name: Orgs
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/orgs/*
@@ -144,7 +142,7 @@ workflows:
             - cypress/install
           name: Risk
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/risk screen/*
@@ -162,7 +160,7 @@ workflows:
             - cypress/install
           name: Smoke
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/smoke/*
@@ -180,7 +178,7 @@ workflows:
             - cypress/install
           name: Utils
           executor: browsers-chrome100-ff99-edge
-          browser: {{browserChrome}}
+          browser: chrome
           record: true
           debug: 'cypress:cli'
           spec: cypress/e2e/utils/*
