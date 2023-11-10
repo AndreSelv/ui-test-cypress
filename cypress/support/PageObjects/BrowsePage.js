@@ -175,6 +175,7 @@ class BrowsePage {
   selectProduct(...products) {
     for (const product of products) {
       this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
+      this.getProductSection().should("contain.text", product);
       // cy.wait(500)
     }
   }
