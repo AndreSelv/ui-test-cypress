@@ -61,6 +61,12 @@ const TESTS = [
     caseQuotes: "\"23-0641\"",
     result: 1,
     expect: "23-0641",
+  },
+  {
+    case: "0641",
+    caseQuotes: "\"0641\"",
+    result: 27,
+    expect: "0641",
   }
 ];
 
