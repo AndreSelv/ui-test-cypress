@@ -9,7 +9,7 @@ class BrowsePage {
   }
 
   getProductSection() {
-    return cy.get(`div[data-test="browseProduct"]`);
+    return cy.get(`[data-test="browseProduct"]`);
   }
 
   getPlans() {

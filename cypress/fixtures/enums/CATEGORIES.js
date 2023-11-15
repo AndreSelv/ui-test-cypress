@@ -12,7 +12,7 @@ const CATEGORIES = [
   "Compliance Guide",
   "Education Material",
   "Form",
-  "Forms and Endorsements List",
+  "F&E List",
   "IMG Publication",
   "Manual Material",
   "Report",
