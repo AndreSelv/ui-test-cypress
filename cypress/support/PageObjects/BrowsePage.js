@@ -53,7 +53,7 @@ class BrowsePage {
   }
 
   getListOfPublications() {
-    return cy.get(`span:contains("more")`);
+    return cy.get(`[data-product="product"]`);
   }
 
   getListOfPublicationsCards() {
