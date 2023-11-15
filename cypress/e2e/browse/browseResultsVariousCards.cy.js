@@ -1,6 +1,8 @@
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 const HomePage = require("../../support/PageObjects/HomePage");
+const MATERIALS = require("../../fixtures/enums/MATERIALS");
+const CATEGORIES = require("../../fixtures/enums/CATEGORIES");
 const homePage = new HomePage();
 
 let x = Math.floor((Math.random() * 10) + 1);
@@ -13,6 +15,26 @@ describe("Browse Results for Various Cards", () => {
           cy.login();
 
           cy.viewport(size, orientation);
+        });
+        it("US112937 Show material type by name rather than symbol in search results", () => {
+          cy.visit("#");
+          homePage.typeSearchBar("\"\"");
+          browsePage.getSearchField().clear();
+          browsePage.getMaterial().click();
+          cy.wait(300);
+
+          for (let i = 1; i < MATERIALS.length; i++) {
+
+            browsePage.getAllCheckBox()
+              .as("checkboxes").check(MATERIALS[i][0], { force: true });
+            browsePage.getMaterial().click();
+            browsePage.getMaterialTypeSection().should("contain.text", MATERIALS[i][0]);
+            browsePage.getListOfPublications().each(($el) => {
+              expect($el.text()).contains(CATEGORIES[i]);
+            });
+            browsePage.getMaterial().click();
+            cy.get(`@checkboxes`).uncheck(MATERIALS[i][0], { force: true });
+          }
         });
 
         it("US114431 Show user where docs is available", () => {
@@ -91,36 +113,6 @@ describe("Browse Results for Various Cards", () => {
           browsePage.getDialogWindows().should("be.visible");
           browsePage.getRowDisplay("PA", "Nebraska").invoke('removeAttr','target').click();
           cy.wait(2000);
-
-
-
-
-          // cy.visit('https://mozilla.github.io')
-
-          // cy.window().its('open').should('be.called')
-
-
-
-          // cy.window().then((win) => {
-          //   cy.stub(win, "open", url =>{
-          //     win.location.href = "https://mozilla.github.io"
-          //
-          //   }).as("windowOpen");
-          //
-          //   cy.get("@windowOpen").should("be.visible")
-          //
-          //   cy.get("@windowOpen").should("be.called");
-          //   cy.url().should("include", "mozilla");
-
-
-            // cy.get('#viewer').should('be.visible')
-
-          // });
-
-          // cy.get('@windowOpen').should("be.visible")
-
-          // cy.url()
-          //   .should("include", "/windows/new");
         });
       });
     });

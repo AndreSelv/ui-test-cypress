@@ -9,7 +9,7 @@ class BrowsePage {
   }
 
   getProductSection() {
-    return cy.get(`div[data-test="browseProduct"]`);
+    return cy.get(`[data-test="browseProduct"]`);
   }
 
   getPlans() {
@@ -53,7 +53,7 @@ class BrowsePage {
   }
 
   getListOfPublications() {
-    return cy.get(`span:contains("more")`);
+    return cy.get(`[data-product="product"]`);
   }
 
   getListOfPublicationsCards() {
