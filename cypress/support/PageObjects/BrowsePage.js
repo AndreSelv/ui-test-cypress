@@ -232,8 +232,8 @@ class BrowsePage {
   }
 
   typeSearch(text) {
-    cy.wait(500);
-    this.getSearchField().type(`${text}{enter}{enter}`, { force: true });
+    cy.wait(300);
+    this.getSearchField().type(`${text}`, { force: true });
   }
 
   publicationsShouldBeGreaterThen(value = 20) {
