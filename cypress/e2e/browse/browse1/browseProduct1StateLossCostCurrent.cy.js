@@ -1,4 +1,4 @@
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 
 describe("Browse Results for Product, 1 State, Loss Cost and Current Status", () => {

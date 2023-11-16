@@ -1,5 +1,5 @@
-const MATERIALS = require("../../fixtures/enums/MATERIALS");
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const MATERIALS = require("../../../fixtures/enums/MATERIALS");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 describe("US109198 Validate subcategories in material type section", () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 describe("IMG Browse Screen: Filters", () => {
 
