@@ -1,8 +1,8 @@
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
-const HomePage = require("../../support/PageObjects/HomePage");
-const MATERIALS = require("../../fixtures/enums/MATERIALS");
-const CATEGORIES = require("../../fixtures/enums/CATEGORIES");
+const HomePage = require("../../../support/PageObjects/HomePage");
+const MATERIALS = require("../../../fixtures/enums/MATERIALS");
+const CATEGORIES = require("../../../fixtures/enums/CATEGORIES");
 const homePage = new HomePage();
 
 let x = Math.floor((Math.random() * 10) + 1);

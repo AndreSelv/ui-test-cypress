@@ -1,7 +1,7 @@
-const MATERIALS = require("../../fixtures/enums/MATERIALS");
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const MATERIALS = require("../../../fixtures/enums/MATERIALS");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
-const HomePage = require("../../support/PageObjects/HomePage");
+const HomePage = require("../../../support/PageObjects/HomePage");
 const homePage = new HomePage();
 describe("Browse Screen: Filters", () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
-const LINES = require("../../fixtures/enums/LINES");
-const STATES = require("../../fixtures/enums/STATES");
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const LINES = require("../../../fixtures/enums/LINES");
+const STATES = require("../../../fixtures/enums/STATES");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 
 

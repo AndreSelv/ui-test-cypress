@@ -1,5 +1,5 @@
-const LINES = require("../../fixtures/enums/LINES");
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const LINES = require("../../../fixtures/enums/LINES");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 describe("US 110502 Product Lines persistence", () => {
   beforeEach(() => {

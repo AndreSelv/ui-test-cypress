@@ -1,5 +1,5 @@
-const MATERIALS = require("../../fixtures/enums/MATERIALS");
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const MATERIALS = require("../../../fixtures/enums/MATERIALS");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 describe("Brows Results Summary", () => {
   Cypress.env("SIZES").forEach((size) => {

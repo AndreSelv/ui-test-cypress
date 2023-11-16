@@ -1,6 +1,6 @@
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
-const HomePage = require("../../support/PageObjects/HomePage");
+const HomePage = require("../../../support/PageObjects/HomePage");
 const homePage = new HomePage();
 
 
