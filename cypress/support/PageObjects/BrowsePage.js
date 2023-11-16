@@ -187,9 +187,10 @@ class BrowsePage {
 
   selectMaterialType(...types) {
     this.getMaterial().click();
+        cy.wait(300)
     cy.get('#packageType-select-listbox').scrollTo("top");
     this.getAllCheckBox()
-      .as("checkboxes").check([...types], { force: true });
+      .as("checkboxes").check([...types], { force: true })
     this.getMaterial().click();
   }
 
