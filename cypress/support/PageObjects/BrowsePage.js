@@ -57,7 +57,8 @@ class BrowsePage {
   }
 
   getListOfPublicationsCards() {
-    return cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`);
+    // return cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`);
+    return cy.get(`[data-product="product"]`);
   }
 
   getProductRequestButton() {
