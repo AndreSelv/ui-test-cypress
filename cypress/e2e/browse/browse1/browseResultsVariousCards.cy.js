@@ -80,7 +80,7 @@ describe("Browse Results for Various Cards", () => {
         it("Validate that user can open single docs publication  ", () => {
           cy.visit("#");
           homePage.typeSearchBar("\"PA 4502\"");
-          browsePage.selectPublicationByNumber(5);
+          browsePage.selectPublicationByNumber(4);
           browsePage.getDialogWindows().should("be.visible");
         });
 

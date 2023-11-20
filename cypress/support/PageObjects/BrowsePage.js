@@ -182,7 +182,7 @@ class BrowsePage {
   }
 
   selectPublicationByNumber(number) {
-    this.getListOfPublicationsCards().eq(number - 1).click();
+    this.getListOfPublicationsCards().eq(number - 1).click('center');
   }
 
   selectMaterialType(...types) {
