@@ -29,6 +29,7 @@ module.exports = defineConfig({
   viewportWidth: 1680,
   viewportHeight: 1000,
   chromeWebSecurity: false,
+  firefoxWebSecurity: false,
   includeShadowDom: true,
 
   e2e: {
