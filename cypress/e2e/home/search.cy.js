@@ -16,7 +16,6 @@ describe("Search Functionality", () => {
         it("enter a product in the search box and vailidate information returns", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
           cy.visit("/#/browse");
-          // homePage.typeSearchBar("Liability");
           browsePage.typeSearch("Liability");
           cy.url().should("contain", "/#/browse");
           browsePage.selectProduct("AGXL");
@@ -31,7 +30,6 @@ describe("Search Functionality", () => {
           browsePage.typeSearch(spase);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
-          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.publicationsShouldBeEqual(2);
           browsePage.getSearchField().clear();
           browsePage.typeSearch(noSpase);
@@ -45,7 +43,6 @@ describe("Search Functionality", () => {
           browsePage.typeSearch(noSpase);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
-          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.publicationsShouldBeEqual(2);
           browsePage.getSearchField().clear();
           browsePage.typeSearch(spase);
@@ -58,7 +55,6 @@ describe("Search Functionality", () => {
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) from browser page", () => {
           browsePage.selectProduct("AGGL");
           browsePage.selectMaterialType("Forms", "Advisory Information");
-          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.typeSearch(spase);
           browsePage.selectState("AK");
           browsePage.getListOfPublicationsCards().each(($el) => {
@@ -80,7 +76,6 @@ describe("Search Functionality", () => {
           browsePage.typeSearch(trim);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
-          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.publicationsShouldBeEqual(2);
           browsePage.getListOfPublicationsCards().each(($el) => {
             expect($el.text()).contains(spase);

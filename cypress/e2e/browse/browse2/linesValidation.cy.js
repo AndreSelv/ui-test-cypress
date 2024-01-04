@@ -6,21 +6,23 @@ describe("US 110502 Product Lines persistence", () => {
     cy.initAmplify();
     cy.login();
     cy.visit("#/browse");
-    browsePage.getProduct().click()
+    browsePage.getProduct().click();
   });
 
   it("Validate ALL Lines check box functionality", () => {
     cy.wrap(LINES).each((line) => {
-      browsePage.selectProduct(line.key)
-      browsePage.getProductSection().should("contain.text", line.title)
+      browsePage.selectProduct(line.key);
+      cy.wait(600);
+      browsePage.getProductSection().should("contain.text", line.title);
     });
   });
 
   it("Validate EACH Lines check box functionality", () => {
     cy.wrap(LINES).each((line) => {
-      browsePage.selectProduct(line.key)
-      browsePage.getProductSection().should("contain.text", line.title)
-      browsePage.getCloseProductsButton().click()
+      browsePage.selectProduct(line.key);
+      browsePage.getProductSection().should("contain.text", line.title);
+      browsePage.getCloseProductsButton().click();
+      cy.wait(500);
     });
   });
 });

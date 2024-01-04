@@ -8,10 +8,11 @@ describe("Download Browser Results", () => {
   beforeEach(() => {
     cy.initAmplify();
     cy.login();
+    cy.visit("#/browse");
   });
 
   it("Validate download functionality from browse page", () => {
-    cy.visit("#/browse");
+    browsePage.getExcludeFileContentCheckBox().click();
     browsePage.selectProduct("BOP");
     // browsePage.selectMaterialType("Forms");
     browsePage.typeSearch("\"Field CL\"");
@@ -29,8 +30,8 @@ describe("Download Browser Results", () => {
   });
 
   it("Validate download functionality from Home page (Quick search)", () => {
-    cy.visit("#");
-    homePage.typeSearchBar("\"Field CL\"");
+    browsePage.typeSearch("\"Field CL\"");
+    browsePage.getExcludeFileContentCheckBox().click();
     browsePage.publicationsShouldBeGreaterThen(1);
     //TODO add validation after fix problem
 

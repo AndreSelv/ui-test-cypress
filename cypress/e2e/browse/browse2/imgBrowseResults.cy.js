@@ -16,7 +16,7 @@ describe("Brows Results Summary", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/noBrowseIMGResult.json" });
           cy.visit("#/browse");
           browsePage.selectProduct("IMG");
-          browsePage.typeSearch("firee");
+          browsePage.typeSearch("fireee");
           browsePage.selectState("MU");
           cy.contains("0 results");
         });
