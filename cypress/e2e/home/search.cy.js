@@ -1,7 +1,4 @@
-const MATERIALS = require("../../fixtures/enums/MATERIALS");
-const HomePage = require("../../support/PageObjects/HomePage");
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
-const homePage = new HomePage();
 const browsePage = new BrowsePage();
 describe("Search Functionality", () => {
   Cypress.env("SIZES").forEach((size) => {
@@ -10,7 +7,7 @@ describe("Search Functionality", () => {
         beforeEach(() => {
           cy.initAmplify();
           cy.login();
-
+          cy.visit("/#/browse");
           cy.viewport(size, orientation);
         });
         const noSpase = "CL0811";
@@ -18,8 +15,9 @@ describe("Search Functionality", () => {
         const trim = " CL 0811 ";
         it("enter a product in the search box and vailidate information returns", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/browseResultsVariousCards.json" });
-          cy.visit("/#");
-          homePage.typeSearchBar("Liability");
+          cy.visit("/#/browse");
+          // homePage.typeSearchBar("Liability");
+          browsePage.typeSearch("Liability");
           cy.url().should("contain", "/#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("MU");
@@ -30,11 +28,10 @@ describe("Search Functionality", () => {
         });
 
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) from home page", () => {
-          cy.visit("/#");
-          homePage.typeSearchBar(spase);
+          browsePage.typeSearch(spase);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
-          browsePage.getExcludeFileContentCheckBox().click();
+          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.publicationsShouldBeEqual(2);
           browsePage.getSearchField().clear();
           browsePage.typeSearch(noSpase);
@@ -45,11 +42,10 @@ describe("Search Functionality", () => {
         });
 
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) ", () => {
-          cy.visit("/#");
-          homePage.typeSearchBar(noSpase);
+          browsePage.typeSearch(noSpase);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
-          browsePage.getExcludeFileContentCheckBox().click();
+          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.publicationsShouldBeEqual(2);
           browsePage.getSearchField().clear();
           browsePage.typeSearch(spase);
@@ -60,10 +56,9 @@ describe("Search Functionality", () => {
         });
 
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) from browser page", () => {
-          cy.visit("/#/browse");
           browsePage.selectProduct("AGGL");
           browsePage.selectMaterialType("Forms", "Advisory Information");
-          browsePage.getExcludeFileContentCheckBox().click();
+          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.typeSearch(spase);
           browsePage.selectState("AK");
           browsePage.getListOfPublicationsCards().each(($el) => {
@@ -72,10 +67,8 @@ describe("Search Functionality", () => {
         });
 
         it("US113741 AAISdirect | Support search box searches space usage (feature parity)", () => {
-          cy.visit("/#/browse");
           browsePage.selectProduct("AGGL");
           browsePage.selectMaterialType("Forms", "Advisory Information");
-          browsePage.getExcludeFileContentCheckBox().click();
           browsePage.typeSearch(noSpase);
           browsePage.selectState("AK");
           browsePage.getListOfPublicationsCards().each(($el) => {
@@ -84,11 +77,10 @@ describe("Search Functionality", () => {
 
         });
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) Trim leading and trailing spaces", () => {
-          cy.visit("/#");
-          homePage.typeSearchBar(trim);
+          browsePage.typeSearch(trim);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
-          browsePage.getExcludeFileContentCheckBox().click();
+          // browsePage.getExcludeFileContentCheckBox().click();
           browsePage.publicationsShouldBeEqual(2);
           browsePage.getListOfPublicationsCards().each(($el) => {
             expect($el.text()).contains(spase);

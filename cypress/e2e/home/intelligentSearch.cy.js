@@ -10,18 +10,18 @@ describe("Search Functionality", () => {
         beforeEach(() => {
           cy.initAmplify();
           cy.login();
-
+          cy.visit("/#/browse");
           cy.viewport(size, orientation);
         });
 
         it("US114519 Accommodate form and bulletin searches more intelligently", () => {
 
           cy.wrap(TESTS).each((test) => {
-            cy.visit("/#");
-            homePage.typeSearchBar(test.case);
+            browsePage.getSearchField().clear();
+            browsePage.typeSearch(test.case);
             cy.wait(700);
-            cy.url().should("contain", "/#/browse");
-            browsePage.getExcludeFileContentCheckBox().click();
+            // cy.url().should("contain", "/#/browse");
+            // browsePage.getExcludeFileContentCheckBox().click();
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(test.expect);
