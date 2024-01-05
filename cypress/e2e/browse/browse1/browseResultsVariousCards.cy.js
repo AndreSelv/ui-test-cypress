@@ -17,13 +17,13 @@ describe("Browse Results for Various Cards", () => {
           cy.viewport(size, orientation);
         });
         it("US112937 Show material type by name rather than symbol in search results", () => {
-          cy.visit("#");
-          homePage.typeSearchBar("\"\"");
+          cy.visit("#/browse");
+          browsePage.typeSearch("\"\"");
           browsePage.getSearchField().clear();
           browsePage.getMaterial().click();
           cy.wait(300);
 
-          for (let i = 1; i < MATERIALS.length; i++) {
+          for (let i = 0; i < MATERIALS.length; i++) {
 
             browsePage.getAllCheckBox()
               .as("checkboxes").check(MATERIALS[i][0], { force: true });
@@ -78,15 +78,17 @@ describe("Browse Results for Various Cards", () => {
         });
 
         it("Validate that user can open single docs publication  ", () => {
-          cy.visit("#");
-          homePage.typeSearchBar("\"PA 4502\"");
+          cy.visit("#/browse");
+          browsePage.typeSearch("\"PA 4502\"");
+          browsePage.getExcludeFileContentCheckBox().click();
           browsePage.selectPublicationByNumber(4);
           browsePage.getDialogWindows().should("be.visible");
         });
 
         it("Validate that user can open multiple docs publication  ", () => {
-          cy.visit("#");
-          homePage.typeSearchBar("\"PA 4502\"");
+          cy.visit("#/browse");
+          browsePage.typeSearch("\"PA 4502\"");
+          browsePage.getExcludeFileContentCheckBox().click();
           browsePage.selectPublicationByNumber(1);
           // browsePage.getRadioGroupSection().should("be.visible");
           // browsePage.selectDocsByRadioButton(1).click();
@@ -106,12 +108,13 @@ describe("Browse Results for Various Cards", () => {
         });
 
         it("Validate that user can open docs in Info", () => {
-          cy.visit("#");
-          homePage.typeSearchBar("\"PA 4502\"");
+          cy.visit("#/browse");
+          browsePage.typeSearch("\"PA 4502\"");
+          browsePage.getExcludeFileContentCheckBox().click();
           browsePage.getInfoIcon(1).click();
           // browsePage.selectPublicationByNumber(5);
           browsePage.getDialogWindows().should("be.visible");
-          browsePage.getRowDisplay("PA", "Nebraska").invoke('removeAttr','target').click();
+          browsePage.getRowDisplay("PA", "Nebraska").invoke("removeAttr", "target").click();
           cy.wait(2000);
         });
       });

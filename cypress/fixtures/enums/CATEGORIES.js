@@ -6,7 +6,6 @@
  * @public
  */
 const CATEGORIES = [
-  "All Content",
   "Advisory Information",
   "Bulletin",
   "Compliance Guide",
