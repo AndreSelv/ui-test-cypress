@@ -9,7 +9,7 @@ describe("Browse Screen: Filters", () => {
     cy.login();
 
   });
-  it.only("US73951 using browse add a product then return to none", () => {
+  it("US73951 using browse add a product then return to none", () => {
     cy.visit("#/browse");
     browsePage.selectProduct("BOP");
     cy.contains("Jurisdictions");//.click();

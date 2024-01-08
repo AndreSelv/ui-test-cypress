@@ -174,19 +174,17 @@ class BrowsePage {
 
 
   selectProduct(...products) {
-    for (const product of products) {
-      this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
-      cy.wait(300)
-      this.getProductSection().should("contain.text", product);
-    }
-
-    // this.getProduct().click();
-    // cy.wait(300);
+    // for (const product of products) {
+    //   this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
+    //   cy.wait(300)
+    //   this.getProductSection().should("contain.text", product);
+    // }
+    this.getProduct().click();
+    cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
-    // this.getAllCheckBox()
-    //   .as("checkboxes").check([...products], { force: true });
-    // this.getProduct().click();
-
+    this.getAllCheckBox()
+      .as("checkboxes").check([...products], { force: true });
+    this.getProduct().click();
   }
 
   selectPublicationByNumber(number) {
