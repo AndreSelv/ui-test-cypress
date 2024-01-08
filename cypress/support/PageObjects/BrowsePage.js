@@ -188,21 +188,21 @@ class BrowsePage {
   }
 
   selectPublicationByNumber(number) {
-    this.getListOfPublicationsCards().eq(number - 1).click('center');
+    this.getListOfPublicationsCards().eq(number - 1).click("center");
   }
 
   selectMaterialType(...types) {
     this.getMaterial().click();
-        cy.wait(300)
-    cy.get('#packageType-select-listbox').scrollTo("top");
+    cy.wait(300);
+    cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
-      .as("checkboxes").check([...types], { force: true })
+      .as("checkboxes").check([...types], { force: true });
     this.getMaterial().click();
   }
 
   unSelectMaterialType(type) {
     this.getMaterial().click();
-    cy.get('#packageType-select-listbox').scrollTo("top");
+    cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
     this.getMaterial().click();
@@ -216,14 +216,18 @@ class BrowsePage {
   }
 
   selectState(...states) {
-    for (const state of states) {
-      this.getStates().click({ force: true });
-      cy.get(`[data-test=select${state}]`).click({ force: true });
-      cy.contains("Filter").click({ force: true });
-      // .type("{esc}");
-      cy.wait(300);
-    }
+    // for (const state of states) {
+    //   this.getStates().click({ force: true });
+    //   cy.get(`[data-test=select${state}]`).click({ force: true });
+    //   cy.contains("Filter").click({ force: true });
+    //   cy.wait(300);
+    // }
 
+    this.getStates().click();
+    cy.wait(300);
+    this.getAllCheckBox()
+      .as("checkboxes").check([...states], { force: true });
+    this.getStates().click();
   }
 
   selectPlans(...plans) {
