@@ -9,6 +9,7 @@ describe("Search Functionality", () => {
           cy.login();
           cy.visit("/#/browse");
           cy.viewport(size, orientation);
+          cy.clearAllCookies()
         });
         const noSpase = "CL0811";
         const spase = "CL 0811";
