@@ -8,6 +8,18 @@
 
 const TESTS = [
   {
+    case: "BP 351",
+    caseQuotes: "\"BP 351\"",
+    result: 6,
+    expect: "351",
+  },
+  {
+    case: "BP351",
+    caseQuotes: "\"BP351\"",
+    result: 6,
+    expect: "351",
+  },
+  {
     case: "UM 0811",
     caseQuotes: "\"UM 0811\"",
     result: 7,
@@ -18,7 +30,6 @@ const TESTS = [
     caseQuotes: "\"UM0811\"",
     result: 7,
     expect: "UM 0811",
-
   },
   {
     case: "CL 0136",
@@ -44,18 +55,7 @@ const TESTS = [
     result: 6,
     expect: "351",
   },
-  {
-    case: "BP 351",
-    caseQuotes: "\"BP 351\"",
-    result: 6,
-    expect: "351",
-  },
-  {
-    case: "BP351",
-    caseQuotes: "\"BP351\"",
-    result: 6,
-    expect: "351",
-  },
+
   {
     case: "23-0641",
     caseQuotes: "\"23-0641\"",

@@ -12,27 +12,36 @@ describe("Search Functionality", () => {
           cy.login();
           cy.visit("/#/browse");
           cy.viewport(size, orientation);
+          cy.clearCookies();
         });
 
         it("US114519 Accommodate form and bulletin searches more intelligently", () => {
 
           cy.wrap(TESTS).each((test) => {
-            browsePage.getSearchField().clear();
+            cy.clearCookies();
+            browsePage.getClearFilter().click();
+            cy.wait(500);
             browsePage.typeSearch(test.case);
-            cy.wait(700);
-            // cy.url().should("contain", "/#/browse");
-            // browsePage.getExcludeFileContentCheckBox().click();
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(test.expect);
             });
+            cy.wait(2000);
+          });
+        });
 
-            browsePage.getSearchField().clear();
+        it("US114519 Accommodate form and bulletin searches more intelligently Quotes", () => {
+
+          cy.wrap(TESTS).each((test) => {
+            cy.clearCookies();
+            browsePage.getClearFilter().click();
+            cy.wait(500);
             browsePage.typeSearch(test.caseQuotes);
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(test.expect);
             });
+            cy.wait(2000);
           });
         });
       });

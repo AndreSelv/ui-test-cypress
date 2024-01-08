@@ -8,6 +8,10 @@ class BrowsePage {
     return cy.xpath(`(//*[@data-testid="CloseIcon"])[1]`);
   }
 
+  getClearFilter(){
+    return cy.get(`[aria-label="clear"]`)
+  }
+
   getProductSection() {
     return cy.get(`[data-test="browseProduct"]`);
   }
