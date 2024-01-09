@@ -26,9 +26,9 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
   it("Validate required field for submitting hubspot form", () => {
     cy.visit("#/browse");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
+    browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.selectProduct("IMG");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
+    browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.selectState("CA");
     browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.getProductRequestButton().should("be.visible").click();
@@ -40,14 +40,14 @@ describe("Validate User Interface Hubspot functionalities", () => {
 
   it("Validate negative scenario of submitting form ", () => {
     cy.visit("#/browse");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
+    browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.selectProduct("AGGL");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
+    browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.selectMaterialType("Forms", "IMG Publications");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
+    browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
     browsePage.typeSearch("Fire");    //Select effective date
     browsePage.setFromDateField("10/02/2012");
-    browsePage.getBrowseSearchResultSection().should("not.contain.text", "Not what you were looking for?");
+    browsePage.getBrowseSearchResultSection().should("contain.text", "Not what you were looking for?");
   });
 
 });

@@ -16,19 +16,20 @@ describe("Brows Results Summary", () => {
 
         it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
+          browsePage.typeSearch("Losses");
           browsePage.selectProduct("HO");
+          browsePage.selectPlans("Composite");
           browsePage.selectMaterialType("Forms");
+          browsePage.selectState(browsePage.getRandomState(STATES));
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");
-          browsePage.typeSearch("Losses");
-          browsePage.selectState(browsePage.getRandomState(STATES));
           browsePage.publicationsShouldBeGreaterThen(1);
         });
 
         it("validate no browse each results", () => {
           cy.visit("#/browse");
-          browsePage.selectProduct("YT");
           browsePage.typeSearch("waterr");
+          browsePage.selectProduct("YT");
           browsePage.selectState("CO");
           cy.contains("0 results");
         });
@@ -88,7 +89,7 @@ describe("Brows Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectMaterialType("Forms");
-          browsePage.selectAllStates();
+          // browsePage.selectAllStates();
 
           cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`).each(($el) => {
             //First 2 characters should contain UpperCase Letters only

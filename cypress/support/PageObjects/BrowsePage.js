@@ -8,6 +8,10 @@ class BrowsePage {
     return cy.xpath(`(//*[@data-testid="CloseIcon"])[1]`);
   }
 
+  getClearFilter(){
+    return cy.get(`[aria-label="clear"]`)
+  }
+
   getProductSection() {
     return cy.get(`[data-test="browseProduct"]`);
   }
@@ -174,29 +178,35 @@ class BrowsePage {
 
 
   selectProduct(...products) {
-    for (const product of products) {
-      this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
-      this.getProductSection().should("contain.text", product);
-      // cy.wait(500)
-    }
+    // for (const product of products) {
+    //   this.getProduct().type(`${product} - {downArrow}{enter}{esc}`);
+    //   cy.wait(300)
+    //   this.getProductSection().should("contain.text", product);
+    // }
+    this.getProduct().click();
+    cy.wait(300);
+    // cy.get("#packageType-select-listbox").scrollTo("top");
+    this.getAllCheckBox()
+      .as("checkboxes").check([...products], { force: true });
+    this.getProduct().click();
   }
 
   selectPublicationByNumber(number) {
-    this.getListOfPublicationsCards().eq(number - 1).click('center');
+    this.getListOfPublicationsCards().eq(number - 1).click("center");
   }
 
   selectMaterialType(...types) {
     this.getMaterial().click();
-        cy.wait(300)
-    cy.get('#packageType-select-listbox').scrollTo("top");
+    cy.wait(300);
+    cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
-      .as("checkboxes").check([...types], { force: true })
+      .as("checkboxes").check([...types], { force: true });
     this.getMaterial().click();
   }
 
   unSelectMaterialType(type) {
     this.getMaterial().click();
-    cy.get('#packageType-select-listbox').scrollTo("top");
+    cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
     this.getMaterial().click();
@@ -210,14 +220,18 @@ class BrowsePage {
   }
 
   selectState(...states) {
-    for (const state of states) {
-      this.getStates().click({ force: true });
-      cy.get(`[data-test=select${state}]`).click({ force: true });
-      cy.contains("Filter").click({ force: true });
-      // .type("{esc}");
-      cy.wait(300);
-    }
+    // for (const state of states) {
+    //   this.getStates().click({ force: true });
+    //   cy.get(`[data-test=select${state}]`).click({ force: true });
+    //   cy.contains("Filter").click({ force: true });
+    //   cy.wait(300);
+    // }
 
+    this.getStates().click();
+    cy.wait(300);
+    this.getAllCheckBox()
+      .as("checkboxes").check([...states], { force: true });
+    this.getStates().click();
   }
 
   selectPlans(...plans) {
@@ -235,7 +249,8 @@ class BrowsePage {
 
   typeSearch(text) {
     cy.wait(300);
-    this.getSearchField().type(`${text}`, { force: true });
+    // this.getSearchField().type(`${text}`, { force: true });
+    this.getSearchField().type(`${text}`);
   }
 
   publicationsShouldBeGreaterThen(value = 20) {

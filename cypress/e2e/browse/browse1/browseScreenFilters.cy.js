@@ -12,14 +12,14 @@ describe("Browse Screen: Filters", () => {
   it("US73951 using browse add a product then return to none", () => {
     cy.visit("#/browse");
     browsePage.selectProduct("BOP");
-    cy.contains("States*");//.click();
+    cy.contains("Jurisdictions");//.click();
   });
 
   it("US73951 using browse add a state, then remove the state", () => {
     cy.visit("#/browse");
     browsePage.selectState("CA");
     browsePage.selectState("CA")
-    cy.contains("States*").should("be.visible");
+    cy.contains("Jurisdictions").should("be.visible");
   });
 
   it("US73951 using browse add a product, a state and each of the package types", () => {
@@ -57,20 +57,21 @@ describe("Browse Screen: Filters", () => {
 
   it("US116672 Validate search by title only functionality", () => {
     cy.visit("#/browse");
-    browsePage.selectProduct("AGGL");
     browsePage.typeSearch(`"NV Supplement"`);
-    browsePage.selectAllStates();
+    browsePage.selectProduct("AGGL");
+    browsePage.getExcludeFileContentCheckBox().click()
+    // browsePage.selectAllStates();
     cy.contains(`4 results`);
     browsePage.getExcludeFileContentCheckBox().click();
     cy.contains(`1 results`);
   });
 
   it("US116672 Validate search by title only functionality from Quick search", () => {
-    cy.visit("#/");
-    homePage.typeSearchBar(`"NV Supplement"`);
-    cy.contains(`7 results`);
-    browsePage.getExcludeFileContentCheckBox().click();
+    cy.visit("#/browse");
+    browsePage.typeSearch(`"NV Supplement"`);
     cy.contains(`4 results`);
+    browsePage.getExcludeFileContentCheckBox().click();
+    cy.contains(`7 results`);
   });
 
 

@@ -6,9 +6,9 @@
  * @public
  */
 const MATERIALS = [
-  [
-    "All Content",
-  ],
+  // [
+  //   "All Content",
+  // ],
   [
     "Advisory Information",
     "Declarations",

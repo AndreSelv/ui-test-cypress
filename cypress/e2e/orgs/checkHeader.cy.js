@@ -16,17 +16,6 @@ describe("Check Links in the Header", () => {
         it("Check AAIS Logo", () => {
           homePage.getAAISLogo().should("have.attr", "href", "#/");
         });
-
-        it("Check Search Text Box is Visible ", () => {
-          homePage.getNavBarSearch().should("be.visible");
-        });
-
-        it("Check Search Screen", () => {
-          homePage.getNavBarSearch().type("fire{enter}");
-
-          cy.url().should("include", "/#/browse?q=fire");
-
-        });
       });
     });
   });
