@@ -17,6 +17,7 @@ describe("Brows Results Summary", () => {
         it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
+          browsePage.selectPlans("Composite")
           browsePage.selectMaterialType("Forms");
           browsePage.setFromDateField("10/02/2012");
           browsePage.setToDateField("10/09/2023");

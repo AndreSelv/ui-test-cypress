@@ -6,13 +6,13 @@ describe("US 110502 Product Lines persistence", () => {
     cy.initAmplify();
     cy.login();
     cy.visit("#/browse");
-    browsePage.getProduct().click();
+    // browsePage.getProduct().click();
   });
 
   it("Validate ALL Lines check box functionality", () => {
     cy.wrap(LINES).each((line) => {
       browsePage.selectProduct(line.key);
-      cy.wait(600);
+      cy.wait(300);
       browsePage.getProductSection().should("contain.text", line.title);
     });
   });
@@ -22,7 +22,7 @@ describe("US 110502 Product Lines persistence", () => {
       browsePage.selectProduct(line.key);
       browsePage.getProductSection().should("contain.text", line.title);
       browsePage.getCloseProductsButton().click();
-      cy.wait(500);
+      cy.wait(300);
     });
   });
 });
