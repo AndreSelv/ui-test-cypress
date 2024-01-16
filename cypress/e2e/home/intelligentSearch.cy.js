@@ -18,30 +18,24 @@ describe("Search Functionality", () => {
         it("US114519 Accommodate form and bulletin searches more intelligently", () => {
 
           cy.wrap(TESTS).each((test) => {
-            cy.clearCookies();
             browsePage.getClearFilter().click();
-            cy.wait(500);
             browsePage.typeSearch(test.case);
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(test.expect);
             });
-            cy.wait(2000);
           });
         });
 
         it("US114519 Accommodate form and bulletin searches more intelligently Quotes", () => {
 
           cy.wrap(TESTS).each((test) => {
-            cy.clearCookies();
             browsePage.getClearFilter().click();
-            cy.wait(500);
             browsePage.typeSearch(test.caseQuotes);
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(test.expect);
             });
-            cy.wait(2000);
           });
         });
       });

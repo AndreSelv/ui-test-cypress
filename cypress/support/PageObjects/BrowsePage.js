@@ -250,7 +250,7 @@ class BrowsePage {
   typeSearch(text) {
     cy.wait(300);
     // this.getSearchField().type(`${text}`, { force: true });
-    this.getSearchField().type(`${text}`);
+    this.getSearchField().type(`${text}`,{delay: 120});
   }
 
   publicationsShouldBeGreaterThen(value = 20) {
