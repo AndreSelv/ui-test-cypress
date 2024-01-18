@@ -91,7 +91,7 @@ describe("Brows Results Summary", () => {
           browsePage.selectMaterialType("Forms");
           // browsePage.selectAllStates();
 
-          cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`).each(($el) => {
+          browsePage.getListOfPublicationsCards().each(($el) => {
             //First 2 characters should contain UpperCase Letters only
             expect($el.text().substring(0, 2), `First 2 characters should be Letter and Upper case - ${$el.text()}`).to.match(/^[A-Z]+$/);
             //Numbers and editions validations it should contain digits and spaces only
