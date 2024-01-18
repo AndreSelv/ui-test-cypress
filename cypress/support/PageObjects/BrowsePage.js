@@ -61,10 +61,6 @@ class BrowsePage {
     return cy.get(`[data-product="product"]`);
   }
 
-  getProductRequestButton() {
-    return cy.get(`[data-test="browseScreen-item-product-request-button"]`);
-  }
-
   getAdditionalInfoButton() {
     return cy.get(`textarea[placeholder="What can we do for you?"]`);
   }
@@ -292,6 +288,10 @@ class BrowsePage {
 
   getRandomState(STATES) {
     return STATES[Object.keys(STATES)[Math.floor(Math.random() * Object.keys(STATES).length)]].key;
+  }
+
+  getRequestHelpButton(){
+    return cy.get('[data-test="browseScreen-item-product-request-button"]')
   }
 
 }
