@@ -128,8 +128,17 @@ class BrowsePage {
       "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES.";
   }
 
+  getGoToDownloadPageMessage(){
+    return "Your content is being downloaded. If the download exceeds 30 seconds, the zip file will be available on t" +
+      "he download page in no more than 15 minutes. Thank you."
+  }
+
   getNoAvailablePreviewFiles() {
     return "No file is available for preview. Please download the publication to view other available file types, such as a Word document.";
+  }
+
+  getGoToDownloadPageButton(){
+    return cy.get('.MuiDialogActions-root > :nth-child(2)')
   }
 
   getAlertIAgreeButton() {
