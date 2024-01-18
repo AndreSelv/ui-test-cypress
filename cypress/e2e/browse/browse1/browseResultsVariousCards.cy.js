@@ -29,7 +29,7 @@ describe("Browse Results for Various Cards", () => {
               .as("checkboxes").check(MATERIALS[i][0], { force: true });
             browsePage.getMaterial().click();
             browsePage.getMaterialTypeSection().should("contain.text", MATERIALS[i][0]);
-            browsePage.getListOfPublications().each(($el) => {
+            browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(CATEGORIES[i]);
             });
             browsePage.getMaterial().click();
@@ -53,7 +53,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("AL");
-          browsePage.getMoreButton(x).click();
+          browsePage.getBrowseResultLineIcon(x).click()
           browsePage.getListOfProductLinesInCard().then($elements => {
             const strings = [...$elements].map(el => el.innerText);
             const sortedLines = strings.sort((a, b) => {
@@ -69,7 +69,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("AL");
-          browsePage.getMoreButton(x).click();
+          browsePage.getBrowseResultLineIcon(x).click()
 
           browsePage.getListOfStatesInCard().then($elements => {
             const strings = [...$elements].map(el => el.innerText);

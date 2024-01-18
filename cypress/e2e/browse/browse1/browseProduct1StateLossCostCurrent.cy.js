@@ -16,9 +16,9 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
           browsePage.selectMaterialType("Forms");
-
-          cy.contains("more").click();
-          cy.contains("less").click();
+          browsePage.getBrowseResultLineIcon(1).click()
+          browsePage.getExpandedSection().should("be.visible")
+          browsePage.getBrowseResultStateIcon(1).click()
         });
 
         it.skip("US74540 validate browse search card tooltips", () => {

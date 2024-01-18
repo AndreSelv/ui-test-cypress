@@ -56,17 +56,9 @@ class BrowsePage {
     return cy.xpath("//*[text()='To']/..//input");
   }
 
-  getListOfPublications() {
-    return cy.get(`[data-product="product"]`);
-  }
-
   getListOfPublicationsCards() {
     // return cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`);
     return cy.get(`[data-product="product"]`);
-  }
-
-  getProductRequestButton() {
-    return cy.get(`[data-test="browseScreen-item-product-request-button"]`);
   }
 
   getAdditionalInfoButton() {
@@ -86,7 +78,7 @@ class BrowsePage {
   }
 
   getBrowseSearchResultSection() {
-    return cy.get(".MuiGrid-grid-md-9");
+    return cy.get('.MuiGrid-grid-xs-5')
   }
 
   getBrowseResultLineBadge(number = 0) {
@@ -111,6 +103,10 @@ class BrowsePage {
 
   getBrowseResultStateTooltip(number = 0) {
     return cy.get(`[data-test=browseResults-item-${number}-state-tooltip]`);
+  }
+
+  getExpandedSection(){
+    return cy.get('.MuiCollapse-wrapperInner >')
   }
 
   getAllCheckBox() {
@@ -153,9 +149,6 @@ class BrowsePage {
     return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`);
   }
 
-  getMoreButton(number) {
-    return cy.xpath(`(//span[text()='more'])[${number}]`);
-  }
 
   getListOfProductLinesInCard() {
     return cy.xpath("//h6[text()= 'Product Lines']/../div[1]//span[@class='MuiChip-label MuiChip-labelSmall']");
@@ -201,7 +194,8 @@ class BrowsePage {
   }
 
   selectPublicationByNumber(number) {
-    this.getListOfPublicationsCards().eq(number - 1).click("center");
+    this.getListOfPublicationsCards().eq(number - 1).click(30, 25);
+    // cy.get(':nth-child(1) > .MuiListItem-root > .jss257 > .jss223').click()
   }
 
   selectMaterialType(...types) {
@@ -259,15 +253,15 @@ class BrowsePage {
   typeSearch(text) {
     cy.wait(300);
     // this.getSearchField().type(`${text}`, { force: true });
-    this.getSearchField().type(`${text}`,{delay: 120});
+    this.getSearchField().type(`${text}`,{delay: 200});
   }
 
   publicationsShouldBeGreaterThen(value = 20) {
-    this.getListOfPublications().its("length").should("be.gte", value);
+    this.getListOfPublicationsCards().its("length").should("be.gte", value);
   }
 
   publicationsShouldBeEqual(value = 0) {
-    this.getListOfPublications().its("length").should("equal", value);
+    this.getListOfPublicationsCards().its("length").should("equal", value);
   }
 
   circleShouldBeVisible() {
@@ -294,6 +288,10 @@ class BrowsePage {
 
   getRandomState(STATES) {
     return STATES[Object.keys(STATES)[Math.floor(Math.random() * Object.keys(STATES).length)]].key;
+  }
+
+  getRequestHelpButton(){
+    return cy.get('[data-test="browseScreen-item-product-request-button"]')
   }
 
 }

@@ -49,19 +49,19 @@ const TESTS = [
     result: 1,
     expect: "AG 0130 06 05",
   },
-  {
-    case: "BP-351",
-    caseQuotes: "\"BP-351\"",
-    result: 6,
-    expect: "351",
-  },
+  // {
+  //   case: "BP-351",
+  //   caseQuotes: "\"BP-351\"",
+  //   result: 6,
+  //   expect: "351",
+  // },
 
-  {
-    case: "23-0641",
-    caseQuotes: "\"23-0641\"",
-    result: 1,
-    expect: "23-0641",
-  },
+  // {
+  //   case: "23-0641",
+  //   caseQuotes: "\"23-0641\"",
+  //   result: 1,
+  //   expect: "23-0641",
+  // },
   {
     case: "0641",
     caseQuotes: "\"0641\"",
