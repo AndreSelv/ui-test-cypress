@@ -5,6 +5,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     cy.initAmplify();
     cy.login();
     cy.visit("#/browse");
+    cy.clearAllCookies()
   });
 
   it("Validate positive request to Hubspot with all required data ", () => {
@@ -30,10 +31,11 @@ describe("Validate User Interface Hubspot functionalities", () => {
   });
 
   it("Validate negative scenario of submitting form ", () => {
+    cy.wait(1000);
     browsePage.getRequestHelpButton().click({ force: true });
     cy.wait(1000);
     browsePage.getSubmitModalRequestButton().should("be.disabled");
-    browsePage.getAdditionalInfoButton().type("Some Information", { delay: 150});
+    browsePage.getAdditionalInfoButton().type("Some Information", { delay: 150 });
     browsePage.getSubmitModalRequestButton().should("be.enabled");
   });
 
