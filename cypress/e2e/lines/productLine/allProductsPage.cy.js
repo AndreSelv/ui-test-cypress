@@ -1,5 +1,5 @@
-const BrowsePage = require("../../support/PageObjects/BrowsePage");
-const HomePage = require("../../support/PageObjects/HomePage");
+const BrowsePage = require("../../../support/PageObjects/BrowsePage");
+const HomePage = require("../../../support/PageObjects/HomePage");
 const browsePage = new BrowsePage();
 const homePage = new HomePage();
 describe("Validate all functionality on the ALL products line pages", () => {
