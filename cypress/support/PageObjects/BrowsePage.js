@@ -151,11 +151,11 @@ class BrowsePage {
 
 
   getListOfProductLinesInCard() {
-    return cy.xpath("//h6[text()= 'Product Lines']/../div[1]//span[@class='MuiChip-label MuiChip-labelSmall']");
+    return cy.xpath("//h6[text()= 'Product']/../div[1]//span[@class='MuiChip-label MuiChip-labelSmall']");
   }
 
   getListOfStatesInCard() {
-    return cy.xpath("//h6[text()= 'Product Lines']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']");
+    return cy.xpath("//h6[text()= 'Product']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']");
   }
 
   getRadioGroupSection() {
