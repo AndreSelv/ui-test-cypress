@@ -29,7 +29,7 @@
     "cy:run-firefox:nightly": "npx cypress run --browser firefox:nightly",
     "login": "cypress run -b chrome --headless --spec 'cypress/e2e/e2e-testing/login/login.feature'",
     "home": "cypress run -b chrome --headless --spec 'cypress/e2e/home'",
-    "browse": "cypress run -b chrome --headless --spec 'cypress/e2e/browse/browse2'",
+    "browse": "cypress run -b chrome --headless --spec 'cypress/e2e/browse/browse1'",
     "org": "cypress run -b chrome --headless --spec 'cypress/e2e/orgs'",
     "e2e-test": "CI=1 npx cypress run",
     "delete:reports": "rimraf cypress/reports/* || true",

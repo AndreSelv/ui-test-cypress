@@ -12,7 +12,7 @@ describe("Browse Screen: Filters", () => {
   it("US73951 using browse add a product then return to none", () => {
     cy.visit("#/browse");
     browsePage.selectProduct("BOP");
-    cy.contains("Jurisdictions");//.click();
+    cy.contains("Jurisdiction");//.click();
   });
 
   it("US73951 using browse add a state, then remove the state", () => {

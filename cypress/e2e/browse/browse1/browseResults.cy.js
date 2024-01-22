@@ -103,10 +103,10 @@ describe("Brows Results Summary", () => {
         it("validate that user can get result with multiple plans selection", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
-          browsePage.selectMaterialType("State Pages");
           browsePage.selectState("AL");
-          // browsePage.publicationsShouldBeEqual(10);
           browsePage.selectPlans("By Peril", "Com");
+          browsePage.selectMaterialType("State Pages");
+          // browsePage.publicationsShouldBeEqual(10);
           browsePage.publicationsShouldBeEqual(10);
         });
 
