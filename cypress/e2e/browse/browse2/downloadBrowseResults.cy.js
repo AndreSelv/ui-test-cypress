@@ -55,4 +55,14 @@ describe("Download Browser Results", () => {
     cy.url().should("include", "/#/lines/All");
     cy.contains("My Recent All Downloads");
   });
+
+  it("US118250 Disable the download button when results exceed 1,000", () => {
+    const toolTip = "Search results must be less than 1,000 to download. Please filter your results further.";
+    browsePage.testToolTip(browsePage.getDownloadButton(), toolTip);
+    browsePage.selectMaterialType("Advisory Information");
+    browsePage.getDownloadButton().trigger("mouseover");
+    cy.contains(toolTip).should('not.exist');
+  });
+
+
 });

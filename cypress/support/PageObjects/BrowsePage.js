@@ -8,8 +8,8 @@ class BrowsePage {
     return cy.xpath(`(//*[@data-testid="CloseIcon"])[1]`);
   }
 
-  getClearFilter(){
-    return cy.get(`[aria-label="clear"]`)
+  getClearFilter() {
+    return cy.get(`[aria-label="clear"]`);
   }
 
   getProductSection() {
@@ -78,7 +78,7 @@ class BrowsePage {
   }
 
   getBrowseSearchResultSection() {
-    return cy.get('.MuiGrid-grid-xs-5')
+    return cy.get(".MuiGrid-grid-xs-5");
   }
 
   getBrowseResultLineBadge(number = 0) {
@@ -105,8 +105,8 @@ class BrowsePage {
     return cy.get(`[data-test=browseResults-item-${number}-state-tooltip]`);
   }
 
-  getExpandedSection(){
-    return cy.get('.MuiCollapse-wrapperInner >')
+  getExpandedSection() {
+    return cy.get(".MuiCollapse-wrapperInner >");
   }
 
   getAllCheckBox() {
@@ -124,17 +124,17 @@ class BrowsePage {
       "YOUR USE OF ANY AAIS PRODUCTS AND SERVICES.";
   }
 
-  getGoToDownloadPageMessage(){
+  getGoToDownloadPageMessage() {
     return "Your content is being downloaded. If the download exceeds 30 seconds, the zip file will be available on t" +
-      "he download page in no more than 15 minutes. Thank you."
+      "he download page in no more than 15 minutes. Thank you.";
   }
 
   getNoAvailablePreviewFiles() {
     return "No file is available for preview. Please download the publication to view other available file types, such as a Word document.";
   }
 
-  getGoToDownloadPageButton(){
-    return cy.get('.MuiDialogActions-root > :nth-child(2)')
+  getGoToDownloadPageButton() {
+    return cy.get(".MuiDialogActions-root > :nth-child(2)");
   }
 
   getAlertIAgreeButton() {
@@ -253,7 +253,7 @@ class BrowsePage {
   typeSearch(text) {
     cy.wait(300);
     // this.getSearchField().type(`${text}`, { force: true });
-    this.getSearchField().type(`${text}`,{delay: 200});
+    this.getSearchField().type(`${text}`, { delay: 200 });
   }
 
   publicationsShouldBeGreaterThen(value = 20) {
@@ -290,8 +290,16 @@ class BrowsePage {
     return STATES[Object.keys(STATES)[Math.floor(Math.random() * Object.keys(STATES).length)]].key;
   }
 
-  getRequestHelpButton(){
-    return cy.get('[data-test="browseScreen-item-product-request-button"]')
+  getRequestHelpButton() {
+    return cy.get("[data-test=\"browseScreen-item-product-request-button\"]");
+  }
+
+
+  testToolTip(element, toolTip) {
+    element.trigger("mouseover", {force: true});
+    cy.contains(toolTip);
+    element.trigger("mouseout", {force: true});
+    cy.contains(toolTip).should('not.exist')
   }
 
 }
