@@ -8,17 +8,17 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         beforeEach(() => {
           cy.initAmplify();
           cy.login();
-          cy.viewport(size, orientation);
+          cy.visit("#/browse");
         });
 
         it("US74540 validate browse search card more, product line correct and less", () => {
-          cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
           browsePage.selectMaterialType("Forms");
-          browsePage.getBrowseResultLineIcon(1).click()
-          browsePage.getExpandedSection().should("be.visible")
-          browsePage.getBrowseResultStateIcon(1).click()
+          browsePage.getBrowseResultLineIcon(1).click();
+          browsePage.getExpandedSection().should("be.visible");
+          browsePage.getBrowseResultStateIcon(1).click();
+          browsePage.getExpandedSection().should("not.exist");
         });
 
         it.skip("US74540 validate browse search card tooltips", () => {
@@ -79,11 +79,29 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         });
 
         it("US98489 validate browse search bulletins card has document preview display", () => {
-          cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
           browsePage.selectMaterialType("Bulletins");
-          browsePage.getListOfPublicationsCards().should("have.length.greaterThan", 1)
+          browsePage.getListOfPublicationsCards().should("have.length.greaterThan", 1);
+        });
+
+        it("US118250 Validate tooltip for Product icon", () => {
+          const toolTip = "Product";
+          browsePage.testToolTip(browsePage.getBrowseResultStateBadge(), toolTip);
+        });
+
+        it("US118250 Validate tooltip for State icon", () => {
+          const toolTip = "Jurisdiction";
+          browsePage.testToolTip(browsePage.getBrowseResultStateBadge(), toolTip);
+        });
+
+        it("US118250 Validate tooltip for Info icon", () => {
+          const toolTip = "More Info";
+          browsePage.testToolTip(browsePage.getInfoIcon(), toolTip);
+        });
+        it("US118250 Validate tooltip for Download icon", () => {
+          const toolTip = "Download";
+          browsePage.testToolTip(browsePage.getDownloadIcon(), toolTip);
         });
       });
     });

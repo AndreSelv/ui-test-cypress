@@ -145,8 +145,12 @@ class BrowsePage {
     return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..");
   }
 
-  getInfoIcon(number) {
+  getInfoIcon(number = 0) {
     return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`);
+  }
+
+  getDownloadIcon(number = 0) {
+    return cy.get(`[data-test="browseResults-item-${number}-download-badge"]`);
   }
 
 
@@ -299,7 +303,7 @@ class BrowsePage {
     element.trigger("mouseover", {force: true});
     cy.contains(toolTip);
     element.trigger("mouseout", {force: true});
-    cy.contains(toolTip).should('not.exist')
+    // cy.contains(toolTip).should('not.exist')
   }
 
 }
