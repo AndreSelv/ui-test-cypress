@@ -21,6 +21,10 @@ class BrowsePage {
   }
 
   getMaterialTypeSection() {
+    return cy.get("[data-test=\"packageTypeCategory\"]");
+  }
+
+   getMaterialTypeSubSection() {
     return cy.get("[data-test=\"packageType\"]");
   }
 
@@ -33,7 +37,11 @@ class BrowsePage {
   }
 
   getMaterial() {
-    return cy.get("#packageType-select");
+    return cy.get('#packageTypeCategory-select')
+  }
+
+  getSubMaterial(){
+    return cy.get('#packageType-select')
   }
 
   getStates() {
@@ -125,15 +133,14 @@ class BrowsePage {
   }
 
   getGoToDownloadPageMessage() {
-    return "Your content is being downloaded. If the download exceeds 30 seconds, the zip file will be available on t" +
-      "he download page in no more than 15 minutes. Thank you.";
+    return "Your content is being downloaded. If the download exceeds 30 seconds, the zip file will be available in the Recent Downloads section.";
   }
 
   getNoAvailablePreviewFiles() {
     return "No file is available for preview. Please download the publication to view other available file types, such as a Word document.";
   }
 
-  getGoToDownloadPageButton() {
+  getGoToSeDownloadSectionOnTheLeftButton() {
     return cy.get(".MuiDialogActions-root > :nth-child(2)");
   }
 
@@ -205,18 +212,35 @@ class BrowsePage {
   selectMaterialType(...types) {
     this.getMaterial().click();
     cy.wait(300);
-    cy.get("#packageType-select-listbox").scrollTo("top");
+    // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...types], { force: true });
     this.getMaterial().click();
   }
 
+  selectMaterialSubType(...types) {
+    this.getSubMaterial().click();
+    cy.wait(300);
+    // cy.get("#packageType-select-listbox").scrollTo("top");
+    this.getAllCheckBox()
+      .as("checkboxes").check([...types], { force: true });
+    this.getSubMaterial().click();
+  }
+
   unSelectMaterialType(type) {
     this.getMaterial().click();
-    cy.get("#packageType-select-listbox").scrollTo("top");
+    // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
     this.getMaterial().click();
+  }
+
+   unSelectMaterialSubType(type) {
+    this.getSubMaterial().click();
+    // cy.get("#packageType-select-listbox").scrollTo("top");
+    this.getAllCheckBox()
+      .as("checkboxes").uncheck(type, { force: true });
+    this.getSubMaterial().click();
   }
 
   selectClass(value) {
