@@ -37,7 +37,8 @@ describe("Brows Results Summary", () => {
         it("validate browse search returns 1 result", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
-          browsePage.selectMaterialType("Forms and Endorsements List");
+          browsePage.selectMaterialType("Forms and Endorsements Lists");
+          browsePage.selectMaterialSubType("Forms and Endorsements List");
           browsePage.typeSearch("\"09 30 11\"");
           browsePage.selectState("PA");
           cy.contains("1 results");
@@ -105,7 +106,8 @@ describe("Brows Results Summary", () => {
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
           browsePage.selectPlans("By Peril", "Com");
-          browsePage.selectMaterialType("State Pages");
+          browsePage.selectMaterialType("Manual Materials")
+          browsePage.selectMaterialSubType("State Pages");
           // browsePage.publicationsShouldBeEqual(10);
           browsePage.publicationsShouldBeEqual(10);
         });

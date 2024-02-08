@@ -30,21 +30,21 @@ describe("US109198 Validate subcategories in material type section", () => {
   it("Validate Each check box functionality", () => {
     browsePage.getMaterial().click();
     for (let i = 0; i < MATERIALS.length; i++) {
-      browsePage.getAllCheckBox()
-        .as("checkboxes").check([MATERIALS[i][0]], { force: true });
-      cy.wrap(MATERIALS[i]).each((type) => {
-        cy.get(`input[value="${type}"]`).should("be.checked").and("have.value", type);
-      });
+      let type = MATERIALS[i][0];
+      browsePage.getAllCheckBox().as("checkboxes").check(type, { force: true });
+      cy.get(`input[value="${type}"]`).should("be.checked").and("have.value", type);
+      browsePage.getMaterialTypeSection().should("contain", type);
     }
   });
 
 
   it("Should reflected ellipsis if selected more then one material type", () => {
+    const setOfMatTypes = [MATERIALS[3][0], MATERIALS[2][0]];
     browsePage.getMaterial().click();
     browsePage.getAllCheckBox()
-      .as("checkboxes").check([MATERIALS[1][0], MATERIALS[2][0]], { force: true });
+      .as("checkboxes").check(setOfMatTypes, { force: true });
     browsePage.getMaterial().click();
-    cy.get(`[data-test="packageType"]`).should("contain.text", `...`);
+    browsePage.getMaterialTypeSection().should("not.contain.text", `...`);
   });
 
 

@@ -12,7 +12,7 @@ const CATEGORIES = [
   "Education Material",
   "Form",
   "F&E List",
-  "IMG Publication",
+  "",
   "Manual Material",
   "Report",
   "Statistical Plan"

@@ -13,6 +13,7 @@ describe("Validate User Interface Hubspot functionalities", () => {
     browsePage.selectClass("BCF");
     browsePage.selectState("CA");
     browsePage.selectMaterialType("Forms", "IMG Publications");
+    browsePage.selectMaterialSubType("Coverage", "IRPM");
     browsePage.typeSearch("Fire");
     //Select effective date
     browsePage.setFromDateField("10/02/2012");
