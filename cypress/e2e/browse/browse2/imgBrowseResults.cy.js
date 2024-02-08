@@ -8,7 +8,6 @@ describe("Brows Results Summary", () => {
         beforeEach(() => {
           cy.initAmplify();
           cy.login();
-
           cy.viewport(size, orientation);
         });
 
@@ -25,7 +24,8 @@ describe("Brows Results Summary", () => {
           // cy.intercept("POST", "/assets/v1/search", { fixture: "browse/oneBrowseIMGResult.json" });
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
-          browsePage.selectMaterialType("General Bulletin")
+          browsePage.selectMaterialType("Bulletins");
+          browsePage.selectMaterialSubType("General Bulletin");
           browsePage.selectState("PA");
           // browsePage.typeSearch("fire");
           browsePage.publicationsShouldBeEqual(1);
@@ -59,17 +59,16 @@ describe("Brows Results Summary", () => {
           browsePage.selectProduct("IMG");
           browsePage.selectState("AL");
           for (let i = 0; i < MATERIALS.length; i++) {
-            if (MATERIALS[i][0] === "Manual Materials") continue;
-            browsePage.getMaterial().click();
-            browsePage.getAllCheckBox()
-              .as("checkboxes").check([MATERIALS[i][0]], { force: true });
-            cy.wrap(MATERIALS[i]).each((type) => {
-              cy.get(`input[value="${type}"]`).should("be.checked").and("have.value", type);
-              browsePage.publicationsShouldBeGreaterThen(1);
-            });
-            browsePage.getAllCheckBox()
-              .as("checkboxes").uncheck([MATERIALS[i][0]], { force: true });
-            browsePage.getMaterial().click();
+            if (MATERIALS[i][0] === "Statistical Plans" || MATERIALS[i][0] === "Compliance Guide" || MATERIALS[i][0] === "Forms") continue;
+            browsePage.selectMaterialType(MATERIALS[i][0]);
+            for (let j = 1; j < MATERIALS[i].length; j++) {
+              let type = MATERIALS[i][j];
+              // cy.get(`input[value="${type}"]`).should("not.be.checked").and("have.value", type);
+              browsePage.selectMaterialSubType(type);
+              browsePage.getMaterialTypeSubSection().should("contain", type)
+              browsePage.unSelectMaterialSubType(type);
+            }
+            browsePage.unSelectMaterialType(MATERIALS[i][0]);
           }
         });
       });

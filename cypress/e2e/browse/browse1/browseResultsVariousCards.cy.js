@@ -28,6 +28,7 @@ describe("Browse Results for Various Cards", () => {
             browsePage.getAllCheckBox()
               .as("checkboxes").check(MATERIALS[i][0], { force: true });
             browsePage.getMaterial().click();
+            cy.wait(200)
             browsePage.getMaterialTypeSection().should("contain.text", MATERIALS[i][0]);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(CATEGORIES[i]);

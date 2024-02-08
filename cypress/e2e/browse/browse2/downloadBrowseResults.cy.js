@@ -51,9 +51,9 @@ describe("Download Browser Results", () => {
     });
     browsePage.getAlertIAgreeButton().should("be.enabled").click();
     cy.contains(browsePage.getGoToDownloadPageMessage(), { timeout: 35000 }).should("be.visible");
-    browsePage.getGoToDownloadPageButton().should("be.visible").click();
-    cy.url().should("include", "/#/lines/All");
-    cy.contains("My Recent All Downloads");
+    browsePage.getGoToSeDownloadSectionOnTheLeftButton().should("be.visible").click();
+    cy.url().should("include", "/#/browse");
+    cy.contains("Recent Downloads");
   });
 
   it("US118250 Disable the download button when results exceed 1,000", () => {
