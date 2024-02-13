@@ -10,6 +10,19 @@ describe("Download Browser Results", () => {
     cy.login();
     cy.visit("#/browse");
   });
+  it("US119956 Bulk download section persistence", () => {
+    browsePage.getRecentDownloadsSection().should("not.exist");
+    browsePage.getRecentDownloadsButton().should("be.visible").click();
+    browsePage.getRecentDownloadsSection().should("be.visible").contains("File:");
+    cy.contains("No recent download").should("not.exist");
+  });
+  it("US119956 No Recent download persistence", () => {
+    browsePage.selectProduct("GS");
+    browsePage.getRecentDownloadsSection().should("not.exist");
+    browsePage.getRecentDownloadsButton().should("be.visible").click();
+    cy.wait(3000)
+    cy.contains("No recent download").should("be.visible");
+  });
 
   it("Validate download functionality from browse page", () => {
     browsePage.getExcludeFileContentCheckBox().click();

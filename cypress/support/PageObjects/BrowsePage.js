@@ -64,6 +64,14 @@ class BrowsePage {
     return cy.xpath("//*[text()='To']/..//input");
   }
 
+  getRecentDownloadsButton(){
+    return cy.contains('Recent Downloads')
+  }
+
+  getRecentDownloadsSection(){
+    return cy.get(':nth-child(4) > .MuiCard-root > .MuiCardContent-root')
+  }
+
   getListOfPublicationsCards() {
     // return cy.xpath(`//div[contains(@class, "infinite-scroll-component ")]//p`);
     return cy.get(`[data-product="product"]`);
