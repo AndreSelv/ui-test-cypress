@@ -9,12 +9,11 @@ describe("Timeout session", () => {
     cy.visit("#/browse");
     cy.clock(0);
     cy.contains("Filter").click();
-    cy.url().then(($url) => {
-      if ($url.includes("app-uat.aaisdirect.com"))
-        cy.tick(60000 * 300);
-      else
-        cy.tick(60000 * 30);
-    });
+    if (Cypress.config().configFile === "cypress.config-uat.js") {
+      cy.tick(60000 * 300);
+    } else {
+      cy.tick(60000 * 30);
+    }
     cy.contains("As a security best practice, you have been logged out due to 30 minutes of inactivity.").should("exist");
   });
 
