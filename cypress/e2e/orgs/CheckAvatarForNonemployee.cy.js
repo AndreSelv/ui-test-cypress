@@ -27,7 +27,7 @@ describe("Check Avatar Menus for Non Employee", () => {
             .should(
               "have.attr",
               "href",
-              `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0b`,
+              `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0a`,
             );
         });
 

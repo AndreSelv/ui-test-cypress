@@ -99,6 +99,13 @@ class OrganizationPage {
     cy.get(`[data-test="rowDisplay-${email}"] > :nth-child(4) > [data-test="roleDelete"]`).click();
   }
 
+  getOrganizationSearchBar() {
+    return cy.get(".MuiInputBase-input");
+  }
+
+  getListOfOrganizations() {
+    return cy.get(`tr[class="MuiTableRow-root MuiTableRow-hover"]`);
+  }
 }
 
 export default OrganizationPage;
