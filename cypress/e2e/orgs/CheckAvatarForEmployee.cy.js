@@ -30,7 +30,7 @@ describe("Check Avatar Menus for Employee", () => {
             .should(
               "have.attr",
               "href",
-              `#/users/06e9ac1b-fd4c-41b9-9b2c-779aa720fd0a`,
+              `#/users/${Cypress.env("USER")}`,
             );
         });
 

@@ -11,6 +11,7 @@ module.exports = defineConfig({
     PASSWORD: "123456vV_",
     ORG: "e53773f4-bae5-44c5-9d61-c1f7a7eda412",
     USER: "06e9ac1b-fd4c-41b9-9b2c-779aa720fd0a",
+    USER1: "736e28a4-043c-4a8c-92d5-29ad955d046d",
     SIZES: ["macbook-16"],
     ORIENTATION: ["portrait"],
     REACT_APP_AMPLIFY_AUTH_REGION: "us-east-1",
