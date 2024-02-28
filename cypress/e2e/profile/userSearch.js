@@ -13,7 +13,7 @@ describe("US120353 Validate that user be able to search users in user page | Tes
   });
 
   it("US120353 Validate that CountLabel value equal length of the user list", () => {
-    cy.wait(1000)
+    cy.wait(1000);
     userPage.getUserCountLabel().then($value => userPage.getListOfUsers().its("length")
       .should("equal", parseInt($value.text().match(/\(([^)]+)\)/)[1])));
   });
@@ -22,7 +22,19 @@ describe("US120353 Validate that user be able to search users in user page | Tes
     let testData = "ANdrei";
     userPage.getUserSearchBar().should("be.visible").type(testData, { delay: 200 });
     userPage.getListOfUsers().each(($el) => expect($el.text().toLocaleLowerCase()).contains(testData.toLocaleLowerCase()));
-    userPage.countLabelValidation()
+    userPage.countLabelValidation();
+  });
+
+  it("US120430 Validate that user be able to search by email", () => {
+    let testData = Cypress.env("USERNAME1");
+    let firstName = Cypress.env("FIRST_NAME1");
+    let lastName = Cypress.env("LAST_NAME1");
+    userPage.getUserSearchBar().should("be.visible").type(testData, { delay: 200 });
+    userPage.getListOfUsers().each(($el) => {
+      expect($el.text().toLocaleLowerCase()).contains(firstName.toLocaleLowerCase());
+      expect($el.text().toLocaleLowerCase()).contains(lastName.toLocaleLowerCase());
+    });
+
   });
 
 

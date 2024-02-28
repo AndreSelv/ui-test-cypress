@@ -7,8 +7,10 @@ module.exports = defineConfig({
   _README: "Intellisense can be set up https://docs.cypress.io/guides/tooling/intelligent-code-completion.html#Set-up-in-your-Dev-Environment-1",
   env: {
     USERNAME: "testUser",
-    USERNAME1: "vasilich85+2323",
     PASSWORD: "123456vV_",
+    USERNAME1: "vasilich85+2323",
+    FIRST_NAME1: "John",
+    LAST_NAME1: "Doe",
     ORG: "e53773f4-bae5-44c5-9d61-c1f7a7eda412",
     USER: "06e9ac1b-fd4c-41b9-9b2c-779aa720fd0a",
     USER1: "736e28a4-043c-4a8c-92d5-29ad955d046d",

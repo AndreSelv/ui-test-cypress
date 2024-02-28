@@ -9,6 +9,8 @@ module.exports = defineConfig({
     USERNAME: "testUser",
     PASSWORD: "123456vV_",
     USERNAME1: "vasilich85+2323",
+    FIRST_NAME1: "John",
+    LAST_NAME1: "Doe",
     ORG: "9998592c-7a66-49f3-a0be-06985cf79003",
     USER: "f961172d-ad3c-4422-801b-5e19f105cf70",
     USER1: "28a3848f-6e90-4726-b458-175ba2122fe7",
