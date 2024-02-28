@@ -6,16 +6,16 @@
  * @public
  */
 const STATES = {
-  ALLSTATES: {
-    key: "ALLSTATES",
-    title: "All States",
-    description: "All States",
-  },
-  MULTISTATE: {
-    key: "MU",
-    title: "Multistate",
-    description: "Multistate",
-  },
+  // ALLSTATES: {
+  //   key: "ALLSTATES",
+  //   title: "All States",
+  //   description: "All States",
+  // },
+  // MULTISTATE: {
+  //   key: "MU",
+  //   title: "Multistate",
+  //   description: "Multistate",
+  // },
   ALABAMA: {
     key: "AL",
     title: "Alabama",
@@ -26,7 +26,7 @@ const STATES = {
     title: "Alaska",
     description: "Alaska",
   },
-  ARIZON: {
+  ARIZONA: {
     key: "AZ",
     title: "Arizona",
     description: "Arizona",

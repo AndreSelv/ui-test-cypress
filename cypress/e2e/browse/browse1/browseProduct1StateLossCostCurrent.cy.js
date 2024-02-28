@@ -1,5 +1,6 @@
 const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
+const STATES = require("../../../fixtures/enums/STATES");
 
 describe("Browse Results for Product, 1 State, Loss Cost and Current Status", () => {
   Cypress.env("SIZES").forEach((size) => {
@@ -102,6 +103,16 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
         it("US118250 Validate tooltip for Download icon", () => {
           const toolTip = "Download";
           browsePage.testToolTip(browsePage.getDownloadIcon(), toolTip);
+        });
+
+        it("US120429 Validate tooltips to each jurisdictions", () => {
+          browsePage.typeSearch("00-0002");
+          browsePage.getBrowseResultStateBadge().click();
+          for (let i = 0; i < Object.keys(STATES).length; i++) {
+            let state = STATES[Object.keys(STATES)[i]].key;
+            let toolTip = STATES[Object.keys(STATES)[i]].title;
+            browsePage.testToolTip(browsePage.selectJurisdictionIcon(state), toolTip);
+          }
         });
       });
     });

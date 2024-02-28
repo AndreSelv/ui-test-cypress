@@ -24,7 +24,7 @@ class BrowsePage {
     return cy.get("[data-test=\"packageTypeCategory\"]");
   }
 
-   getMaterialTypeSubSection() {
+  getMaterialTypeSubSection() {
     return cy.get("[data-test=\"packageType\"]");
   }
 
@@ -37,11 +37,11 @@ class BrowsePage {
   }
 
   getMaterial() {
-    return cy.get('#packageTypeCategory-select')
+    return cy.get("#packageTypeCategory-select");
   }
 
-  getSubMaterial(){
-    return cy.get('#packageType-select')
+  getSubMaterial() {
+    return cy.get("#packageType-select");
   }
 
   getStates() {
@@ -64,12 +64,12 @@ class BrowsePage {
     return cy.xpath("//*[text()='To']/..//input");
   }
 
-  getRecentDownloadsButton(){
-    return cy.contains('Recent Downloads')
+  getRecentDownloadsButton() {
+    return cy.contains("Recent Downloads");
   }
 
-  getRecentDownloadsSection(){
-    return cy.get(':nth-child(4) > .MuiCard-root > .MuiCardContent-root')
+  getRecentDownloadsSection() {
+    return cy.get(":nth-child(4) > .MuiCard-root > .MuiCardContent-root");
   }
 
   getListOfPublicationsCards() {
@@ -243,7 +243,7 @@ class BrowsePage {
     this.getMaterial().click();
   }
 
-   unSelectMaterialSubType(type) {
+  unSelectMaterialSubType(type) {
     this.getSubMaterial().click();
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
@@ -286,10 +286,15 @@ class BrowsePage {
     this.getStates().click();
   }
 
+  selectJurisdictionIcon(state = "AL") {
+    return cy.get(`[data-test="chip${state}"]`);
+  }
+
   typeSearch(text) {
     cy.wait(300);
     // this.getSearchField().type(`${text}`, { force: true });
     this.getSearchField().type(`${text}`, { delay: 200 });
+    cy.wait(500);
   }
 
   publicationsShouldBeGreaterThen(value = 20) {
@@ -332,9 +337,9 @@ class BrowsePage {
 
 
   testToolTip(element, toolTip) {
-    element.trigger("mouseover", {force: true});
+    element.trigger("mouseover", { force: true });
     cy.contains(toolTip);
-    element.trigger("mouseout", {force: true});
+    element.trigger("mouseout", { force: true });
     // cy.contains(toolTip).should('not.exist')
   }
 
