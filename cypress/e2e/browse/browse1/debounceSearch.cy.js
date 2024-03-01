@@ -14,8 +14,7 @@ describe("Browse Screen: Filters", () => {
       for (let i = 0; i < text.length; i++) {
         browsePage.getBrowseCountResultField().then(($actualCount) => {
           let actCount = parseInt($actualCount.text().substring(0, $actualCount.text().indexOf(" ")));
-          browsePage.getSearchField().type(text[i]);
-          cy.wait(200);
+          browsePage.getSearchField().type(text[i], {delay: 300});
           expect(count).eq(actCount);
         });
       }
