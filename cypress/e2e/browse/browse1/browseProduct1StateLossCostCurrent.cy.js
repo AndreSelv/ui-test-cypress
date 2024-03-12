@@ -18,7 +18,7 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
           browsePage.selectMaterialType("Forms");
           browsePage.getBrowseResultLineIcon(1).click();
           browsePage.getExpandedSection().should("be.visible");
-          browsePage.getBrowseResultStateIcon(1).click();
+          browsePage.getBrowseResultStateIcon(1).click({force: true});
           browsePage.getExpandedSection().should("not.exist");
         });
 

@@ -101,7 +101,7 @@ describe("Brows Results Summary", () => {
         });
 
 
-        it("validate that user can get result with multiple plans selection", () => {
+        it("validate that user can get result with multiple HO plans selection", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
@@ -111,6 +111,28 @@ describe("Brows Results Summary", () => {
           // browsePage.publicationsShouldBeEqual(10);
           browsePage.publicationsShouldBeEqual(10);
         });
+//TODO
+//         xit("validate that user can get result with multiple MHO plans selection", () => {
+//           cy.visit("#/browse");
+//           browsePage.selectProduct("MHO");
+//           browsePage.selectState("AL");
+//           browsePage.selectPlans("By Peril", "Com");
+//           browsePage.selectMaterialType("Manual Materials");
+//           browsePage.selectMaterialSubType("State Pages");
+//           // browsePage.publicationsShouldBeEqual(10);
+//           browsePage.publicationsShouldBeEqual(10);
+//         });
+//TODO
+//         xit("validate that user can get result with multiple DP plans selection", () => {
+//           cy.visit("#/browse");
+//           browsePage.selectProduct("DP");
+//           browsePage.selectState("AL");
+//           browsePage.selectPlans("By Peril", "Com");
+//           browsePage.selectMaterialType("Manual Materials");
+//           browsePage.selectMaterialSubType("State Pages");
+//           // browsePage.publicationsShouldBeEqual(10);
+//           browsePage.publicationsShouldBeEqual(10);
+//         });
 
         it.skip("Validate visibility form and edition numbers in the Forms for All Product Lines", () => {
           cy.visit("#/browse");

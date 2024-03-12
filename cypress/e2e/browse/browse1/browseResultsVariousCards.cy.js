@@ -54,7 +54,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("AL");
-          browsePage.getBrowseResultLineIcon(x).click()
+          browsePage.getBrowseResultLineIcon(x).click({force:true})
           browsePage.getListOfProductLinesInCard().then($elements => {
             const strings = [...$elements].map(el => el.innerText);
             const sortedLines = strings.sort((a, b) => {
@@ -70,7 +70,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("AL");
-          browsePage.getBrowseResultLineIcon(x).click()
+          browsePage.getBrowseResultLineIcon(x).click({force:true})
 
           browsePage.getListOfStatesInCard().then($elements => {
             const strings = [...$elements].map(el => el.innerText);
