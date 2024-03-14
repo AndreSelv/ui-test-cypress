@@ -107,7 +107,7 @@ describe("Browse Results for Product, 1 State, Loss Cost and Current Status", ()
 
         it("US120429 Validate tooltips to each jurisdictions", () => {
           browsePage.typeSearch("00-0002");
-          browsePage.getBrowseResultStateBadge().click({force: true});
+          browsePage.getBrowseResultStateBadge().click();
           for (let i = 0; i < Object.keys(STATES).length; i++) {
             let state = STATES[Object.keys(STATES)[i]].key;
             let toolTip = STATES[Object.keys(STATES)[i]].title;
