@@ -4,47 +4,53 @@ class HomePage {
     return cy.contains("Browse All AAIS Products");
   }
 
-  getNavBarMenu(){
-    return cy.get(`[data-test=navBarMenu]`)
+  getNavBarMenu() {
+    return cy.get("[data-test=\"navBarAvatar\"]");
   }
 
-  getFooterContactLink(){
-    return cy.contains("Contact")
+  selectAvatarOptions(option = "My Settings") {
+    this.getNavBarMenu().trigger("mouseover");
+    cy.contains(option).click({ force: true });
   }
 
-  getFooterLegalLink(){
-    return cy.contains("Legal")
-  }
-  getFooterAAISOnlineLink(){
-    return cy.contains("AAISonline")
+  getFooterContactLink() {
+    return cy.contains("Contact");
   }
 
-  getAAISLogo(){
-    return cy.get("[data-test=AAISlogo]")
+  getFooterLegalLink() {
+    return cy.contains("Legal");
   }
 
-  getNavBarSearch(){
-    return cy.get("[data-test=navBarSearch]")
+  getFooterAAISOnlineLink() {
+    return cy.contains("AAISonline");
+  }
+
+  getAAISLogo() {
+    return cy.get("[data-test=AAISlogo]");
+  }
+
+  getNavBarSearch() {
+    return cy.get("[data-test=navBarSearch]");
   }
 
   getMyRecentProductsSection() {
     return cy.contains("My Recent Products");
   }
 
-  getWildLifeRecourseCenter(){
-    return cy.contains("Wildfire Resource Center")
+  getWildLifeRecourseCenter() {
+    return cy.contains("Wildfire Resource Center");
   }
 
-  getSearchBar(){
-    return cy.get("[data-test=navBarSearch]")
+  getSearchBar() {
+    return cy.get("[data-test=navBarSearch]");
   }
 
-  getStatisticalReporting(){
-    return cy.contains("Statistical Reporting (BETA)")
+  getStatisticalReporting() {
+    return cy.contains("Statistical Reporting (BETA)");
   }
 
-  typeSearchBar(text){
-    this.getSearchBar().type(`${text}{enter}`)
+  typeSearchBar(text) {
+    this.getSearchBar().type(`${text}{enter}`);
   }
 
 }

@@ -20,15 +20,15 @@ describe("Download Browser Results", () => {
     browsePage.selectProduct("GS");
     browsePage.getRecentDownloadsSection().should("not.exist");
     browsePage.getRecentDownloadsButton().should("be.visible").click();
-    cy.wait(3000)
+    cy.wait(3000);
     cy.contains("No recent download").should("be.visible");
   });
 
   it("Validate download functionality from browse page", () => {
+    browsePage.typeSearch("\"Field CL\"");
     browsePage.getExcludeFileContentCheckBox().click();
     browsePage.selectProduct("BOP");
     // browsePage.selectMaterialType("Forms");
-    browsePage.typeSearch("\"Field CL\"");
     browsePage.selectState("IA");
     browsePage.publicationsShouldBeGreaterThen(1);
     browsePage.getDownloadButton().should("be.enabled").click();
@@ -58,7 +58,7 @@ describe("Download Browser Results", () => {
   it("US118911 Download Manifests for no Line or State validation", () => {
     browsePage.selectMaterialType("Advisory Information");
     browsePage.publicationsShouldBeGreaterThen(60);
-    browsePage.getDownloadButton().should("be.enabled").click();
+    browsePage.getDownloadButton().should("be.enabled").click({ force: true });
     cy.on("window:alert", (t) => {
       expect(t).to.contains(browsePage.getDownloadAlertMessage());
     });
@@ -73,8 +73,15 @@ describe("Download Browser Results", () => {
     const toolTip = "Search results must be less than 1,000 to download. Please filter your results further.";
     browsePage.testToolTip(browsePage.getDownloadButton(), toolTip);
     browsePage.selectMaterialType("Advisory Information");
-    browsePage.getDownloadButton().trigger("mouseover");
-    cy.contains(toolTip).should('not.exist');
+    browsePage.getDownloadButton().trigger("mouseover", { force: true });
+    cy.contains(toolTip).should("not.exist");
+  });
+  it("US118250 Disable the download button when results exceed 1,000", () => {
+    const toolTip = "Search results must be less than 1,000 to download. Please filter your results further.";
+    browsePage.testToolTip(browsePage.getDownloadButton(), toolTip);
+    // browsePage.selectMaterialType("Advisory Information");
+    browsePage.getDownloadButton().trigger("mouseover", { force: true });
+    cy.contains(toolTip).should("be.visible");
   });
 
 

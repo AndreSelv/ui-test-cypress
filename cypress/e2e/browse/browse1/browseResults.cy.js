@@ -36,10 +36,10 @@ describe("Brows Results Summary", () => {
 
         it("validate browse search returns 1 result", () => {
           cy.visit("#/browse");
+          browsePage.typeSearch("\"09 30 11\"");
           browsePage.selectProduct("AGXL");
           browsePage.selectMaterialType("Forms and Endorsements Lists");
           browsePage.selectMaterialSubType("Forms and Endorsements List");
-          browsePage.typeSearch("\"09 30 11\"");
           browsePage.selectState("PA");
           cy.contains("1 results");
         });

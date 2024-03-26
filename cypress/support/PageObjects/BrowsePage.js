@@ -204,43 +204,43 @@ class BrowsePage {
     //   cy.wait(300)
     //   this.getProductSection().should("contain.text", product);
     // }
-    this.getProduct().click();
+    this.getProduct().click({force:true});
     cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...products], { force: true });
-    this.getProduct().click();
+    this.getProduct().click({force:true});
   }
 
   selectPublicationByNumber(number) {
-    this.getListOfPublicationsCards().eq(number - 1).click(30, 25);
+    this.getListOfPublicationsCards().eq(number - 1).click(30, 24);
     // cy.get(':nth-child(1) > .MuiListItem-root > .jss257 > .jss223').click()
   }
 
   selectMaterialType(...types) {
-    this.getMaterial().click();
+    this.getMaterial().click({force:true});
     cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...types], { force: true });
-    this.getMaterial().click();
+    this.getMaterial().click({force:true});
   }
 
   selectMaterialSubType(...types) {
-    this.getSubMaterial().click();
+    this.getSubMaterial().click({force:true});
     cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...types], { force: true });
-    this.getSubMaterial().click();
+    this.getSubMaterial().click({force:true});
   }
 
   unSelectMaterialType(type) {
-    this.getMaterial().click();
+    this.getMaterial().click({force:true});
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
-    this.getMaterial().click();
+    this.getMaterial().click({force:true});
   }
 
   unSelectMaterialSubType(type) {
@@ -253,9 +253,9 @@ class BrowsePage {
 
   selectClass(value) {
     this.getClasses().should("be.visible");
-    this.getClasses().click();
-    cy.contains(value).click();
-    this.getClasses().click();
+    this.getClasses().click({force:true});
+    cy.contains(value).click({force:true});
+    this.getClasses().click({force:true});
   }
 
   selectState(...states) {
@@ -266,24 +266,24 @@ class BrowsePage {
     //   cy.wait(300);
     // }
 
-    this.getStates().click();
+    this.getStates().click({force:true});
     cy.wait(300);
     this.getAllCheckBox()
       .as("checkboxes").check([...states], { force: true });
-    this.getStates().click();
+    this.getStates().click({force:true});
   }
 
   selectPlans(...plans) {
     for (const plan of plans) {
-      this.getPlans().type(`${plan}{downArrow}{enter}{esc}`);
+      this.getPlans().type(`${plan}{downArrow}{enter}{esc}`, {force:true});
       cy.wait(300);
     }
   }
 
   selectAllStates() {
-    this.getStates().click();
+    this.getStates().click({force:true});
     cy.get("[data-test=selectALLSTATES]").click();
-    this.getStates().click();
+    this.getStates().click({force:true});
   }
 
   selectJurisdictionIcon(state = "AL") {
@@ -293,7 +293,7 @@ class BrowsePage {
   typeSearch(text) {
     cy.wait(300);
     // this.getSearchField().type(`${text}`, { force: true });
-    this.getSearchField().type(`${text}`, { delay: 200 });
+    this.getSearchField().clear({force:true}).type(`${text}`, { delay: 200 });
     cy.wait(500);
   }
 
