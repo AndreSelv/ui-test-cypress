@@ -244,11 +244,11 @@ class BrowsePage {
   }
 
   unSelectMaterialSubType(type) {
-    this.getSubMaterial().click();
+    this.getSubMaterial().click({force:true});
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
-    this.getSubMaterial().click();
+    this.getSubMaterial().click({force:true});
   }
 
   selectClass(value) {

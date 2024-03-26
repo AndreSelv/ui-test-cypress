@@ -26,7 +26,7 @@ class HomePage {
   }
 
   getAAISLogo() {
-    return cy.get("[data-test=AAISlogo]");
+    return cy.get("#header");
   }
 
   getNavBarSearch() {
