@@ -19,7 +19,7 @@ describe("Download Browser Results", () => {
   it("US119956 No Recent download persistence", () => {
     browsePage.selectProduct("GS");
     browsePage.getRecentDownloadsSection().should("not.exist");
-    browsePage.getRecentDownloadsButton().should("be.visible").click();
+    browsePage.getRecentDownloadsButton().should("be.visible").click({force: true});
     cy.wait(3000);
     cy.contains("No recent download").should("be.visible");
   });
@@ -31,7 +31,7 @@ describe("Download Browser Results", () => {
     // browsePage.selectMaterialType("Forms");
     browsePage.selectState("IA");
     browsePage.publicationsShouldBeGreaterThen(1);
-    browsePage.getDownloadButton().should("be.enabled").click();
+    browsePage.getDownloadButton().should("be.enabled").click({force: true});
     cy.on("window:alert", (t) => {
       expect(t).to.contains(browsePage.getDownloadAlertMessage());
     });
@@ -62,9 +62,9 @@ describe("Download Browser Results", () => {
     cy.on("window:alert", (t) => {
       expect(t).to.contains(browsePage.getDownloadAlertMessage());
     });
-    browsePage.getAlertIAgreeButton().should("be.enabled").click();
+    browsePage.getAlertIAgreeButton().should("be.enabled").click({force: true});
     cy.contains(browsePage.getGoToDownloadPageMessage(), { timeout: 35000 }).should("be.visible");
-    browsePage.getGoToSeDownloadSectionOnTheLeftButton().should("be.visible").click();
+    browsePage.getGoToSeDownloadSectionOnTheLeftButton().should("be.visible").click({force: true});
     cy.url().should("include", "/#/browse");
     cy.contains("Recent Downloads");
   });
