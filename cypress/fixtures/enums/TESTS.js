@@ -7,6 +7,12 @@
  */
 
 const TESTS = [
+  // {
+  //   case: "GL-108 1.0",
+  //   caseQuotes: "\"GL-108 1.0\"",
+  //   result: 1,
+  //   expect: "GL-108 1.0",
+  // },
   {
     case: "BP 351",
     caseQuotes: "\"BP 351\"",
