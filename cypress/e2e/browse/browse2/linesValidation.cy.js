@@ -21,7 +21,7 @@ describe("US 110502 Product Lines persistence", () => {
     cy.wrap(LINES).each((line) => {
       browsePage.selectProduct(line.key);
       browsePage.getProductSection().should("contain.text", line.title);
-      browsePage.getCloseProductsButton().click();
+      browsePage.getCloseProductsButton().click({force:true});
       cy.wait(300);
     });
   });

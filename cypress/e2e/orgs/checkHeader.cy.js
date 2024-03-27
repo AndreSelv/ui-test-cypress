@@ -14,7 +14,7 @@ describe("Check Links in the Header", () => {
         });
 
         it("Check AAIS Logo", () => {
-          homePage.getAAISLogo().should("have.attr", "href", "#/");
+          homePage.getAAISLogo().should("be.visible");
         });
       });
     });

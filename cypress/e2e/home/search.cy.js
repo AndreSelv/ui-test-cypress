@@ -54,9 +54,9 @@ describe("Search Functionality", () => {
         });
 
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) from browser page", () => {
+          browsePage.typeSearch(spase);
           browsePage.selectProduct("AGGL");
           browsePage.selectMaterialType("Forms", "Advisory Information");
-          browsePage.typeSearch(spase);
           browsePage.selectState("AK");
           browsePage.getListOfPublicationsCards().each(($el) => {
             expect($el.text()).contains(spase);
@@ -64,9 +64,9 @@ describe("Search Functionality", () => {
         });
 
         it("US113741 AAISdirect | Support search box searches space usage (feature parity)", () => {
+          browsePage.typeSearch(noSpase);
           browsePage.selectProduct("AGGL");
           browsePage.selectMaterialType("Forms", "Advisory Information");
-          browsePage.typeSearch(noSpase);
           browsePage.selectState("AK");
           browsePage.getListOfPublicationsCards().each(($el) => {
             expect($el.text()).contains(spase);

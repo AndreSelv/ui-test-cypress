@@ -18,7 +18,6 @@ describe("Search Functionality", () => {
         it("US114519 Accommodate form and bulletin searches more intelligently", () => {
 
           cy.wrap(TESTS).each((test) => {
-            browsePage.getClearFilter().click();
             browsePage.typeSearch(test.case);
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {
@@ -30,7 +29,6 @@ describe("Search Functionality", () => {
         it("US114519 Accommodate form and bulletin searches more intelligently Quotes", () => {
 
           cy.wrap(TESTS).each((test) => {
-            browsePage.getClearFilter().click();
             browsePage.typeSearch(test.caseQuotes);
             browsePage.publicationsShouldBeEqual(test.result);
             browsePage.getListOfPublicationsCards().each(($el) => {

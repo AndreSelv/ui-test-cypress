@@ -1,3 +1,5 @@
+const HomePage = require("../../support/PageObjects/HomePage");
+const homePage = new HomePage();
 describe("Login and Logout", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -15,8 +17,8 @@ describe("Login and Logout", () => {
             Cypress.env("PASSWORD"),
           );
           cy.get("button").contains("Sign in").click();
-          cy.get("[data-test=\"AAISlogo\"]").should("be.visible");
-          cy.get("span").contains("Sign Out").click();
+          cy.get("#header").should("be.visible");
+          homePage.selectAvatarOptions("Sign Out")
           cy.get("button").contains("Sign in").should("be.visible");
         });
 
@@ -30,8 +32,8 @@ describe("Login and Logout", () => {
             Cypress.env("PASSWORD"),
           );
           cy.get("button").contains("Sign in").click();
-          cy.get("[data-test=\"AAISlogo\"]").should("be.visible");
-          cy.get("span").contains("Sign Out").click();
+          cy.get("#header").should("be.visible");
+          homePage.selectAvatarOptions("Sign Out")
           cy.get("button").contains("Sign in").should("be.visible");
         });
 

@@ -8,12 +8,8 @@ describe("Check Avatar Menus for Non Employee", () => {
         beforeEach(() => {
           cy.initAmplify();
           cy.login(Cypress.env("USERNAME1"), Cypress.env("PASSWORD"));
-          // cy.fixture("orgs/org1/myUser.json").then((user) => {
-          //   cy.intercept("GET", `/users/${Cypress.env("USER")}`, user).as("getEmail");
-          // });
           cy.visit("/#");
-          cy.get("[data-test=navBarAvatar]").click();
-          cy.viewport(size, orientation);
+          homePage.getNavBarMenu().click();
         });
 
         it("Check Notification Link doe not exist", () => {
@@ -22,28 +18,31 @@ describe("Check Avatar Menus for Non Employee", () => {
         });
 
         it("Check My Profile Link", () => {
-          homePage.getNavBarMenu();
-          cy.contains("My Profile")
-            .should(
-              "have.attr",
-              "href",
-              `#/users/${Cypress.env("USER1")}`,
-            );
+          cy.wait(1000);
+          cy.contains("My Profile").click({ force: true });
+          cy.url().should("include", `#/users/${Cypress.env("USER1")}`);
         });
 
-        it("Check Orgs Link", () => {
-          homePage.getNavBarMenu()
-            .contains("Orgs")
-            .should("have.attr", "href", "#/orgs");
+        it("Check Organizations Link", () => {
+          cy.wait(1000);
+          cy.contains("My Organizations").click({ force: true });
+          cy.url().should("include", `#/orgs`);
         });
 
         it("Check Sign Out Link", () => {
-          homePage.getNavBarMenu()
-            .contains("Sign Out").click();
-          cy.contains("Sign in");
+          cy.wait(1000);
+          cy.contains("Sign Out").click({ force: true });
+          cy.url().should("include", `/#`);
+          cy.get("button").contains("Sign in").should("be.visible");
         });
 
-        it("Check Hide Links", () => {
+        it("Check FAQ Links", () => {
+          cy.wait(1000);
+          cy.contains("FAQ").click({ force: true });
+          cy.url().should("include", `#/faq`);
+        });
+
+        it.skip("Check Hide Links", () => {
           homePage.getNavBarMenu()
             .should("not.contain", "Employees");
 

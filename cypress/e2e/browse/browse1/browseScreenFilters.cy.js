@@ -19,7 +19,7 @@ describe("Browse Screen: Filters", () => {
     cy.visit("#/browse");
     browsePage.selectState("CA");
     browsePage.selectState("CA")
-    cy.contains("Jurisdictions").should("be.visible");
+    cy.contains("Jurisdiction").should("be.visible");
   });
 
   it("US73951 using browse add a product, a state and each of the package types", () => {
