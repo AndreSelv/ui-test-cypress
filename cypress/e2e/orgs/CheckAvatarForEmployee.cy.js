@@ -25,37 +25,39 @@ describe("Check Avatar Menus for Employee", () => {
         });
 
         it("Check My Profile Link", () => {
-          homePage.getNavBarMenu();
-          cy.contains("My Profile")
-            .should(
-              "have.attr",
-              "href",
-              `#/users/${Cypress.env("USER")}`,
-            );
+          cy.wait(1000);
+          cy.contains("My Profile").click({ force: true });
+          cy.url().should("include", `#/users/${Cypress.env("USER")}`);
         });
 
-        it("Check Orgs Link", () => {
-          homePage.getNavBarMenu()
-            .contains("Orgs")
-            .should("have.attr", "href", "#/orgs");
-        });
-
-        it("Check Sign Out Link", () => {
-          cy.get("[data-test=navBarMenu]").contains("Sign Out").click();
-
-          cy.contains("Sign in");
+        it("Check Organizations Link", () => {
+          cy.wait(1000);
+          cy.contains("My Organizations").click({ force: true });
+          cy.url().should("include", `#/orgs`);
         });
 
         it("Check Employee Links", () => {
-          homePage.getNavBarMenu()
-            .contains("Employees")
-            .should("have.attr", "href", "#/employees");
+          cy.wait(1000);
+          cy.contains("Employee").click({ force: true });
+          cy.url().should("include", `#/employee`);
+        });
+
+        it("Check FAQ Links", () => {
+          cy.wait(1000);
+          cy.contains("FAQ").click({ force: true });
+          cy.url().should("include", `#/faq`);
         });
 
         it("Check All User Link", () => {
-          homePage.getNavBarMenu()
-            .contains("All Users")
-            .should("have.attr", "href", "#/users");
+          cy.wait(1000);
+          cy.contains("All Users").click({ force: true });
+          cy.url().should("include", `#/users`);
+        });
+        it("Check Sign Out Link", () => {
+          cy.wait(1000);
+          cy.contains("Sign Out").click({ force: true });
+          cy.url().should("include", `/#`);
+          cy.get("button").contains("Sign in").should("be.visible");
         });
       });
     });
