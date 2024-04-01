@@ -276,7 +276,7 @@ class BrowsePage {
   selectPlans(...plans) {
     for (const plan of plans) {
       this.getPlans().type(`${plan}{downArrow}{enter}{esc}`, {force:true});
-      cy.wait(300);
+      cy.wait(500);
     }
   }
 

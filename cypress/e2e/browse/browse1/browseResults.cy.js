@@ -4,7 +4,7 @@ const BrowsePage = require("../../../support/PageObjects/BrowsePage");
 const browsePage = new BrowsePage();
 
 
-describe("Brows Results Summary", () => {
+describe("Browse Results Summary", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
       describe(`Device: ${size}, Orientation: ${orientation}`, () => {
