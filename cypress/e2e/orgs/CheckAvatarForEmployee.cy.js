@@ -18,43 +18,43 @@ describe("Check Avatar Menus for Employee", () => {
           cy.viewport(size, orientation);
         })
         ;
-
+        const time = 1500;
         it("Check Notification Link does not exist", () => {
           homePage.getNavBarMenu()
             .should("not.have.attr", "href", "#/notifications");
         });
 
         it("Check My Profile Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("My Profile").click({ force: true });
           cy.url().should("include", `#/users/${Cypress.env("USER")}`);
         });
 
         it("Check Organizations Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("My Organizations").click({ force: true });
           cy.url().should("include", `#/orgs`);
         });
 
         it("Check Employee Links", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("Employee").click({ force: true });
           cy.url().should("include", `#/employee`);
         });
 
         it("Check FAQ Links", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("FAQ").click({ force: true });
           cy.url().should("include", `#/faq`);
         });
 
         it("Check All User Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("All Users").click({ force: true });
           cy.url().should("include", `#/users`);
         });
         it("Check Sign Out Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("Sign Out").click({ force: true });
           cy.url().should("include", `/#`);
           cy.get("button").contains("Sign in").should("be.visible");
