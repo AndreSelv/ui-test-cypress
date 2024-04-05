@@ -144,6 +144,18 @@ class BrowsePage {
     return "Your content is being downloaded. If the download exceeds 30 seconds, the zip file will be available in the Recent Downloads section.";
   }
 
+  getMaterialTypesGroupe() {
+    return cy.get(":nth-child(2) > .MuiPaper-root > .MuiCardContent-root");
+  }
+
+  getDropdownSection() {
+    return cy.get(".MuiPaper-root > :nth-child(2) > .MuiList-root");
+  }
+
+  getMaterialSubTypesGroupe() {
+    return cy.get(":nth-child(3) > .MuiPaper-root > .MuiCardContent-root");
+  }
+
   getNoAvailablePreviewFiles() {
     return "No file is available for preview. Please download the publication to view other available file types, such as a Word document.";
   }
@@ -177,16 +189,9 @@ class BrowsePage {
     return cy.xpath("//h6[text()= 'Product']/../div[2]//span[@class='MuiChip-label MuiChip-labelSmall']");
   }
 
-  getRadioGroupSection() {
-    return cy.get("[role=\"radiogroup\"]");
-  }
 
   getDialogWindows() {
     return cy.get("[role=\"dialog\"]");
-  }
-
-  selectDocsByRadioButton(number) {
-    return cy.get("[type=\"radio\"]").eq(number - 1);
   }
 
   getRowDisplay(line, state) {
@@ -204,12 +209,12 @@ class BrowsePage {
     //   cy.wait(300)
     //   this.getProductSection().should("contain.text", product);
     // }
-    this.getProduct().click({force:true});
+    this.getProduct().click({ force: true });
     cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...products], { force: true });
-    this.getProduct().click({force:true});
+    this.getProduct().click({ force: true });
   }
 
   selectPublicationByNumber(number) {
@@ -218,44 +223,44 @@ class BrowsePage {
   }
 
   selectMaterialType(...types) {
-    this.getMaterial().click({force:true});
+    this.getMaterial().click({ force: true });
     cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...types], { force: true });
-    this.getMaterial().click({force:true});
+    this.getMaterial().click({ force: true });
   }
 
   selectMaterialSubType(...types) {
-    this.getSubMaterial().click({force:true});
+    this.getSubMaterial().click({ force: true });
     cy.wait(300);
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").check([...types], { force: true });
-    this.getSubMaterial().click({force:true});
+    this.getSubMaterial().click({ force: true });
   }
 
   unSelectMaterialType(type) {
-    this.getMaterial().click({force:true});
+    this.getMaterial().click({ force: true });
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
-    this.getMaterial().click({force:true});
+    this.getMaterial().click({ force: true });
   }
 
   unSelectMaterialSubType(type) {
-    this.getSubMaterial().click({force:true});
+    this.getSubMaterial().click({ force: true });
     // cy.get("#packageType-select-listbox").scrollTo("top");
     this.getAllCheckBox()
       .as("checkboxes").uncheck(type, { force: true });
-    this.getSubMaterial().click({force:true});
+    this.getSubMaterial().click({ force: true });
   }
 
   selectClass(value) {
     this.getClasses().should("be.visible");
-    this.getClasses().click({force:true});
-    cy.contains(value).click({force:true});
-    this.getClasses().click({force:true});
+    this.getClasses().click({ force: true });
+    cy.contains(value).click({ force: true });
+    this.getClasses().click({ force: true });
   }
 
   selectState(...states) {
@@ -266,24 +271,24 @@ class BrowsePage {
     //   cy.wait(300);
     // }
 
-    this.getStates().click({force:true});
+    this.getStates().click({ force: true });
     cy.wait(300);
     this.getAllCheckBox()
       .as("checkboxes").check([...states], { force: true });
-    this.getStates().click({force:true});
+    this.getStates().click({ force: true });
   }
 
   selectPlans(...plans) {
     for (const plan of plans) {
-      this.getPlans().type(`${plan}{downArrow}{enter}{esc}`, {force:true});
+      this.getPlans().type(`${plan}{downArrow}{enter}{esc}`, { force: true });
       cy.wait(500);
     }
   }
 
   selectAllStates() {
-    this.getStates().click({force:true});
+    this.getStates().click({ force: true });
     cy.get("[data-test=selectALLSTATES]").click();
-    this.getStates().click({force:true});
+    this.getStates().click({ force: true });
   }
 
   selectJurisdictionIcon(state = "AL") {
@@ -293,7 +298,7 @@ class BrowsePage {
   typeSearch(text) {
     cy.wait(300);
     // this.getSearchField().type(`${text}`, { force: true });
-    this.getSearchField().clear({force:true}).type(`${text}`, { delay: 200 });
+    this.getSearchField().clear({ force: true }).type(`${text}`, { delay: 200 });
     cy.wait(500);
   }
 
@@ -342,6 +347,25 @@ class BrowsePage {
     element.trigger("mouseout", { force: true });
     // cy.contains(toolTip).should('not.exist')
   }
+
+
+  getListOfTypes(child = 1) {
+    return cy.get(`.MuiPaper-root > :nth-child(2) > .MuiList-root > :nth-child(${child})`);
+  }
+
+
+  getListOfSubTypes() {
+    this.getMaterialSubTypesGroupe().click({ force: true });
+    cy.wait(500)
+    return cy.xpath(`//b/..`);
+    this.getMaterialSubTypesGroupe().click({ force: true });
+
+  }
+
+  getResultFromBar(){
+    return cy.xpath('//h6/following-sibling::p')
+  }
+
 
 }
 
