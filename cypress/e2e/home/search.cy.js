@@ -20,7 +20,7 @@ describe("Search Functionality", () => {
           browsePage.typeSearch("Liability");
           cy.url().should("contain", "/#/browse");
           browsePage.selectProduct("AGXL");
-          browsePage.selectState("MU");
+          browsePage.selectState("AL");
           browsePage.selectMaterialType("Forms");
           browsePage.getListOfPublicationsCards().each(($el) => {
             expect($el.text()).contains("Liability");

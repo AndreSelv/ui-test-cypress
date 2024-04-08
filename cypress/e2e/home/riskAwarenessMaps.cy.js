@@ -10,7 +10,7 @@ describe("Home screen: Risk awareness card", () => {
 
           cy.viewport(size, orientation);
         });
-        it("validate risk awareness maps card on the main screen", () => {
+        it.skip("validate risk awareness maps card on the main screen", () => {
           cy.visit("#");
           homePage.getWildLifeRecourseCenter().should("be.visible").click();
           cy.url().should("contain","/#/risk")

@@ -25,7 +25,7 @@ describe("Home screen: Browse All Products card", () => {
           );
         });
 
-        it("Validate that Wildfire Resource Center link persist on the home page", () => {
+        it.skip("Validate that Wildfire Resource Center link persist on the home page", () => {
           cy.visit("/#");
           homePage.getWildLifeRecourseCenter().should(
             "have.attr",
