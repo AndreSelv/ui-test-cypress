@@ -74,7 +74,7 @@ describe("Browse Results for Various Cards", () => {
         it("Validate that user can open single docs publication  ", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"NM PAN\"");
-          browsePage.getExcludeFileContentCheckBox().click();
+          browsePage.getExcludeFileContentCheckBox().click({force:true});
           browsePage.selectPublicationByNumber(1);
           browsePage.getDialogWindows().should("be.visible");
         });
