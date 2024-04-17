@@ -75,7 +75,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"NM PAN\"");
           browsePage.getExcludeFileContentCheckBox().click({force:true});
-          browsePage.selectPublicationByNumber(1);
+          browsePage.selectPublicationByNumber(7);
           browsePage.getDialogWindows().should("be.visible");
         });
 
@@ -94,7 +94,7 @@ describe("Browse Results for Various Cards", () => {
           browsePage.selectProduct("HO");
           browsePage.selectState("AZ");
           browsePage.selectPlans("By Peril");
-          browsePage.selectPublicationByNumber(1);
+          browsePage.selectPublicationByNumber(7);
           cy.contains(browsePage.getNoAvailablePreviewFiles());
           cy.on("window:alert", (t) => {
             expect(t).to.contains(browsePage.getNoAvailablePreviewFiles());

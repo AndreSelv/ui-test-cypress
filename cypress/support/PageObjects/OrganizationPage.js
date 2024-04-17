@@ -12,7 +12,8 @@ class OrganizationPage {
   }
 
   getCreateButton() {
-    return cy.get(".MuiButton-contained").contains("Create");
+    // return cy.get(".MuiButton-contained").contains("Create");
+    return cy.get('.MuiDialogActions-root > .MuiButton-contained')
   }
 
   getUsersButton() {
