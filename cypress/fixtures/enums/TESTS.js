@@ -16,25 +16,25 @@ const TESTS = [
   {
     case: "BP 351",
     caseQuotes: "\"BP 351\"",
-    result: 4,
+    result: 6,
     expect: "351",
   },
   {
     case: "BP351",
     caseQuotes: "\"BP351\"",
-    result: 4,
+    result: 6,
     expect: "351",
   },
   {
     case: "UM 0811",
     caseQuotes: "\"UM 0811\"",
-    result: 4,
+    result: 7,
     expect: "UM 0811",
   },
   {
     case: "UM0811",
     caseQuotes: "\"UM0811\"",
-    result: 4,
+    result: 7,
     expect: "UM 0811",
   },
   {
@@ -58,7 +58,7 @@ const TESTS = [
   {
     case: "BP-351",
     caseQuotes: "\"BP-351\"",
-    result: 4,
+    result: 6,
     expect: "351",
   },
 
