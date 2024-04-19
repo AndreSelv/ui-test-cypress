@@ -22,7 +22,7 @@ describe("IMG Browse Screen: Filters", () => {
     browsePage.selectState("MU");
     browsePage.selectMaterialType("Bulletins");
     browsePage.typeSearch("fire");
-    browsePage.getRequestHelpButton().click();
+    browsePage.getRequestHelpButton().click({force:true});
     browsePage.getAdditionalInfoButton().type("Test");
     browsePage.getSubmitModalRequestButton().should("be.enabled");
   });
@@ -34,7 +34,7 @@ describe("IMG Browse Screen: Filters", () => {
     browsePage.selectClass("BCF");
     browsePage.selectState("MU");
     browsePage.selectMaterialType("Bulletins");
-    browsePage.getRequestHelpButton().click();
+    browsePage.getRequestHelpButton().click({force:true});
     browsePage.getSubmitModalRequestButton().should("be.disabled");
   });
 });
