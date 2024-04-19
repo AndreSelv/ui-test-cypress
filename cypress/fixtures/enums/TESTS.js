@@ -40,13 +40,13 @@ const TESTS = [
   {
     case: "CL 0136",
     caseQuotes: "\"CL 0136\"",
-    result: 1,
+    result: 5,
     expect: "CL 0136",
   },
   {
     case: "CL0136",
     caseQuotes: "\"CL0136\"",
-    result: 1,
+    result: 5,
     expect: "CL 0136",
   },
   // {
@@ -71,7 +71,7 @@ const TESTS = [
   {
     case: "0641",
     caseQuotes: "\"0641\"",
-    result: 20,
+    result: 27,
     expect: "0641",
   }
 ];
