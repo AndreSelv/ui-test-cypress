@@ -53,6 +53,18 @@ class HomePage {
     this.getSearchBar().type(`${text}{enter}`);
   }
 
+  getBrowseWidgets(){
+    return cy.get('[data-rbd-draggable-id="browse"]')
+  }
+
+   getNewlyAvailableWidgets(){
+    return cy.get('[data-rbd-draggable-id="newly"]')
+  }
+
+   getRecentDownloadWidgets(){
+    return cy.get('[data-rbd-draggable-id="recentProducts"]')
+  }
+
 }
 
 export default HomePage;
