@@ -18,19 +18,20 @@ describe("Browse Results for Various Cards", () => {
         });
         it("US112937 Show material type by name rather than symbol in search results", () => {
           cy.visit("#/browse");
-          browsePage.getMaterial().click({force:true});
+          browsePage.getMaterial().click({ force: true });
           for (let i = 0; i < MATERIALS.length; i++) {
 
             browsePage.getAllCheckBox()
               .as("checkboxes").check(MATERIALS[i][0], { force: true });
-            browsePage.getMaterial().click({force:true});
+            browsePage.getMaterial().click({ force: true });
             browsePage.getMaterialTypeSection().should("contain.text", MATERIALS[i][0]);
-            cy.wait(1000)
+            cy.wait(1000);
             browsePage.getListOfPublicationsCards().each(($el) => {
               expect($el.text()).contains(CATEGORIES[i]);
             });
-            browsePage.getMaterial().click({force:true});
+            browsePage.getMaterial().click({ force: true });
             cy.get(`@checkboxes`).uncheck(MATERIALS[i][0], { force: true });
+            cy.wait(1000);
           }
         });
 
@@ -40,14 +41,14 @@ describe("Browse Results for Various Cards", () => {
           browsePage.selectState("AL");
           browsePage.selectMaterialType("Forms");
           cy.wait(500);
-          browsePage.getInfoIcon(1).should("be.visible").click({force:true});
+          browsePage.getInfoIcon(1).should("be.visible").click({ force: true });
         });
 
         it("US115255 Alphabetize product lines within More tile dropdown", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("AL");
-          browsePage.getBrowseResultLineIcon(x).click({force:true})
+          browsePage.getBrowseResultLineIcon(x).click({ force: true });
           browsePage.getListOfProductLinesInCard().then($elements => {
             const strings = [...$elements].map(el => el.innerText);
             const sortedLines = strings.sort((a, b) => {
@@ -63,7 +64,7 @@ describe("Browse Results for Various Cards", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectState("AL");
-          browsePage.getBrowseResultLineIcon(x).click({force:true})
+          browsePage.getBrowseResultLineIcon(x).click({ force: true });
 
           browsePage.getListOfStatesInCard().then($elements => {
             const strings = [...$elements].map(el => el.innerText);
@@ -74,7 +75,7 @@ describe("Browse Results for Various Cards", () => {
         it("Validate that user can open single docs publication  ", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"NM PAN\"");
-          browsePage.getExcludeFileContentCheckBox().click({force:true});
+          browsePage.getExcludeFileContentCheckBox().click({ force: true });
           browsePage.selectPublicationByNumber(7);
           browsePage.getDialogWindows().should("be.visible");
         });
@@ -90,7 +91,7 @@ describe("Browse Results for Various Cards", () => {
 
         it("Validate error message if publication does not have any PDF docs ", () => {
           cy.visit("#/browse");
-          browsePage.typeSearch("11 22")
+          browsePage.typeSearch("11 22");
           browsePage.selectProduct("HO");
           browsePage.selectState("AZ");
           browsePage.selectPlans("By Peril");
@@ -104,8 +105,9 @@ describe("Browse Results for Various Cards", () => {
         it("Validate that user can open docs in Info", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"PA 4502\"");
-          browsePage.getExcludeFileContentCheckBox().click({force:true});
-          browsePage.getInfoIcon(1).click({force:true});
+          browsePage.getExcludeFileContentCheckBox().click({ force: true });
+          cy.wait(1000);
+          browsePage.getInfoIcon(1).click({ force: true });
           // browsePage.selectPublicationByNumber(5);
           browsePage.getDialogWindows().should("be.visible");
           browsePage.getRowDisplay("PC", "Florida").invoke("removeAttr", "target").click();

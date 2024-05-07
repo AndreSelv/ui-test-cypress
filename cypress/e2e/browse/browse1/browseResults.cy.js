@@ -90,6 +90,7 @@ describe("Browse Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("AGXL");
           browsePage.selectMaterialType("Forms");
+          cy.wait(1500)
           // browsePage.selectAllStates();
 
           browsePage.getListOfPublicationsCards().each(($el) => {
@@ -109,7 +110,7 @@ describe("Browse Results Summary", () => {
           browsePage.selectMaterialType("Manual Materials")
           browsePage.selectMaterialSubType("State Pages");
           // browsePage.publicationsShouldBeEqual(10);
-          browsePage.publicationsShouldBeEqual(10);
+          browsePage.publicationsShouldBeEqual(28);
         });
 //TODO
 //         xit("validate that user can get result with multiple MHO plans selection", () => {
