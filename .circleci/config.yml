@@ -176,6 +176,24 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
+          name: Products
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          spec: cypress/e2e/product/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
           name: Risk
           executor: browsers-chrome100-ff99-edge
           browser: chrome
@@ -331,6 +349,24 @@ workflows:
 #          record: true
 #          debug: 'cypress:cli'
 #          spec: cypress/e2e/orgs/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Products
+#          executor: browsers-chrome100-ff99-edge
+#          browser: firefox
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/product/*
 #          post-install:
 #            - run: npx cypress info
 #          store_artifacts: true
@@ -516,6 +552,27 @@ workflows:
 #      - cypress/run:
 #          requires:
 #            - cypress/install
+#          name: Products
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          config-file: cypress.config-uat.js
+#          spec: cypress/e2e/product/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
 #          name: Risk
 #          executor: browsers-chrome100-ff99-edge
 #          browser: chrome
@@ -680,6 +737,25 @@ workflows:
 #          debug: 'cypress:cli'
 #          config-file: cypress.config-uat.js
 #          spec: cypress/e2e/orgs/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Products
+#          executor: browsers-chrome100-ff99-edge
+#          browser: firefox
+#          record: true
+#          debug: 'cypress:cli'
+#          config-file: cypress.config-uat.js
+#          spec: cypress/e2e/product/*
 #          post-install:
 #            - run: npx cypress info
 #          store_artifacts: true
