@@ -12,10 +12,10 @@ describe("Browse Result Card File Piker", () => {
 
         it("validate that user can select various doc types of if  search card contains it", () => {
           cy.visit("#/browse");
-          browsePage.typeSearch("Fire");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
-          browsePage.getListOfPublicationsCards()
+          browsePage.typeSearch("Fire");
+          browsePage.getListOfPublicationsCards();
         });
       });
     });
