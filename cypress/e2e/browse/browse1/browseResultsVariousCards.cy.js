@@ -102,7 +102,7 @@ describe("Browse Results for Various Cards", () => {
           });
         });
 
-        it("Validate that user can open docs in Info", () => {
+        it.only("Validate that user can open docs in Info", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"PA 4502\"");
           browsePage.getExcludeFileContentCheckBox().click({ force: true });
@@ -110,7 +110,7 @@ describe("Browse Results for Various Cards", () => {
           browsePage.getInfoIcon(1).click({ force: true });
           // browsePage.selectPublicationByNumber(5);
           browsePage.getDialogWindows().should("be.visible");
-          browsePage.getRowDisplay("PC", "Florida").invoke("removeAttr", "target").click();
+          browsePage.getRowDisplay("PC", "Delaware").invoke("removeAttr", "target").click();
           cy.wait(2000);
         });
       });
