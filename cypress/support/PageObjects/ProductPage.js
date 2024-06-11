@@ -85,6 +85,8 @@ class ProductPage {
       this.getCardManualMaterials(), this.getCardForms(), this.getCardAdditionalMaterials()];
   }
 
+  //======Commercial============
+
   getArtisansTab() {
     return cy.get("#product-button-Artisans");
   }
@@ -140,6 +142,69 @@ class ProductPage {
 
   getListOfMenuProductsCategory() {
     return cy.xpath("//ul[@id=\"menuItemsList-productsUL\"]//a");
+  }
+
+  //==== Personal ========
+
+  getBoatownersTab() {
+    return cy.get("#product-button-Boatowners");
+  }
+
+  getDwellingPropertiesTab() {
+    return cy.get("#product-button-Dwelling Properties");
+  }
+
+  getHomeownersTab() {
+    return cy.get("#product-button-Homeowners");
+  }
+
+  getMobileHomeownersTab() {
+    return cy.get("#product-button-Mobile Homeowners");
+  }
+
+  getPersonalPremisesLiabilityTab() {
+    return cy.get("#product-button-Personal & Premises Liability");
+  }
+
+  getPersonalInlandMarineTab() {
+    return cy.get("#product-button-Personal Inland Marine");
+  }
+
+  getPersonalUmbrellaTab() {
+    return cy.get("#product-button-Personal Umbrella");
+  }
+
+  getYachtTab() {
+    return cy.get("#product-button-Yacht");
+  }
+
+  //==== Farm and Ag ========
+  getAgriculturalCommercialExcessUmbrellaLiabilityTab() {
+    return cy.get("[name=\"product-button-Agricultural Commercial Excess & Umbrella Liability\"]");
+  }
+
+  getAgriculturalGeneralLiabilityTab() {
+    return cy.get("[name=\"product-button-Agricultural General Liability\"]");
+  }
+
+  getAgriculturalOutputProgramTab() {
+    return cy.get("[name=\"product-button-Agricultural Output Program\"]");
+  }
+
+  getFarmInlandMarineTab() {
+    return cy.get("[name=\"product-button-Farm Inland Marine\"]");
+  }
+
+  getFarmPropertiesTab() {
+    return cy.get("[name=\"product-button-Farm Properties\"]");
+  }
+
+  getFarmUmbrellaTab() {
+    return cy.get("[name=\"product-button-Farm Umbrella\"]");
+  }
+
+  getFarmownersTab() {
+    return cy.get("[name=\"product-button-Farmowners\"]");
   }
 
 
