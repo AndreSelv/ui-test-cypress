@@ -12,31 +12,31 @@ describe("Validate Product page (AUTO) functionalities (Landing page)", () => {
   });
 
 
-  it("Validate Artisans widgets persistence", () => {
+  it("Validate Agricultural Commercial ExcessUmbrella Liability widgets persistence", () => {
     productPage.getAgriculturalCommercialExcessUmbrellaLiabilityTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
-  it("Validate Businessowners widgets persistence", () => {
+  it("Validate Agricultural General Liability widgets persistence", () => {
     productPage.getAgriculturalGeneralLiabilityTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
-  it("Validate CannabisBusinessowners widgets persistence", () => {
+  it("Validate Agricultural Output Program widgets persistence", () => {
     productPage.getAgriculturalOutputProgramTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
-  it("Validate CombinationPolicyProgram widgets persistence", () => {
+  it("Validate Farm Inland Marine widgets persistence", () => {
     productPage.getFarmInlandMarineTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
-  it("Validate CommercialCrime widgets persistence", () => {
+  it("Validate Farm Properties widgets persistence", () => {
     productPage.getFarmPropertiesTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
-  it("Validate CommercialInlandMarineFiled widgets persistence", () => {
+  it("Validate Farm Umbrella widgets persistence", () => {
     productPage.getFarmUmbrellaTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
-  it("Validate CommercialLiabilityTraditional widgets persistence", () => {
+  it("Validate Farmowners widgets persistence", () => {
     productPage.getFarmownersTab().click({ force: true });
     productPage.getListOfCards().forEach((el) => el.should("be.visible"));
   });
