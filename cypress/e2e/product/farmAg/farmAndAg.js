@@ -3,7 +3,7 @@ const ProductPage = require("../../../support/PageObjects/ProductPage");
 const browsePage = new BrowsePage();
 const productPage = new ProductPage();
 
-describe("Validate Product page (AUTO) functionalities (Landing page)", () => {
+describe("Validate Product page (FARM AND AG) functionalities (Landing page)", () => {
 
   beforeEach(() => {
     cy.initAmplify();
