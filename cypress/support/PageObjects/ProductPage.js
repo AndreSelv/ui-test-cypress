@@ -207,6 +207,10 @@ class ProductPage {
     return cy.get("[name=\"product-button-Farmowners\"]");
   }
 
+  //======Inland Marine============
+  getInlandMarineGuideNonfiledTab() {
+    return cy.get("[name=\"product-button-Inland Marine Guide (Nonfiled)\"]");
+  }
 
 }
 
