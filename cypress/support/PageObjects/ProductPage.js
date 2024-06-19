@@ -147,35 +147,35 @@ class ProductPage {
   //==== Personal ========
 
   getBoatownersTab() {
-    return cy.get("#product-button-Boatowners");
+    return cy.get("[name=\"product-button-Boatowners\"]");
   }
 
   getDwellingPropertiesTab() {
-    return cy.get("#product-button-Dwelling Properties");
+    return cy.get("[name=\"product-button-Dwelling Properties\"]");
   }
 
   getHomeownersTab() {
-    return cy.get("#product-button-Homeowners");
+    return cy.get("[name=\"product-button-Homeowners\"]");
   }
 
   getMobileHomeownersTab() {
-    return cy.get("#product-button-Mobile Homeowners");
+    return cy.get("[name=\"product-button-Mobile Homeowners\"]");
   }
 
   getPersonalPremisesLiabilityTab() {
-    return cy.get("#product-button-Personal & Premises Liability");
+    return cy.get("[name=\"product-button-Personal & Premises Liability\"]");
   }
 
   getPersonalInlandMarineTab() {
-    return cy.get("#product-button-Personal Inland Marine");
+    return cy.get("[name=\"product-button-Personal Inland Marine\"]");
   }
 
   getPersonalUmbrellaTab() {
-    return cy.get("#product-button-Personal Umbrella");
+    return cy.get("[name=\"product-button-Personal Umbrella\"]");
   }
 
   getYachtTab() {
-    return cy.get("#product-button-Yacht");
+    return cy.get("[name=\"product-button-Yacht\"]");
   }
 
   //==== Farm and Ag ========
