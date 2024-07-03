@@ -20,6 +20,10 @@ class BrowsePage {
     return cy.get("#plans-select");
   }
 
+  getPrograms() {
+    return cy.get("#programs-select");
+  }
+
   getMaterialTypeSection() {
     return cy.get("[data-test=\"packageTypeCategory\"]");
   }
@@ -283,6 +287,18 @@ class BrowsePage {
       this.getPlans().type(`${plan}{downArrow}{enter}{esc}`, { force: true });
       cy.wait(500);
     }
+  }
+
+  selectPrograms(...programs) {
+    for (const program of programs) {
+      this.getPrograms().type(`${program}{downArrow}{enter}{esc}`, { force: true });
+      cy.wait(500);
+      this.getProgramSection().contains(program)
+    }
+  }
+
+  getProgramSection(){
+    return cy.get('[data-test="programs"]')
   }
 
   selectAllStates() {
