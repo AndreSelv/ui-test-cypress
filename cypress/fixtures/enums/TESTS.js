@@ -16,37 +16,37 @@ const TESTS = [
   {
     case: "BP 351",
     caseQuotes: "\"BP 351\"",
-    result: 6,
+    result: 4,
     expect: "351",
   },
   {
     case: "BP351",
     caseQuotes: "\"BP351\"",
-    result: 6,
+    result: 4,
     expect: "351",
   },
   {
     case: "UM 0811",
     caseQuotes: "\"UM 0811\"",
-    result: 7,
+    result: 4,
     expect: "UM 0811",
   },
   {
     case: "UM0811",
     caseQuotes: "\"UM0811\"",
-    result: 7,
+    result: 4,
     expect: "UM 0811",
   },
   {
     case: "CL 0136",
     caseQuotes: "\"CL 0136\"",
-    result: 5,
+    result: 2,
     expect: "CL 0136",
   },
   {
     case: "CL0136",
     caseQuotes: "\"CL0136\"",
-    result: 5,
+    result: 2,
     expect: "CL 0136",
   },
   // {
@@ -58,7 +58,7 @@ const TESTS = [
   {
     case: "BP-351",
     caseQuotes: "\"BP-351\"",
-    result: 6,
+    result: 4,
     expect: "351",
   },
 
@@ -71,7 +71,7 @@ const TESTS = [
   {
     case: "0641",
     caseQuotes: "\"0641\"",
-    result: 27,
+    result: 21,
     expect: "0641",
   }
 ];

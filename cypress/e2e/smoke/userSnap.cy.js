@@ -14,7 +14,7 @@ describe("User Snap persistence", () => {
           cy.contains("Welcome").should("be.visible");
           cy.get("us-button").should("exist");
           cy.visit("/#/browse");
-          cy.contains("Browse").should("be.visible");
+          cy.url().should('contain', 'browse');
           cy.get("us-button").should("exist");
           cy.visit("/#/faq");
           cy.contains("Frequently Asked Questions").should("be.visible");

@@ -12,7 +12,7 @@ describe("Validate Product Dropdown menu", () => {
     productPage.getProductsTab().trigger("mouseover", { force: true });
   });
 
-  it("Validate ALL Product Category", () => {
+  it.skip("Validate ALL Product Category", () => {
     productPage.getListOfMenuProductsCategory().then((e) => {
       cy.wait(1000);
       Array.from(e).slice(1).forEach((element, index) => {

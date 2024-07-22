@@ -379,7 +379,7 @@ class BrowsePage {
   }
 
   getResultFromBar(){
-    return cy.xpath('//h6/following-sibling::p')
+    return cy.xpath('//button/following-sibling::span')
   }
 
 
