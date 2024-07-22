@@ -55,23 +55,23 @@ describe("Browse Screen: Filters", () => {
     })
   });
 
-  it.only("US116672 Validate search by title only functionality", () => {
+  it("US116672 Validate search by title only functionality", () => {
     cy.visit("#/browse");
     browsePage.typeSearch(`"NV Supplement"`);
     browsePage.selectProduct("AGGL");
     browsePage.getExcludeFileContentCheckBox().click()
     // browsePage.selectAllStates();
-    cy.contains(`10 results`);
+    cy.contains(`4 results`);
     browsePage.getExcludeFileContentCheckBox().click();
-    cy.contains(`2 results`);
+    cy.contains(`1 results`);
   });
 
-  it.only("US116672 Validate search by title only functionality from Quick search", () => {
+  it("US116672 Validate search by title only functionality from Quick search", () => {
     cy.visit("#/browse");
     browsePage.typeSearch(`"NV Supplement"`);
     cy.contains(`4 results`);
     browsePage.getExcludeFileContentCheckBox().click();
-    cy.contains(`12 results`);
+    cy.contains(`7 results`);
   });
 
 

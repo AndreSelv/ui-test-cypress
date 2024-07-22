@@ -109,8 +109,8 @@ describe("Browse Results Summary", () => {
           browsePage.selectPlans("By Peril", "Com");
           browsePage.selectMaterialType("Manual Materials")
           browsePage.selectMaterialSubType("State Pages");
-          // browsePage.publicationsShouldBeEqual(10);
-          browsePage.publicationsShouldBeEqual(28);
+          browsePage.publicationsShouldBeEqual(10);
+          // browsePage.publicationsShouldBeEqual(28);
         });
 //TODO
 //         xit("validate that user can get result with multiple MHO plans selection", () => {

@@ -8,9 +8,6 @@ class BrowsePage {
     return cy.xpath(`(//*[@data-testid="CloseIcon"])[1]`);
   }
 
-  getClearFilter() {
-    return cy.get(`[aria-label="clear"]`);
-  }
 
   getProductSection() {
     return cy.get(`[data-test="browseProduct"]`);
@@ -172,10 +169,6 @@ class BrowsePage {
     return cy.contains("I Agree");
   }
 
-  getFilesRadioButtonSection() {
-    return cy.xpath("//label[@id=\"files-radio-buttons-group-label\"]/..");
-  }
-
   getInfoIcon(number = 0) {
     return cy.get(`[data-test="browseResults-item-${number}-more-info-icon"]`);
   }
@@ -332,9 +325,6 @@ class BrowsePage {
       .should("be.visible");
   }
 
-  deleteStateFromFilter(state) {
-    return cy.get(`[data-test=chip${state}] > .MuiChip-deleteIcon`);
-  }
 
   setFromDateField(date) {
     this.getFromDateField().type(date, { force: true })
