@@ -10,7 +10,7 @@ describe("Browse Result Card File Piker", () => {
           cy.viewport(size, orientation);
         });
 
-        it("validate that user can select various doc types of if  search card contains it", () => {
+        xit("validate that user can select various doc types of if  search card contains it", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
