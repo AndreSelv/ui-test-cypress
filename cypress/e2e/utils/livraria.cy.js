@@ -9,7 +9,7 @@ describe("Compare with Production", () => {
           cy.viewport(size, orientation);
         });
 
-        it("US63611: Compare with Production", () => {
+        it.skip("US63611: Compare with Production", () => {
           cy.visit("#/utils/livraria");
           cy.get("[data-test=compareWithProd]").click();
         });

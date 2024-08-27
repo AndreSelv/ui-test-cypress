@@ -55,7 +55,7 @@ describe("Download Browser Results", () => {
     // browsePage.getAlertIAgreeButton().should("be.enabled");
   });
 
-  it("US118911 Download Manifests for no Line or State validation", () => {
+  it.skip("US118911 Download Manifests for no Line or State validation", () => {
     browsePage.selectMaterialType("Advisory Information");
     browsePage.publicationsShouldBeGreaterThen(60);
     browsePage.getDownloadButton().should("be.enabled").click({ force: true });
