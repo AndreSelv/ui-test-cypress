@@ -74,6 +74,7 @@ describe("Search Functionality", () => {
 
         });
         it("US113741 AAISdirect | Support search box searches space usage (feature parity) Trim leading and trailing spaces", () => {
+          browsePage.getExactWordSearchCheckBox().click().should("not.be.checked");
           browsePage.typeSearch(trim);
           cy.wait(1000);
           cy.url().should("contain", "/#/browse");
