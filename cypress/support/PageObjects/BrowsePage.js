@@ -196,7 +196,11 @@ class BrowsePage {
   }
 
   getExcludeFileContentCheckBox() {
-    return cy.get("input[type=\"checkbox\"]");
+    return cy.get("#excludeFileContent");
+  }
+
+  getExactWordSearchCheckBox() {
+    return cy.get("#exactSearchPhrase");
   }
 
 
