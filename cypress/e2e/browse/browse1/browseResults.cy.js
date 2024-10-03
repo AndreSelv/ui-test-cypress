@@ -16,6 +16,7 @@ describe("Browse Results Summary", () => {
 
         it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
+          browsePage.getExactWordSearchCheckBox().click().should("be.not.checked");
           browsePage.typeSearch("Losses");
           browsePage.selectProduct("HO");
           browsePage.selectPlans("Composite");
