@@ -219,7 +219,7 @@ class BrowsePage {
   }
 
   selectPublicationByNumber(number) {
-    this.getListOfPublicationsCards().eq(number - 1).click(30, 24);
+    this.getListOfPublicationsCards().eq(number - 1).scrollIntoView().should('be.visible').click(30, 24);
     // cy.get(':nth-child(1) > .MuiListItem-root > .jss257 > .jss223').click()
   }
 

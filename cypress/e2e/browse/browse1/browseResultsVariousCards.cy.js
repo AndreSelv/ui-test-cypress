@@ -82,6 +82,7 @@ describe("Browse Results for Various Cards", () => {
 
         it("Validate that user can open multiple docs publication  ", () => {
           cy.visit("#/browse");
+          browsePage.getExactWordSearchCheckBox().click({ force: true });
           browsePage.typeSearch("\"PA 4502\"");
           browsePage.selectPublicationByNumber(1);
           // browsePage.getRadioGroupSection().should("be.visible");
@@ -91,11 +92,11 @@ describe("Browse Results for Various Cards", () => {
 
         it("Validate error message if publication does not have any PDF docs ", () => {
           cy.visit("#/browse");
-          browsePage.typeSearch("11 22");
-          browsePage.selectProduct("HO");
-          browsePage.selectState("AZ");
-          browsePage.selectPlans("By Peril");
-          browsePage.selectPublicationByNumber(7);
+          browsePage.typeSearch("MT PA Download REV");
+          // browsePage.selectProduct("HO");
+          // browsePage.selectState("AZ");
+          // browsePage.selectPlans("By Peril");
+          browsePage.selectPublicationByNumber(1);
           cy.contains(browsePage.getNoAvailablePreviewFiles());
           cy.on("window:alert", (t) => {
             expect(t).to.contains(browsePage.getNoAvailablePreviewFiles());

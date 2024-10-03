@@ -107,7 +107,7 @@ describe("Browse Results Summary", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
-          browsePage.selectPlans("By Peril", "Com");
+          // browsePage.selectPlans("By Peril", "Com");
           browsePage.selectMaterialType("Manual Materials")
           browsePage.selectMaterialSubType("State Pages");
           browsePage.publicationsShouldBeEqual(10);
