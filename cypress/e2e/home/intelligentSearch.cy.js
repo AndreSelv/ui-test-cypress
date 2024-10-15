@@ -67,6 +67,32 @@ describe("Search Functionality", () => {
             expect(actCount).eq(0);
           });
         });
+
+        it("US126743 Validate exact phrase searches explicit with checkbox", () => {
+          browsePage.getExactWordSearchCheckBox().should("be.checked");
+          browsePage.getExcludeFileContentCheckBox().should("be.not.checked");
+          browsePage.typeSearch(`Total Loss`);
+          browsePage.getResultFromBar().then(($actualCount) => {
+            let actCount = parseInt($actualCount.text().substring(0, $actualCount.text().indexOf(" ")));
+            expect(actCount).eq(1);
+            browsePage.getListOfPublicationsCards().each(($el) => {
+              expect($el.text()).contains("Total Loss");
+            });
+          });
+        });
+
+        it("US126743 Validate exact phrase searches explicit with checkbox", () => {
+          browsePage.getExactWordSearchCheckBox().should("be.checked");
+          browsePage.getExcludeFileContentCheckBox().should("be.not.checked");
+          browsePage.typeSearch(`Loss Cost`);
+          browsePage.getResultFromBar().then(($actualCount) => {
+            let actCount = parseInt($actualCount.text().substring(0, $actualCount.text().indexOf(" ")));
+            // expect(actCount).eq(1);
+            browsePage.getListOfPublicationsCards().each(($el) => {
+              expect($el.text()).contains("Loss Cost");
+            });
+          });
+        });
       });
     });
   });
