@@ -93,6 +93,37 @@ describe("Search Functionality", () => {
             });
           });
         });
+
+        it("US126743 Validate exact phrase searches with quotes and checkbox", () => {
+          const text = `Total`;
+
+          // Check the initial state of the checkboxes
+          browsePage.getExactWordSearchCheckBox().should("be.checked");
+          browsePage.getExcludeFileContentCheckBox().should("be.not.checked");
+
+          // Type the search without quotes and get the result count
+          browsePage.typeSearch(text);
+          browsePage.getResultFromBar().invoke('text').then((actualText) => {
+            let count = parseInt(actualText.substring(0, actualText.indexOf(" ")));
+            browsePage.getListOfPublicationsCards().each(($el) => {
+              expect($el.text()).contains(text);
+            });
+
+            // Toggle the exact word checkbox and perform the search with quotes
+            browsePage.getExactWordSearchCheckBox().click({ force: true }).should("be.not.checked");
+            browsePage.typeSearch(`"${text}"`);
+
+            // Get the result count for the search with quotes
+            browsePage.getResultFromBar().invoke('text').then((quoteText) => {
+              let quotesCount = parseInt(quoteText.substring(0, quoteText.indexOf(" ")));
+              browsePage.getListOfPublicationsCards().each(($el) => {
+                expect($el.text()).contains(text);
+              });
+              // Compare the counts
+              expect(count).to.equal(quotesCount);
+            });
+          });
+        });
       });
     });
   });
