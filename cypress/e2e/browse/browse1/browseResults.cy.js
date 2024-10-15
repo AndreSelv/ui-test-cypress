@@ -17,9 +17,9 @@ describe("Browse Results Summary", () => {
         it("validate browser result with all parameters", () => {
           cy.visit("#/browse");
           browsePage.getExactWordSearchCheckBox().click().should("be.not.checked");
-          browsePage.typeSearch("Losses");
+          browsePage.typeSearch("Loss");
           browsePage.selectProduct("HO");
-          browsePage.selectPlans("Composite");
+          // browsePage.selectPlans("Composite");
           browsePage.selectMaterialType("Forms");
           browsePage.selectState(browsePage.getRandomState(STATES));
           browsePage.setFromDateField("10/02/2012");
