@@ -7,7 +7,7 @@ describe("US121289 Material and SubMaterial types grouping", () => {
     cy.visit("#/browse");
   });
 
-  const product = "AGOP";
+  const product = "AGXL";
   const type = "Manual Materials";
 
   it("US121289 Material and SubMaterial types persistence in the filter", () => {
