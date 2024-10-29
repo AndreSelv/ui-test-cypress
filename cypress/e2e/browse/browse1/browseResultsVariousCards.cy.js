@@ -111,7 +111,7 @@ describe("Browse Results for Various Cards", () => {
           browsePage.getInfoIcon(1).click({ force: true });
           // browsePage.selectPublicationByNumber(5);
           browsePage.getDialogWindows().should("be.visible");
-          browsePage.getRowDisplay("PA", "Indiana").invoke("removeAttr", "target").click();
+          browsePage.getRowDisplay("PA", "Delaware").invoke("removeAttr", "target").click();
           cy.wait(2000);
         });
       });
