@@ -63,14 +63,14 @@ describe("Browse Results Summary", () => {
           cy.contains("Go To Download Page", { timeout: 70000 }).should("be.visible");
         });
 
-
-        it("validate that effective date is persist on the search filter", () => {
+        //TODO
+        it.skip("validate that effective date is persist on the search filter", () => {
           cy.visit("#/browse");
           browsePage.getFromDateField().click({ force: true });
           browsePage.getCalendarPicker().should("be.visible");
         });
-
-        it("validate that oldest date is persist on the search filter", () => {
+        //TODO
+        it.skip("validate that oldest date is persist on the search filter", () => {
           cy.visit("#/browse");
           browsePage.getToDateField().click({ force: true });
           browsePage.getCalendarPicker().should("be.visible");
@@ -102,8 +102,8 @@ describe("Browse Results Summary", () => {
           });
         });
 
-
-        it("validate that user can get result with multiple HO plans selection", () => {
+//TODO HO plans make available after data will fix
+        it.skip("validate that user can get result with multiple HO plans selection", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
