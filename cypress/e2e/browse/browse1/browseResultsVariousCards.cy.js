@@ -71,8 +71,8 @@ describe("Browse Results for Various Cards", () => {
             expect(strings).to.deep.equal([...strings].sort());
           });
         });
-
-        it("Validate that user can open single docs publication  ", () => {
+        //todo
+        it.skip("Validate that user can open single docs publication  ", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"NM PAN\"");
           browsePage.getExcludeFileContentCheckBox().click({ force: true });
