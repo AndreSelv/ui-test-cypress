@@ -72,7 +72,7 @@ describe("Browse Results for Various Cards", () => {
           });
         });
         //todo
-        it.skip("Validate that user can open single docs publication  ", () => {
+        it("Validate that user can open single docs publication  ", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"NM PAN\"");
           browsePage.getExcludeFileContentCheckBox().click({ force: true });
