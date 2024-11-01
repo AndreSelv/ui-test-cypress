@@ -288,6 +288,7 @@ class BrowsePage {
 
   selectPrograms(...programs) {
     for (const program of programs) {
+      cy.wait(500);
       this.getPrograms().type(`${program}{downArrow}{enter}{esc}`, { force: true });
       cy.wait(500);
       this.getProgramSection().contains(program)
