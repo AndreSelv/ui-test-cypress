@@ -102,8 +102,7 @@ describe("Browse Results Summary", () => {
           });
         });
 
-//TODO HO plans make available after data will fix
-        it.skip("validate that user can get result with multiple HO plans selection", () => {
+        it("validate that user can get result with multiple HO plans selection", () => {
           cy.visit("#/browse");
           browsePage.selectProduct("HO");
           browsePage.selectState("AL");
