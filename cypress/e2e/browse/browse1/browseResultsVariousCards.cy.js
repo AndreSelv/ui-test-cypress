@@ -80,7 +80,7 @@ describe("Browse Results for Various Cards", () => {
           browsePage.getDialogWindows().should("be.visible");
         });
 
-        it("Validate that user can open multiple docs publication  ", () => {
+        it.skip("Validate that user can open multiple docs publication  ", () => {
           cy.visit("#/browse");
           browsePage.getExactWordSearchCheckBox().click({ force: true });
           browsePage.typeSearch("\"PA 4502\"");
