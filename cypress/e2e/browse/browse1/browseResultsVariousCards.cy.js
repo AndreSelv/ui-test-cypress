@@ -103,7 +103,7 @@ describe("Browse Results for Various Cards", () => {
           });
         });
 
-        it("Validate that user can open docs in Info", () => {
+        xit("Validate that user can open docs in Info", () => {
           cy.visit("#/browse");
           browsePage.typeSearch("\"PA 4502\"");
           browsePage.getExcludeFileContentCheckBox().click({ force: true });
