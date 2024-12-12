@@ -1,8 +1,34 @@
 class HomePage {
 
-  getBrowseAllAAISProductsLink() {
-    return cy.contains("Browse All AAIS Products");
+
+  getLandingPageBar(){
+    return cy.get("#landing-page-bar-undefined")
   }
+
+  getSearchAllAAISProductsLink() {
+    return cy.contains("Search All AAIS Products");
+  }
+
+  getBrowseAutoLinesLink() {
+    return cy.contains("Browse Auto Lines");
+  }
+
+  getBrowseCommercialLinesLink() {
+    return cy.contains("Browse Commercial Lines");
+  }
+
+  getBrowseFarmAgLinesLink() {
+    return cy.contains("Browse Farm & Ag Lines");
+  }
+
+  getBrowseInlandMarineLinesLink() {
+    return cy.contains("Browse Inland Marine Lines");
+  }
+
+  getBrowsePersonalLinesLink() {
+    return cy.contains("Browse Personal Lines");
+  }
+
 
   getNavBarMenu() {
     return cy.get("[data-test=\"navBarAvatar\"]");

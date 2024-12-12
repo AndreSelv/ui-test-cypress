@@ -19,7 +19,7 @@ describe("US121943 Upgraded Dashboard testing Widgets", () => {
           homePage.getRecentDownloadWidgets().should("be.visible");
         });
         it("Browse Widgets functionality", () => {
-          homePage.getBrowseWidgets().should("be.visible").contains("Browse All AAIS Products").click();
+          homePage.getBrowseWidgets().should("be.visible").contains("Search All AAIS Products").click();
           cy.url().should('contain', 'browse')
         });
       });
