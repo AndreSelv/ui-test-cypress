@@ -1,7 +1,9 @@
 const BrowsePage = require("../../support/PageObjects/BrowsePage");
 const HomePage = require("../../support/PageObjects/HomePage");
+const ProductPage = require("../../support/PageObjects/ProductPage");
 const browsePage = new BrowsePage();
 const homePage = new HomePage();
+const productPage = new ProductPage();
 describe("Home screen: Browse All Products card", () => {
   Cypress.env("SIZES").forEach((size) => {
     Cypress.env("ORIENTATION").forEach((orientation) => {
@@ -21,31 +23,31 @@ describe("Home screen: Browse All Products card", () => {
         it("US73951 validate the browse auto lines", () => {
           cy.visit("#");
           homePage.getBrowseAutoLinesLink().click();
-          homePage.getLandingPageBar().should("contain.text", "Auto")
+          productPage.getLandingPageBar("Auto").should("contain.text", "Auto")
         });
 
         it("US73951 validate the browse commercial lines", () => {
           cy.visit("#");
           homePage.getBrowseCommercialLinesLink().click();
-          homePage.getLandingPageBar().should("contain.text", "Commercial")
+          productPage.getLandingPageBar('Commercial\\ Lines').should("contain.text", "Commercial")
         });
 
         it("US73951 validate the browse Farm and Ag lines", () => {
           cy.visit("#");
           homePage.getBrowseFarmAgLinesLink().click();
-          homePage.getLandingPageBar().should("contain.text", "Farm & Ag")
+          productPage.getLandingPageBar("Farm\\ \\&\\ Ag").should("contain.text", "Farm & Ag")
         });
 
         it("US73951 validate the browse inland marine lines", () => {
           cy.visit("#");
           homePage.getBrowseInlandMarineLinesLink().click();
-          homePage.getLandingPageBar().should("contain.text", "Inland Marine")
+          productPage.getLandingPageBar("Inland\\ Marine").should("contain.text", "Inland Marine")
         });
 
         it("US73951 validate the personal lines", () => {
           cy.visit("#");
           homePage.getBrowsePersonalLinesLink().click();
-          homePage.getLandingPageBar().should("contain.text", "Personal")
+          productPage.getLandingPageBar("Personal\\ Lines").should("contain.text", "Personal")
         });
       });
     });

@@ -1,7 +1,7 @@
 class ProductPage {
 
   getProductsTab() {
-    return cy.contains("Products");
+    return cy.get('#menuItemsListItem-product')
   }
 
   getProductAuto() {
@@ -24,8 +24,8 @@ class ProductPage {
     return cy.get("#menuItem-personal");
   }
 
-  getLandingPageBar() {
-    return cy.get("#landing-page-bar-undefined");
+  getLandingPageBar(prog) {
+    return cy.get(`#landing-page-bar-${prog}`);
   }
 
   getCommercialAutoTab() {

@@ -9,7 +9,8 @@ describe("Validate Product Dropdown menu", () => {
     cy.initAmplify();
     cy.login();
     cy.visit("#/");
-    productPage.getProductsTab().trigger("mouseover", { force: true });
+    productPage.getProductsTab().trigger("mouseover");
+    cy.wait(3000)
   });
 
   it.skip("Validate ALL Product Category", () => {
@@ -27,26 +28,26 @@ describe("Validate Product Dropdown menu", () => {
 
   it("Validate Auto tab", () => {
     productPage.getProductAuto().click({ force: true });
-    productPage.getLandingPageBar().contains("Auto");
+    productPage.getLandingPageBar("Auto").contains("Auto");
   });
 
   it("Validate Commercial tab", () => {
     productPage.getProductCommercial().click({ force: true });
-    productPage.getLandingPageBar().contains("Commercial");
+    productPage.getLandingPageBar("Commercial\\ Lines").contains("Commercial");
   });
 
   it("Validate Farm tab", () => {
     productPage.getProductFarm().click({ force: true });
-    productPage.getLandingPageBar().contains("Farm & Ag");
+    productPage.getLandingPageBar("Farm\\ \\&\\ Ag").contains("Farm & Ag");
   });
 
   it("Validate Inland Marine tab", () => {
     productPage.getProductInlandMarine().click({ force: true });
-    productPage.getLandingPageBar().contains("Inland Marine");
+    productPage.getLandingPageBar("Inland\\ Marine").contains("Inland Marine");
   });
 
   it("Validate Personal tab", () => {
     productPage.getProductPersonal().click({ force: true });
-    productPage.getLandingPageBar().contains("Personal");
+    productPage.getLandingPageBar("Personal\\ Lines").contains("Personal");
   });
 });
