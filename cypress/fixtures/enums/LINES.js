@@ -58,7 +58,7 @@ const LINES = [
   },
   {
     key: "CA",
-    title: "Commerical Auto",
+    title: "Commercial Auto",
     description: "",
     certificationStatus: "NOT_CERTIFIED",
   },
