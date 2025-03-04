@@ -53,6 +53,13 @@ describe("Check Avatar Menus for Employee", () => {
           cy.contains("All Users").click({ force: true });
           cy.url().should("include", `#/users`);
         });
+
+        it("Check Admin Link", () => {
+          cy.wait(time);
+          cy.contains("Admin").click({ force: true });
+          cy.url().should("include", `#/admin`);
+        });
+
         it("Check Sign Out Link", () => {
           cy.wait(time);
           cy.contains("Sign Out").click({ force: true });

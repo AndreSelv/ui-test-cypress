@@ -11,33 +11,40 @@ describe("Check Avatar Menus for Non Employee", () => {
           cy.visit("/#");
           homePage.getNavBarMenu().click();
         });
-
+        const time = 1000;
         it("Check Notification Link doe not exist", () => {
           homePage.getNavBarMenu()
             .should("not.have.attr", "href", "#/notifications");
         });
 
         it("Check My Profile Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("My Profile").click({ force: true });
           cy.url().should("include", `#/users/${Cypress.env("USER1")}`);
         });
 
         it("Check Organizations Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("My Organizations").click({ force: true });
           cy.url().should("include", `#/orgs`);
         });
 
+        it("Check Admin Link", () => {
+          cy.wait(time);
+          cy.visit("/#/admin");
+          cy.url().should("include", `#/403`);
+          cy.contains("Error code 403: Page is forbidden")
+        });
+
         it("Check Sign Out Link", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("Sign Out").click({ force: true });
           cy.url().should("include", `/#`);
           cy.get("button").contains("Sign in").should("be.visible");
         });
 
         it("Check FAQ Links", () => {
-          cy.wait(1000);
+          cy.wait(time);
           cy.contains("FAQ").click({ force: true });
           cy.url().should("include", `#/faq`);
         });
