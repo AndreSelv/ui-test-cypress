@@ -62,188 +62,188 @@ executors:
     docker:
       - image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
 workflows:
-  build-prof - chrome:
-    jobs:
-      - cypress/install
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Browse
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/browse/browse1/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Browse
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/browse/browse2/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Browse
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/browse/browse3/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Home
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/home/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Notifications
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/notifications/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Orgs
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/orgs/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Products
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/product/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Risk
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/risk screen/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Smoke
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/smoke/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          name: Utils
-          executor: browsers-chrome100-ff99-edge
-          browser: chrome
-          record: true
-          debug: 'cypress:cli'
-          spec: cypress/e2e/utils/*
-          post-install:
-            - run: npx cypress info
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report
-            - store_test_results:
-                path: cypress/results
+#  build-prof - chrome:
+#    jobs:
+#      - cypress/install
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Browse
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/browse/browse1/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Browse
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/browse/browse2/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Browse
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/browse/browse3/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Home
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/home/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Notifications
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/notifications/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Orgs
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/orgs/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Products
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/product/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Risk
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/risk screen/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Smoke
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/smoke/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
+#
+#      - cypress/run:
+#          requires:
+#            - cypress/install
+#          name: Utils
+#          executor: browsers-chrome100-ff99-edge
+#          browser: chrome
+#          record: true
+#          debug: 'cypress:cli'
+#          spec: cypress/e2e/utils/*
+#          post-install:
+#            - run: npx cypress info
+#          store_artifacts: true
+#          post-steps:
+#            - store_artifacts:
+#                path: mochawesome-report
+#            - store_test_results:
+#                path: cypress/results
 
 #========================================================================================================================
 
@@ -432,200 +432,200 @@ workflows:
 
 #========================================================================================================================
 
-#  build-uat - chrome:
-#    jobs:
-#      - cypress/install
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Browse
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/browse/browse1/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Browse
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/browse/browse2/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Browse
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/browse/browse3/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Home
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/home/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Notifications
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/notifications/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Orgs
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/orgs/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Products
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/product/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Risk
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/risk screen/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Smoke
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/smoke/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
-#
-#      - cypress/run:
-#          requires:
-#            - cypress/install
-#          name: Utils
-#          executor: browsers-chrome100-ff99-edge
-#          browser: chrome
-#          record: true
-#          debug: 'cypress:cli'
-#          config-file: cypress.config-uat.js
-#          spec: cypress/e2e/utils/*
-#          post-install:
-#            - run: npx cypress info
-#          store_artifacts: true
-#          post-steps:
-#            - store_artifacts:
-#                path: mochawesome-report
-#            - store_test_results:
-#                path: cypress/results
+  build-uat - chrome:
+    jobs:
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Browse
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/browse/browse1/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Browse
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/browse/browse2/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Browse
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/browse/browse3/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Home
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/home/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Notifications
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/notifications/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Orgs
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/orgs/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Products
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/product/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Risk
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/risk screen/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Smoke
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/smoke/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          name: Utils
+          executor: browsers-chrome100-ff99-edge
+          browser: chrome
+          record: true
+          debug: 'cypress:cli'
+          config-file: cypress.config-uat.js
+          spec: cypress/e2e/utils/*
+          post-install:
+            - run: npx cypress info
+          store_artifacts: true
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
 
 #========================================================================================================================
 
