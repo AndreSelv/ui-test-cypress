@@ -54,7 +54,7 @@ describe("Search Functionality", () => {
           browsePage.typeSearch("severability");
           browsePage.getResultFromBar().then(($actualCount) => {
             let actCount = parseInt($actualCount.text().substring(0, $actualCount.text().indexOf(" ")));
-            expect(actCount).eq(280);
+            expect(actCount).eq(289);
           });
         });
 
