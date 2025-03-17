@@ -16,13 +16,13 @@ const TESTS = [
   {
     case: "BP 351",
     caseQuotes: "\"BP 351\"",
-    result: 3,
+    result: 4,
     expect: "351",
   },
   {
     case: "BP351",
     caseQuotes: "\"BP351\"",
-    result: 3,
+    result: 4,
     expect: "351",
   },
   {
@@ -58,7 +58,7 @@ const TESTS = [
   {
     case: "BP-351",
     caseQuotes: "\"BP-351\"",
-    result: 3,
+    result: 4,
     expect: "351",
   },
 
