@@ -74,7 +74,7 @@ describe("Programs persistent", () => {
     browsePage.selectPlans("By Peril", "Com");
     browsePage.selectMaterialType("Manual Materials");
     browsePage.selectMaterialSubType("State Pages");
-    browsePage.publicationsShouldBeEqual(10);
+    browsePage.publicationsShouldBeEqual(11);
     // browsePage.publicationsShouldBeEqual(28);
   });
 });
